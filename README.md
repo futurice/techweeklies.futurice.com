@@ -1,1 +1,1 @@
-# techweeklies.github.io
+# techweeklies.futurice.com
