@@ -11,11 +11,11 @@
 	<body class="pa3 theme-dark fg-primary bg-secondary f-phantomsans">
 		<header>
       {% include "SkipLink.njk" %}
-      <nav class="flex flex-row justify-between items-center">
+      <nav class="flex flex-row justify-between items-center flex-wrap">
         <a class="db fg-accent fw7 link" href="{{ '/' | url }}">{{ metadata.title }}</a>
-        <ul class="nav">
+        <ul class="ml0 pl0 flex list">
           {%- for nav in collections.nav | reverse -%}
-          <li class="nav-item{% if nav.url == page.url %} nav-item-active{% endif %}"><a class="fg-primary hover-fg-accen focus-outline-accent" href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a></li>
+          <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}"><a class="fg-primary hover-fg-accent focus-outline-accent" href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a></li>
           {%- endfor -%}
         </ul>
       </nav>

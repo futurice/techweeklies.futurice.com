@@ -8323,21 +8323,9 @@ pre {
 }
 
 /* Nav */
-.nav {
-  padding: 0;
-  list-style: none;
-  float: left;
-  margin-left: 1em;
-}
-.nav-item {
-  display: inline-block;
-  margin-right: 1em;
-}
-.nav-item a[href]:not(:hover) {
-  text-decoration: none;
-}
 .nav-item-active {
   font-weight: 700;
+  font-variation-settings: "wght" 700;
   text-decoration: underline;
 }
 
