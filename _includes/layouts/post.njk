@@ -4,6 +4,8 @@ templateClass: tmpl-post
 ---
 <h1>{{ title }}</h1>
 
-{{ content | safe }}
+<div class="f5 nested-copy-line-height nested-headline-line-height nested-copy-separator nested-img nested measure-prose">
+  {{ content | safe }}
 
-<p><a href="{{ '/' | url }}">← Home</a></p>
+  <p><a href="{{ '/' | url }}">← Home</a></p>
+</div>
