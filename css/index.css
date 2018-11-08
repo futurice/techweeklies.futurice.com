@@ -8439,9 +8439,10 @@ a[href].direct-link:focus:visited,
   color: var(--accent);
 }
 
+/* Enhanced outline */
 .focus-outline-accent:focus {
-  outline: 2px var(--accent) solid;
-  outline-offset: 2px;
+  outline: 0.125em var(--accent) solid;
+  outline-offset: 0.125em;
 }
 
 .bg-primary {
@@ -8471,8 +8472,8 @@ a[href].direct-link:focus:visited,
 
 .nested a:focus {
   text-decoration: none;
-  outline: 2px var(--accent) solid;
-  outline-offset: 2px;
+  outline: 0.125em var(--accent) solid;
+  outline-offset: 0.125em;
 }
 
 /* Font stuff */
