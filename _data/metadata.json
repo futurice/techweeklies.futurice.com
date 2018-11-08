@@ -1,0 +1,15 @@
+{
+  "title": "Tech Weeklies",
+  "url": "https://myurl.com/",
+  "feed": {
+    "subtitle": "Tech Weeklies is our weekly meetup about tech.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://myurl.com/feed/feed.xml",
+    "id": "https://myurl.com/"
+  },
+  "author": {
+    "name": "Your Name Here",
+    "email": "youremailaddress@example.com"
+  }
+}
