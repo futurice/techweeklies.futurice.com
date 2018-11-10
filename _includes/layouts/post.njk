@@ -2,10 +2,27 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<h1>{{ title }}</h1>
+<h1 class="f2 fw6 lh-title">{{ title }}</h1>
 
+<local-time datetime="{{date}}" timezone="{{timezone}}">
+  {{date | readableDate(timezone)}}
+</local-time>
+
+{# TODO: Show the date here, formatted for the locale? #}
+
+{# Video #}
+<div class="aspect-ratio aspect-ratio--16x9 bg-moon-gray">
+  <iframe class="aspect-ratio--object fit-cover" title={{title}} id="ytplayer" type="text/html"
+    src="https://www.youtube.com/embed/{{videoId}}"
+    frameborder="0">
+  </iframe>
+</div>
+
+{# Contents #}
 <div class="f5 nested-copy-line-height nested-headline-line-height nested-copy-separator nested-img nested measure-prose">
   {{ content | safe }}
 
+  {# Backlink #}
   <p><a href="{{ '/' | url }}">← Home</a></p>
 </div>
+

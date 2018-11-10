@@ -8,8 +8,8 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
+  eleventyConfig.addFilter("readableDate", (dateObj, zone) => {
+    return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(
       "dd LLL yyyy"
     );
   });
