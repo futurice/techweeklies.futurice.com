@@ -8,7 +8,7 @@
  * The tracking ID for your Google Analytics property.
  * https://support.google.com/analytics/answer/1032385
  */
-const TRACKING_ID = "UA-12345-1";
+const TRACKING_ID = process.env.GA_TRACKING_ID;
 
 /**
  * Bump this when making backwards incompatible changes to the tracking

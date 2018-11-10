@@ -5,13 +5,14 @@
     "A starter repository for a blog web site using the Eleventy static site generator.",
   "scripts": {
     "build":
-      "NODE_ENV=production npm-run-all -s build:postcss build:bundle build:eleventy build:postprocess",
-    "build:bundle": "rollup --config rollup.config.js",
+      "NODE_ENV=production npm-run-all -s build:postcss build:js build:eleventy build:postprocess",
+    "build:js": "rollup --config rollup.config.js",
     "build:eleventy": "eleventy",
     "build:postcss": "postcss css/*.css --dir _site/css/ --no-map",
     "build:postprocess": "NODE_DIR=. node postprocessing/process.js",
-    "dev": "npm-run-all -p dev:eleventy dev:postcss dev:bundle",
-    "dev:bundle": "rollup --config rollup.config.js --watch",
+    "dev":
+      "NODE_ENV=development npm-run-all -p dev:eleventy dev:postcss dev:js",
+    "dev:js": "rollup --config rollup.config.js --watch",
     "dev:eleventy": "eleventy --watch --serve",
     "dev:postcss": "postcss css/*.css --dir _site/css/ --no-map --watch",
     "prod": "npm-run-all -s build serve",
@@ -56,6 +57,7 @@
     "rollup": "^0.67.0",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-terser": "^3.0.0",
     "serve": "^10.0.2"
   },
