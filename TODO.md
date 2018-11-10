@@ -9,3 +9,4 @@
 
 - Add test pipeline for accessibility
 - Add prettier and pre-commit hooks
+- Add predefined header/subheader, text and spacer components
