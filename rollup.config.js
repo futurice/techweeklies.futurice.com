@@ -15,6 +15,10 @@ export default {
     resolve(),
     // Allow resolving CommonJS modules
     commonjs(),
-    terser()
+    ifProduction(terser)
   ]
 };
+
+function ifProduction(plugin) {
+  return process.env.NODE_ENV === "production" ? plugin() : null;
+}

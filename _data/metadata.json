@@ -1,6 +1,6 @@
 {
   "title": "Tech Weeklies",
-  "url": "https://myurl.com/",
+  "url": "https://techweeklies.com",
   "feed": {
     "subtitle": "Tech Weeklies is our weekly meetup about tech.",
     "filename": "feed.xml",
@@ -11,5 +11,8 @@
   "author": {
     "name": "Your Name Here",
     "email": "youremailaddress@example.com"
+  },
+  "analytics": {
+    "ga_tracking_id": ""
   }
 }
