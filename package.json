@@ -13,8 +13,9 @@
     "dev": "npm-run-all -p dev:eleventy dev:postcss dev:bundle",
     "dev:bundle": "rollup --config rollup.config.js --watch",
     "dev:eleventy": "eleventy --watch --serve",
-    "dev:serve": "serve _site --listen 8080",
     "dev:postcss": "postcss css/*.css --dir _site/css/ --no-map --watch",
+    "prod": "npm-run-all -s build serve",
+    "serve": "serve _site --listen 8080",
     "debug": "DEBUG=* npx eleventy"
   },
   "repository": {

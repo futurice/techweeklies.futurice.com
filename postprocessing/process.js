@@ -7,6 +7,7 @@
  *
  * In the future, we might:
  *  - Hash and rewrite references to css and js files, for long-term caching
+ *  - Minify HTML
 */
 
 const metalsmith = require("metalsmith");
