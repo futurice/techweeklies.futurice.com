@@ -66,6 +66,8 @@ const metrics = {
  * above.
  */
 export const sendPerformanceMetric = (metricName, duration) => {
+  const durationInteger = Math.round(duration);
+
   // In some edge cases browsers return very obviously incorrect NT values,
   // e.g. 0, negative, or future times. This validates values before sending.
   const allValuesAreValid = (...values) => {
@@ -78,7 +80,7 @@ export const sendPerformanceMetric = (metricName, duration) => {
       eventAction: "track",
       eventLabel: NULL_VALUE,
       nonInteraction: true,
-      [metrics[metricName]]: duration
+      [metrics[metricName]]: durationInteger
     });
   }
 };
