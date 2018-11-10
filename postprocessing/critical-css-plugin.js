@@ -33,10 +33,10 @@ function plugin({ pattern, cssFile, cssPublicPath } = {}) {
   );
 
   return function(files, metalsmith, done) {
-    debug("Will read CSS file", cssFile);
+    debug("WILL: Read CSS file", cssFile);
     const cssFileHandle = path.resolve(cssFile);
     const cssContent = fs.readFileSync(cssFileHandle, { encoding: "utf-8" });
-    debug("Read CSS file OK");
+    debug("OK: Read CSS file");
 
     // Loop over all the files, applying the transform if matching
     Object.keys(files)
@@ -45,37 +45,37 @@ function plugin({ pattern, cssFile, cssPublicPath } = {}) {
         debug(`${file} matches pattern`);
 
         // utf-8 decode read file contents
-        debug("Will read file");
+        debug("WILL: Read html file contents");
         let fileContent = files[file].contents;
         if (!!fileContent && fileContent instanceof Buffer) {
           fileContent = fileContent.toString("utf-8");
         }
-        debug("Read file OK");
+        debug("OK: Read html file contents");
 
-        debug("Will get used CSS");
+        debug("WILL: get used CSS");
         const usedCss = getUsedCss({
           htmlContent: fileContent,
           cssContent: cssContent
         });
-        debug("Got used CSS OK");
+        debug("OK: get used CSS");
 
         // NOTE: The gzip size will be even smaller when inlined into the document,
         // because the classes are shared
         debug(`Used CSS gzip-size (standalone): ${gzipSize.sync(usedCss)} B`);
 
-        debug("Will inject used CSS to file contents");
+        debug("WILL: inject used CSS to file contents");
         const htmlWithInline = inlineCriticalCss({
           htmlContent: fileContent,
           cssPublicPath: cssPublicPath,
           criticalCssContent: usedCss
         });
-        debug("Critical CSS injection OK");
+        debug("OK: inject used CSS to file contents");
 
-        debug("Will write to file contents");
+        debug("WILL: write to file contents");
         files[file].contents = htmlWithInline;
-        debug("Wrote file contents");
+        debug("OK: write to file contents");
 
-        debug("Critical CSS plugin OK");
+        debug("OK: Critical CSS plugin");
         done();
       });
   };
