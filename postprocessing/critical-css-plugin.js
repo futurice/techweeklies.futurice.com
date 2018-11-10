@@ -40,9 +40,19 @@ function plugin({ pattern, cssFile, cssPublicPath } = {}) {
 
     // Loop over all the files, applying the transform if matching
     Object.keys(files)
-      .filter(file => multimatch(file, pattern).length > 0)
+      .filter(file => {
+        const matches = multimatch(file, pattern).length > 0;
+
+        if (matches) {
+          debug(`MATCH: ${file}`);
+        } else {
+          debug(`NO MATCH: ${file}`);
+        }
+
+        return matches;
+      })
       .forEach(function(file) {
-        debug(`${file} matches pattern`);
+        debug(`WILL: Run for ${file}`);
 
         // utf-8 decode read file contents
         debug("WILL: Read html file contents");
@@ -75,7 +85,7 @@ function plugin({ pattern, cssFile, cssPublicPath } = {}) {
         files[file].contents = htmlWithInline;
         debug("OK: write to file contents");
 
-        debug("OK: Critical CSS plugin");
+        debug("OK: Critical CSS plugin run");
         done();
       });
   };
