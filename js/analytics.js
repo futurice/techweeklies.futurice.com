@@ -72,10 +72,7 @@ export const sendPerformanceMetric = (metricName, duration) => {
     return values.every(value => value > 0 && value < 1e6);
   };
 
-  if (
-    metrics[metricName] &&
-    allValuesAreValid(responseEnd, domLoaded, windowLoaded)
-  ) {
+  if (metrics[metricName] && allValuesAreValid(duration)) {
     ga("send", "event", {
       eventCategory: "Performance Metrics",
       eventAction: "track",
