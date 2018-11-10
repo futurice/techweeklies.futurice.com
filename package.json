@@ -6,13 +6,13 @@
     "build": "NODE_ENV=production npm-run-all -s build:postcss build:bundle build:eleventy",
     "build:bundle": "rollup --config rollup.config.js",
     "build:eleventy": "eleventy",
-    "build:postcss": "postcss css/*.css --use postcss-import autoprefixer --dir _site/css/ --no-map",
+    "build:postcss": "postcss css/*.css --use postcss-import autoprefixer cssnano --dir _site/css/ --no-map",
     "build:postprocess": "NODE_DIR=. node postprocessing/process.js",
     "dev": "npm-run-all -p dev:eleventy dev:postcss dev:bundle",
     "dev:bundle": "rollup --config rollup.config.js --watch",
     "dev:eleventy": "eleventy --watch --serve",
     "dev:serve": "serve _site --listen 8080",
-    "dev:postcss": "postcss css/*.css --use postcss-import autoprefixer --dir _site/css/ --no-map --watch",
+    "dev:postcss": "postcss css/*.css --use postcss-import autoprefixer cssnanoe --dir _site/css/ --no-map --watch",
     "debug": "DEBUG=* npx eleventy"
   },
   "repository": {
@@ -35,6 +35,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.0",
     "autoprefixer": "^9.3.1",
     "cheerio": "^1.0.0-rc.2",
+    "cssnano": "^4.1.7",
     "debug": "^4.1.0",
     "gzip-size": "^5.0.0",
     "invariant": "^2.2.4",
