@@ -2,27 +2,28 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<h1 class="f2 fw6 lh-title">{{ title }}</h1>
+<div class="pv4 vs4">
+  <div class="vs3">
+    <h1 class="mv0 f2 fw6 lh-title">{{ title }}</h1>
 
-<local-time datetime="{{date}}" timezone="{{timezone}}">
-  {{date | readableDate(timezone)}}
-</local-time>
+    <time class="db" datetime="{{date}}">
+      {{date | readableDate(timezone)}}
+    </time>
+  </div>
 
-{# TODO: Show the date here, formatted for the locale? #}
+  {# Video #}
+  <div class="aspect-ratio aspect-ratio--16x9 bg-moon-gray">
+    <iframe class="aspect-ratio--object fit-cover" title={{title}} id="ytplayer" type="text/html"
+      src="https://www.youtube.com/embed/{{videoId}}"
+      frameborder="0">
+    </iframe>
+  </div>
 
-{# Video #}
-<div class="aspect-ratio aspect-ratio--16x9 bg-moon-gray">
-  <iframe class="aspect-ratio--object fit-cover" title={{title}} id="ytplayer" type="text/html"
-    src="https://www.youtube.com/embed/{{videoId}}"
-    frameborder="0">
-  </iframe>
+  {# Contents #}
+  <div class="f5 nested-copy-line-height nested-headline-line-height nested-copy-separator nested-img nested measure-prose">
+    {{ content | safe }}
+
+    {# Backlink #}
+    <p><a href="{{ '/' | url }}">← Home</a></p>
+  </div>
 </div>
-
-{# Contents #}
-<div class="f5 nested-copy-line-height nested-headline-line-height nested-copy-separator nested-img nested measure-prose">
-  {{ content | safe }}
-
-  {# Backlink #}
-  <p><a href="{{ '/' | url }}">← Home</a></p>
-</div>
-

@@ -26,7 +26,7 @@
           <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}">
             <a
               {% if nav.url == page.url %}aria-current="page"{% endif %}
-              class="fg-primary hover-fg-accent focus-outline-accent"
+              class="fg-primary hover-fg-accent focus-outline-accent link"
               href="{{ nav.url | url }}">
                 {{ nav.data.navtitle }}
             </a>
