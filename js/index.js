@@ -16,7 +16,12 @@ const init = () => {
   const perfume = new Perfume({
     firstPaint: true,
     firstContentfulPaint: true,
-    firstInputDelay: true
+    firstInputDelay: true,
+    analyticsTracker: (metricName, duration) => {
+      console.log({ metricName, duration });
+    },
+    debugging: true,
+    warning: true
   });
 };
 

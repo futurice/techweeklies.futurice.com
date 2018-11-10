@@ -15,7 +15,7 @@ const TRACKING_ID = process.env.GA_TRACKING_ID;
  * implementation. This allows you to create a segment or view filter
  * that isolates only data captured with the most recent tracking changes.
  */
-const TRACKING_VERSION = "1";
+const TRACKING_VERSION = "2";
 
 /**
  * A default value for dimensions so unset values always are reported as
@@ -26,6 +26,11 @@ const NULL_VALUE = "(not set)";
 
 /**
  * A mapping between custom dimension names and their indexes.
+ *
+ * NOTE: Custom dimensions are based on their index in the admin console.
+ * This is why we set up the mapping here.
+ *
+ * @see: https://support.google.com/analytics/answer/2709829
  */
 const dimensions = {
   TRACKING_VERSION: "dimension1",
@@ -36,6 +41,49 @@ const dimensions = {
   HIT_TYPE: "dimension6",
   HIT_SOURCE: "dimension7",
   VISIBILITY_STATE: "dimension8"
+};
+
+/**
+ * Custom metrics that match those from the Perfume.js (and performance) timings.
+ * These are reported as custom metrics instead of the timing hits, because
+ * you can extract them more easily and use them in custom reports. Philip
+ * Walton's article covers that for custom metrics. Perfume's default GA setup
+ * uses the timing hits, so we use this one instead.
+ *
+ * NOTE: Custom metrics are based on their index in the admin console.
+ * This is why we set up the mapping here.
+ *
+ * @see: https://support.google.com/analytics/answer/2709829
+ */
+const metrics = {
+  firstPaint: "metric1",
+  firstContentfulPaint: "metric2",
+  firstInputDelay: "metric3"
+};
+
+/** Sends a timing metric in the shape that Perfume outputs it, to GA.
+ * Uses custom metrics instead of timing hits for the reasons described
+ * above.
+ */
+export const sendPerformanceMetric = ({ metricName, duration }) => {
+  // In some edge cases browsers return very obviously incorrect NT values,
+  // e.g. 0, negative, or future times. This validates values before sending.
+  const allValuesAreValid = (...values) => {
+    return values.every(value => value > 0 && value < 1e6);
+  };
+
+  if (
+    metrics[metricName] &&
+    allValuesAreValid(responseEnd, domLoaded, windowLoaded)
+  ) {
+    ga("send", "event", {
+      eventCategory: "Performance Metrics",
+      eventAction: "track",
+      eventLabel: NULL_VALUE,
+      nonInteraction: true,
+      [metrics[metricName]]: duration
+    });
+  }
 };
 
 /**

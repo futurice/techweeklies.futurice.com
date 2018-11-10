@@ -1,4 +1,5 @@
 .envrc
+.vscode/
 _site/
 _intermediate/
 node_modules/
