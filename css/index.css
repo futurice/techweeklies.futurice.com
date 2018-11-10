@@ -321,3 +321,53 @@ a[href].direct-link:focus:visited,
 .vs5 > * + * {
   margin-top: 4rem;
 }
+
+/* Logo animation */
+@keyframes cycle-color {
+  0% {
+    color: #7cfbd1;
+  }
+  10% {
+    color: #7ce6fb;
+  }
+  20% {
+    color: #7ca6fb;
+  }
+  30% {
+    color: #917cfb;
+  }
+  40% {
+    color: #d17cfb;
+  }
+  50% {
+    color: #fb7ce6;
+  }
+  60% {
+    color: #d17cfb;
+  }
+  70% {
+    color: #917cfb;
+  }
+  80% {
+    color: #7ca6fb;
+  }
+  90% {
+    color: #7ce6fb;
+  }
+  100% {
+    color: #7cfbd1;
+  }
+}
+
+.logo-animation:hover,
+.logo-animation:focus {
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.9);
+  animation: cycle-color 2.4s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+}
+
+@media (prefers-reduced-motion) {
+  .logo-animation:hover,
+  .logo-animation:focus {
+    animation: none;
+  }
+}

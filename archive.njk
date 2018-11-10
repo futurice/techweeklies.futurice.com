@@ -7,9 +7,11 @@ title: Archive
 permalink: /posts/
 ---
 
-<h1>Archive</h1>
+<div class="pv4 vs4">
+  <h1 class="mv0 f2 fw6 lh-title">{{ title }}</h1>
 
-<div class="nested">
-  {% set postslist = collections.posts %}
-  {% include "postslist.njk" %}
+  <div class="nested">
+    {% set postslist = collections.posts %}
+    {% include "postslist.njk" %}
+  </div>
 </div>
