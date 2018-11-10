@@ -22,6 +22,7 @@ devDependencies:
   postcss-import: 12.0.1
   purgecss: 1.1.0
   purgecss-from-html: 1.0.0
+  rimraf: 2.6.2
   rollup: 0.67.0
   rollup-plugin-commonjs: 9.2.0
   rollup-plugin-node-resolve: 3.4.0
@@ -5992,6 +5993,7 @@ specifiers:
   postcss-import: ^12.0.1
   purgecss: ^1.1.0
   purgecss-from-html: ^1.0.0
+  rimraf: ^2.6.2
   rollup: ^0.67.0
   rollup-plugin-commonjs: ^9.2.0
   rollup-plugin-node-resolve: ^3.4.0

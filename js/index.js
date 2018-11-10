@@ -1,10 +1,16 @@
 import Perfume from "perfume.js";
+import * as analytics from "./analytics";
 
 /* The main entry point of the application */
 
 const init = () => {
-  // Load custom tracking code lazily, so it's non-blocking.
-  import("./analytics.js").then(analytics => analytics.init());
+  // Load custom tracking code
+  // NOTE: Could be done lazily with import(), but
+  // Rollup needs some setup to get that to work.
+  // It is interesting, but the code size is really
+  // small atm, and the extra complications are not
+  // needed :)
+  analytics.init();
 
   // Initialise performance tracking
   const perfume = new Perfume({
