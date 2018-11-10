@@ -18,7 +18,7 @@ const init = () => {
     firstContentfulPaint: true,
     firstInputDelay: true,
     analyticsTracker: (metricName, duration) => {
-      console.log({ metricName, duration });
+      analytics.sendPerformanceMetric(metricName, duration);
     },
     debugging: true,
     warning: true

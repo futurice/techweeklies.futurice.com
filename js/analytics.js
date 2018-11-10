@@ -65,7 +65,7 @@ const metrics = {
  * Uses custom metrics instead of timing hits for the reasons described
  * above.
  */
-export const sendPerformanceMetric = ({ metricName, duration }) => {
+export const sendPerformanceMetric = (metricName, duration) => {
   // In some edge cases browsers return very obviously incorrect NT values,
   // e.g. 0, negative, or future times. This validates values before sending.
   const allValuesAreValid = (...values) => {
