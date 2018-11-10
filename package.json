@@ -5,7 +5,7 @@
     "A starter repository for a blog web site using the Eleventy static site generator.",
   "scripts": {
     "build":
-      "NODE_ENV=production npm-run-all -s build:postcss build:bundle build:eleventy",
+      "NODE_ENV=production npm-run-all -s build:postcss build:bundle build:eleventy build:postprocess",
     "build:bundle": "rollup --config rollup.config.js",
     "build:eleventy": "eleventy",
     "build:postcss": "postcss css/*.css --dir _site/css/ --no-map",
