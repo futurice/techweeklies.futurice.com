@@ -38,10 +38,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
   eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("fonts");
 
-  // TODO: Evevntually, run through a bundler, minifier, hashing
+  // TODO: Eventually, run through hashing
+  // eleventyConfig.addPassthroughCopy("css");
   // eleventyConfig.addPassthroughCopy("js");
 
   /* Markdown Plugins */

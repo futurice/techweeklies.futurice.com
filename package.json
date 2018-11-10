@@ -1,17 +1,20 @@
 {
   "name": "eleventy-base-blog",
   "version": "4.0.2",
-  "description": "A starter repository for a blog web site using the Eleventy static site generator.",
+  "description":
+    "A starter repository for a blog web site using the Eleventy static site generator.",
   "scripts": {
-    "build": "npm-run-all -s build:eleventy build:postcss",
+    "build": "npm-run-all -s build:postcss build:bundle build:eleventy",
     "build:bundle": "rollup --config rollup.config.js",
     "build:eleventy": "eleventy",
-    "build:postcss": "postcss --use postcss-import autoprefixer --dir _site/css/ _site/css/*.css --no-map",
+    "build:postcss":
+      "postcss css/*.css --use postcss-import autoprefixer --dir _site/css/ --no-map",
     "dev": "npm-run-all -p dev:eleventy dev:postcss dev:bundle",
     "dev:bundle": "rollup --config rollup.config.js --watch",
     "dev:eleventy": "eleventy --watch --serve",
     "dev:serve": "serve _site --listen 8080",
-    "dev:postcss": "postcss --use postcss-import autoprefixer -o _site/css/index.css _site/css/index.css --no-map --watch",
+    "dev:postcss":
+      "postcss css/*.css --use postcss-import autoprefixer --dir _site/css/ --no-map --watch",
     "debug": "DEBUG=* npx eleventy"
   },
   "repository": {
