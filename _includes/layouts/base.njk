@@ -13,7 +13,7 @@
     #}
     <link rel="preload" href="{{ '/fonts/phantom-sans-v4-variable.woff2' | url}}" as="font" type="font/woff2" crossorigin>
 
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/index.css' | resolveHash | url }}">
 
     {# Adds an event listener to capture uncaught errors. #}
     <script>addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
@@ -51,6 +51,6 @@
       {%include "animateMeButton.njk" %}
     </footer>
 
-    <script src="{{ '/js/index.js' | url }}" defer></script>
+    <script src="{{ '/js/index.js' | resolveHash | url}}" defer></script>
   </body>
 </html>

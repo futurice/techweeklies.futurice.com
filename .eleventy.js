@@ -1,6 +1,12 @@
+const path = require("path");
+const fs = require("fs");
 const { DateTime } = require("luxon");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
+const OUTPUT_DIR = "_site";
+const HASH_MANIFEST_FILENAME = "_intermediate/hash-manifest.json";
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -33,6 +39,29 @@ module.exports = function(eleventyConfig) {
     return collection.getFilteredByGlob("./posts/*").sort(function(a, b) {
       return a.date - b.date;
     });
+  });
+
+  // Filter that resolves a hash from a known table
+  // @see join-manifests for more information on how the manifest is formed
+  eleventyConfig.addFilter("resolveHash", function(filename) {
+    // Presumably, dev has no hashes, so do not attempt to resolve
+    if (!isProduction) {
+      return filename;
+    }
+
+    // A file at a known location that maps filenames to hashed filenames
+    const hashManifest = JSON.parse(
+      fs.readFileSync(path.resolve(HASH_MANIFEST_FILENAME))
+    );
+
+    const hashedFilename = hashManifest[filename];
+    if (!hashedFilename) {
+      throw Error(
+        `File with basename: ${basename} not found in hash manifest. Perhaps one of the tools built out of order? Check the manifests under the intermediate/ folder.`
+      );
+    }
+
+    return hashedFilename;
   });
 
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
@@ -80,7 +109,7 @@ module.exports = function(eleventyConfig) {
       input: ".",
       includes: "_includes",
       data: "_data",
-      output: "_site"
+      output: OUTPUT_DIR
     }
   };
 };

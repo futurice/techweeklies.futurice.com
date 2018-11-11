@@ -2,6 +2,7 @@
 import resolve from "rollup-plugin-node-resolve";
 import replace from "rollup-plugin-replace";
 import commonjs from "rollup-plugin-commonjs";
+import hash from "rollup-plugin-hash";
 import { terser } from "rollup-plugin-terser";
 
 export default {
@@ -25,7 +26,14 @@ export default {
     resolve(),
     // Allow resolving CommonJS modules
     commonjs(),
-    ifProduction(terser)
+    ifProduction(terser),
+    ifProduction(() =>
+      hash({
+        dest: "_site/js/index.[hash].js",
+        replace: true,
+        manifest: "_intermediate/rollup-manifest.json"
+      })
+    )
   ]
 };
 
