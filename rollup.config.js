@@ -29,7 +29,7 @@ export default {
     ifProduction(terser),
     ifProduction(() =>
       hash({
-        dest: "_site/js/index.[hash].js",
+        dest: "_site/js/index.[hash:10].js",
         replace: true,
         manifest: "_intermediate/rollup-manifest.json"
       })
