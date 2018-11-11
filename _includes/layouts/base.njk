@@ -29,14 +29,17 @@
         <a class="db fg-accent fw7 link focus-outline-accent animation-cycle animate-me" href="{{ '/' | url }}">{{ metadata.title }}</a>
         <ul class="ma0 pa0 flex list">
           {%- for nav in collections.nav | reverse -%}
-          <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}">
-            <a
-              {% if nav.url == page.url %}aria-current="page"{% endif %}
-              class="fg-primary hover-fg-accent focus-outline-accent link"
-              href="{{ nav.url | url }}">
-                {{ nav.data.navtitle }}
-            </a>
-          </li>
+            {# Do not add home to the navigation #}
+            {% if nav.url !== '/' %}
+            <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}">
+              <a
+                {% if nav.url == page.url %}aria-current="page"{% endif %}
+                class="fg-primary hover-fg-accent focus-outline-accent link"
+                href="{{ nav.url | url }}">
+                  {{ nav.data.navtitle }}
+              </a>
+            </li>
+            {% endif %}
           {%- endfor -%}
         </ul>
       </nav>
