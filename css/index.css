@@ -347,7 +347,8 @@ a[href].direct-link:focus:visited,
 }
 
 .logo-animation:hover,
-.logo-animation:focus {
+.logo-animation:focus,
+.logo-animation.animate-me--on {
   /* text-shadow: 0 0 2px rgba(0, 0, 0, 0.9); */
   animation-name: cycle-color;
   animation-duration: 1.4s;
@@ -358,7 +359,8 @@ a[href].direct-link:focus:visited,
 
 @media (prefers-reduced-motion) {
   .logo-animation:hover,
-  .logo-animation:focus {
+  .logo-animation:focus,
+  .logo-animation .animate-me--on {
     animation: none;
   }
 }
