@@ -326,43 +326,34 @@ a[href].direct-link:focus:visited,
 @keyframes cycle-color {
   0% {
     color: #7cfbd1;
-  }
-  10% {
-    color: #7ce6fb;
+    font-variation-settings: "wght" 1000;
   }
   20% {
-    color: #7ca6fb;
-  }
-  30% {
-    color: #917cfb;
+    color: #7ce6fb;
   }
   40% {
-    color: #d17cfb;
-  }
-  50% {
-    color: #fb7ce6;
+    color: #7ca6fb;
   }
   60% {
-    color: #d17cfb;
-  }
-  70% {
     color: #917cfb;
   }
   80% {
-    color: #7ca6fb;
-  }
-  90% {
-    color: #7ce6fb;
+    color: #d17cfb;
   }
   100% {
-    color: #7cfbd1;
+    color: #fb7ce6;
+    font-variation-settings: "wght" 100;
   }
 }
 
 .logo-animation:hover,
 .logo-animation:focus {
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.9);
-  animation: cycle-color 2.4s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  /* text-shadow: 0 0 2px rgba(0, 0, 0, 0.9); */
+  animation-name: cycle-color;
+  animation-duration: 1.4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
 @media (prefers-reduced-motion) {
