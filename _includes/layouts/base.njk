@@ -6,6 +6,7 @@
 
     <title>{{ renderData.title or title }} | Tech Weeklies</title>
 
+    <link rel="manifest" href="manifest.json"></link>
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 
     <meta name="description" content="{{ renderData.description or description or metadata.description }}">
