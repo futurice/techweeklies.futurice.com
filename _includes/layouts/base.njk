@@ -8,7 +8,9 @@
 
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 
-    {# Preload variable font. Browsers with preload also support variable fonts, so this is a good balance #}
+    {# Preload variable font. Browsers with preload also support variable fonts, so this is a good balance.
+      Fonts are loaded with crossorigin anonymous because of browser behaviour.
+    #}
     <link rel="preload" href="{{ '/fonts/phantom-sans-v4-variable.woff2' | url}}" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
