@@ -1,7 +1,7 @@
 /* Animations */
 
 /* Main Logo animation: cylce colours and font weight */
-@keyframes logo-animation {
+@keyframes cycle-font {
   0% {
     color: #7cfbd1;
     font-variation-settings: "wght" 1000;
@@ -28,34 +28,28 @@
 @keyframes cycle-color {
   0% {
     color: #7cfbd1;
-    fill: #7cfbd1;
   }
   20% {
     color: #7ce6fb;
-    fill: #7ce6fb;
   }
   40% {
     color: #7ca6fb;
-    fill: #7ca6fb;
   }
   60% {
     color: #917cfb;
-    fill: #917cfb;
   }
   80% {
     color: #d17cfb;
-    fill: #d17cfb;
   }
   100% {
     color: #fb7ce6;
-    fill: #fb7ce6;
   }
 }
 
 /* Animation atomic classes that work on hover, focus, and explicitly with animate-me--on */
-.animation-logo:hover,
-.animation-logo:focus,
-.animation-logo.animate-me--on {
+.animation-cycle-font:hover,
+.animation-cycle-font:focus,
+.animation-cycle-font.animate-me--on {
   animation-name: logo-animation;
   animation-duration: 1.4s;
   animation-direction: alternate;
@@ -78,4 +72,55 @@
   .animate-me {
     animation: none !important;
   }
+}
+
+/* Logo animation */
+@keyframes logo-slide {
+  0% {
+  }
+  100% {
+    transform: translate3d(0, 180%, 0);
+  }
+}
+
+@keyframes logo-blink {
+  /* Start: blue, alternate to black */
+  0%,
+  15%,
+  25% {
+    fill: #7cfbd1;
+  }
+  10%,
+  20% {
+    fill: rgba(124, 251, 209, 0.2);
+  }
+
+  /* Flicker */
+  40%,
+  50%,
+  60%,
+  70%,
+  100% {
+    fill: #7cfbd1;
+  }
+
+  45%,
+  55%,
+  65% {
+    fill: rgba(124, 251, 209, 0.5);
+  }
+}
+
+.animation-logo-slide {
+  animation-name: logo-slide;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.animation-logo-blink {
+  animation-name: logo-blink;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
 }
