@@ -119,6 +119,18 @@ a[href].direct-link:focus:visited,
   color: var(--accent);
 }
 
+.fill-primary {
+  fill: var(--primary);
+}
+
+.fill-secondary {
+  fill: var(--secondary);
+}
+
+.fill-accent {
+  fill: var(--accent);
+}
+
 /* Enhanced outline */
 .focus-outline-accent:focus {
   outline: 0.125em var(--accent) solid;

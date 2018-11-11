@@ -28,21 +28,27 @@
 @keyframes cycle-color {
   0% {
     color: #7cfbd1;
+    fill: #7cfbd1;
   }
   20% {
     color: #7ce6fb;
+    fill: #7ce6fb;
   }
   40% {
     color: #7ca6fb;
+    fill: #7ca6fb;
   }
   60% {
     color: #917cfb;
+    fill: #917cfb;
   }
   80% {
     color: #d17cfb;
+    fill: #d17cfb;
   }
   100% {
     color: #fb7ce6;
+    fill: #fb7ce6;
   }
 }
 
