@@ -27,7 +27,7 @@
     <header>
       {% include "SkipLink.njk" %}
       <nav class="flex flex-row justify-between items-center flex-wrap">
-        <a class="db fg-accent fw7 link" href="{{ '/' | url }}">{{ metadata.title }}</a>
+        <a class="db fg-accent fw7 link focus-outline-accent animation-cycle animate-me" href="{{ '/' | url }}">{{ metadata.title }}</a>
         <ul class="ml0 pl0 flex list">
           {%- for nav in collections.nav | reverse -%}
           <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}">

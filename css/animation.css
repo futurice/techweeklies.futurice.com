@@ -1,5 +1,7 @@
-/* Logo animation */
-@keyframes cycle-color {
+/* Animations */
+
+/* Main Logo animation: cylce colours and font weight */
+@keyframes logo-animation {
   0% {
     color: #7cfbd1;
     font-variation-settings: "wght" 1000;
@@ -22,10 +24,42 @@
   }
 }
 
-.logo-animation:hover,
-.logo-animation:focus,
-.logo-animation.animate-me--on {
-  /* text-shadow: 0 0 2px rgba(0, 0, 0, 0.9); */
+/* A milder version of the logo animation, only cycling colors */
+@keyframes cycle-color {
+  0% {
+    color: #7cfbd1;
+  }
+  20% {
+    color: #7ce6fb;
+  }
+  40% {
+    color: #7ca6fb;
+  }
+  60% {
+    color: #917cfb;
+  }
+  80% {
+    color: #d17cfb;
+  }
+  100% {
+    color: #fb7ce6;
+  }
+}
+
+/* Animation atomic classes that work on hover, focus, and explicitly with animate-me--on */
+.animation-logo:hover,
+.animation-logo:focus,
+.animation-logo.animate-me--on {
+  animation-name: logo-animation;
+  animation-duration: 1.4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.animation-cycle:hover,
+.animation-cycle:focus,
+.animation-cycle.animate-me--on {
   animation-name: cycle-color;
   animation-duration: 1.4s;
   animation-direction: alternate;
@@ -35,9 +69,7 @@
 
 /* Disable all animations if the user has specified it */
 @media (prefers-reduced-motion) {
-  .logo-animation:hover,
-  .logo-animation:focus,
-  .logo-animation .animate-me--on {
-    animation: none;
+  .animate-me {
+    animation: none !important;
   }
 }
