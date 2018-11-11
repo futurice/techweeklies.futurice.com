@@ -9,16 +9,15 @@ tags:
   {% include "svg/tech1.svg" %}
 </h1>
 
-<div class="vs4">
-  <div class="vs3">
+<div class="vs5">
+  <div class="vs4">
     <h2 class="mv0 f2 fw6 lh-title">Latest Talk</h2>
-    <div class="aspect-ratio aspect-ratio--16x9 bg-moon-gray">
-      <div class="aspect-ratio-object fit-cover">
-      </div>
-    </div>
+
+    {% set latest = collections.posts | last %}
+    {% include "latestPost.njk" %}
   </div>
 
-  <div class="vs3">
+  <div class="vs4">
     <h2 class="mv0 f2 fw6 lh-title">Latest 3 Talks</h2>
 
     <div class="nested">

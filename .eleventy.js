@@ -14,8 +14,8 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
-  eleventyConfig.addFilter("readableDate", (dateObj, zone) => {
-    return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(
+  eleventyConfig.addFilter("readableDate", dateObj => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
       "dd LLLL yyyy"
     );
   });
@@ -27,6 +27,17 @@ module.exports = function(eleventyConfig) {
     }
 
     return array.slice(0, n);
+  });
+
+  // Get the nth element of a collection.
+  eleventyConfig.addFilter("at", (array, n) => {
+    return array[n];
+  });
+
+  // Log the argument and return unchanged
+  eleventyConfig.addFilter("log", value => {
+    console.log(value);
+    return value;
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string

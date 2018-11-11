@@ -1,0 +1,23 @@
+<article class="vs3">
+  <div class="vs2">
+    <h2 class="mv0 f3 fw6 lh-title">{{ latest.data.title }}</h2>
+
+    <time class="db" datetime="{{latest.data.date}}">
+      {{latest.data.date | readableDate}}
+    </time>
+  </div>
+
+  {# Video #}
+  {% if latest.data.videoId %} <div class="aspect-ratio aspect-ratio--16x9 bg-moon-gray">
+    <iframe class="aspect-ratio--object fit-cover" title={{latest.data.title}} id="ytplayer" type="text/html"
+      src="https://www.youtube.com/embed/{{latest.data.videoId}}"
+      frameborder="0">
+    </iframe>
+  </div>
+  {% endif %}
+
+  {# Contents #}
+  <div class="f5 nested-copy-line-height nested-headline-line-height nested-copy-separator nested-img nested measure-prose">
+    {{ latest.templateContent | safe }}
+  </div>
+</article>
