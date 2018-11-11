@@ -146,7 +146,7 @@ function inlineCriticalCss({
   loadCssPreloadContent
 }) {
   // Set up new markup
-  const style = `<style>${criticalCssContent}</style>`;
+  const criticalStyleTag = `<style>${criticalCssContent}</style>`;
 
   // Manipulate markup
   const $ = cheerio.load(htmlContent);
@@ -169,7 +169,12 @@ function inlineCriticalCss({
   // @see https://github.com/filamentgroup/loadCSS
   const loadCssPreloadScript = `<script>${loadCssPreloadContent}</script>`;
 
-  // link rel="stylesheet" -> <link rel="preload" href="path/to/mystylesheet.css" as="style" onload="this.rel='stylesheet'">
+  /* <link rel="stylesheet"...> ->
+   *  <style>.inlined-things{...}</style>
+   *  <link rel="preload" href="path/to/mystylesheet.css" as="style" onload="this.rel='stylesheet'">
+   *  <noscript><link rel="stylesheet" ...></noscript>
+   *  <script>load-css-preload-polyfill</script>
+   */
   $link
     .attr({
       rel: "preload",
@@ -177,9 +182,9 @@ function inlineCriticalCss({
       // eslint-disable-next-line quotes
       onload: `this.onload=null;this.rel='stylesheet'`
     })
-    .append(noscriptFallback)
-    .append(loadCssPreloadScript)
-    .append(style);
+    .before(criticalStyleTag)
+    .after(loadCssPreloadScript)
+    .after(noscriptFallback);
 
   const newHtml = $.html();
   return newHtml;
