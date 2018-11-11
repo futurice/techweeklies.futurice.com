@@ -159,9 +159,6 @@ a[href].direct-link:focus:visited,
   color: var(--accent);
 }
 
-.nested a:hover {
-}
-
 .nested a:focus {
   text-decoration: none;
   outline: 0.125em var(--accent) solid;
