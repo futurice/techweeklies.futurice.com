@@ -20,9 +20,7 @@ const init = () => {
     firstInputDelay: true,
     analyticsTracker: (metricName, duration) => {
       analytics.sendPerformanceMetric(metricName, duration);
-    },
-    debugging: true,
-    warning: true
+    }
   });
 
   // Initialise the "Animate Me" button on load
