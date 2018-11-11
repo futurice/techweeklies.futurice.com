@@ -12,12 +12,14 @@ templateClass: tmpl-post
   </div>
 
   {# Video #}
+  {% if videoId %}
   <div class="aspect-ratio aspect-ratio--16x9 bg-moon-gray">
     <iframe class="aspect-ratio--object fit-cover" title={{title}} id="ytplayer" type="text/html"
       src="https://www.youtube.com/embed/{{videoId}}"
       frameborder="0">
     </iframe>
   </div>
+  {% endif %}
 
   {# Contents #}
   <div class="f5 nested-copy-line-height nested-headline-line-height nested-copy-separator nested-img nested measure-prose">
