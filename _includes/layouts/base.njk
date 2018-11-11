@@ -18,10 +18,8 @@
     {# Adds an event listener to capture uncaught errors. #}
     <script>addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
 
-    {# Loads the debug version of analytics.js. **Important!** replace
-    `analytics_debug.js` with `analytics.js` before deploying to production. #}
-    <script async src="https://www.google-analytics.com/analytics_debug.js"></script>
-
+    {# Load the Google Analytics script #}
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
   </head>
   <body class="pa3 flex flex-column min-vh-100 mw7 center theme-dark fg-primary bg-secondary f-phantomsans">
     <header>
