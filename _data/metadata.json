@@ -2,14 +2,14 @@
   "title": "Tech Weeklies",
   "url": "https://techweeklies.com",
   "feed": {
-    "subtitle": "Tech Weeklies is our weekly meetup about tech.",
+    "subtitle": "Tech Weeklies is Futurice's weekly meetup about tech.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "url": "https://myurl.com/feed/feed.xml",
-    "id": "https://myurl.com/"
+    "url": "https://techweeklies.com/feed/feed.xml",
+    "id": "https://techweeklies.com/"
   },
   "author": {
-    "name": "Your Name Here",
-    "email": "youremailaddress@example.com"
+    "name": "Futurice",
+    "email": "fotis@futurice.com"
   }
 }
