@@ -8,9 +8,7 @@
 
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 
-    {% if renderData.description or description %}
-    <meta name="description" content="{{ renderData.description or description }}">
-    {% endif %}
+    <meta name="description" content="{{ renderData.description or description or metadata.description }}">
 
     {# Preload variable font. Browsers with preload also support variable fonts, so this is a good balance.
       Fonts are loaded with crossorigin anonymous because of browser behaviour.
