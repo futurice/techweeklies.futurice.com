@@ -9,6 +9,7 @@ devDependencies:
   cheerio: 1.0.0-rc.2
   cssnano: 4.1.7
   debug: 4.1.0
+  fg-loadcss: 2.0.1
   gzip-size: 5.0.0
   invariant: 2.2.4
   luxon: 1.5.0
@@ -1885,6 +1886,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-9K8+qfNNiicc9YrSs3WfQx8LMY0=
+  /fg-loadcss/2.0.1:
+    dev: true
+    resolution:
+      integrity: sha512-gFtSJjMMt9it0OhXz4wJQT46/LFUrJ2Db6U/fLtwClBEMEEjmVPSWSYrbGCyFwy47Cd4ULOpR+HSWXVkUKciaQ==
   /filename-regex/2.0.1:
     dev: true
     engines:
@@ -5979,6 +5984,7 @@ specifiers:
   cheerio: ^1.0.0-rc.2
   cssnano: ^4.1.7
   debug: ^4.1.0
+  fg-loadcss: ^2.0.1
   gzip-size: ^5.0.0
   invariant: ^2.2.4
   luxon: ^1.0.0

@@ -14,7 +14,6 @@ export function init(element, targets, animateMeCls) {
   if (!element || !element instanceof HTMLElement) {
     return;
   }
-  console.log({ element });
 
   // Event listener
   const handleOnClick = () => {
@@ -39,7 +38,6 @@ export function init(element, targets, animateMeCls) {
 
     // Set the animateMe class to each animatable element
     targets.forEach(target => {
-      console.log({ target });
       target.classList.toggle(animateMeCls);
     });
   };

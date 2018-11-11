@@ -34,9 +34,16 @@ function plugin({ pattern, cssFile, cssPublicPath } = {}) {
 
   return function(files, metalsmith, done) {
     debug("WILL: Read CSS file", cssFile);
-    const cssFileHandle = path.resolve(cssFile);
-    const cssContent = fs.readFileSync(cssFileHandle, { encoding: "utf-8" });
+    const cssFilePath = path.resolve(cssFile);
+    const cssContent = fs.readFileSync(cssFilePath, { encoding: "utf-8" });
     debug("OK: Read CSS file");
+
+    // Read the LoadCSS file once
+    debug("WILL: Read LoadCSS file");
+    const loadCssPreloadContent = fs.readFileSync(
+      path.resolve("node_modules/fg-loadcss/dist/cssrelpreload.min.js")
+    );
+    debug("OK: Read LoadCSS file");
 
     // Loop over all the files, applying the transform if matching
     Object.keys(files)
@@ -77,7 +84,8 @@ function plugin({ pattern, cssFile, cssPublicPath } = {}) {
         const htmlWithInline = inlineCriticalCss({
           htmlContent: fileContent,
           cssPublicPath: cssPublicPath,
-          criticalCssContent: usedCss
+          criticalCssContent: usedCss,
+          loadCssPreloadContent
         });
         debug("OK: inject used CSS to file contents");
 
@@ -131,7 +139,12 @@ const getUsedCss = ({ htmlContent, cssContent }) => {
 // Inline Critical CSS in HTML, by replacing <link rel="stylesheet">
 // with a preload tag, adding the critical CSS as <style>, and using
 // loadCSS as a polyfill
-function inlineCriticalCss({ htmlContent, cssPublicPath, criticalCssContent }) {
+function inlineCriticalCss({
+  htmlContent,
+  cssPublicPath,
+  criticalCssContent,
+  loadCssPreloadContent
+}) {
   // Set up new markup
   const style = `<style>${criticalCssContent}</style>`;
 
@@ -152,20 +165,21 @@ function inlineCriticalCss({ htmlContent, cssPublicPath, criticalCssContent }) {
 
   const noscriptFallback = `<noscript>${linkStylesheet}</noscript>`;
 
+  // Fallback for browsers that do not support link rel="preload"
+  // @see https://github.com/filamentgroup/loadCSS
+  const loadCssPreloadScript = `<script>${loadCssPreloadContent}</script>`;
+
   // link rel="stylesheet" -> <link rel="preload" href="path/to/mystylesheet.css" as="style" onload="this.rel='stylesheet'">
   $link
     .attr({
       rel: "preload",
       as: "style",
       // eslint-disable-next-line quotes
-      onload: `this.rel='stylesheet'`
+      onload: `this.onload=null;this.rel='stylesheet'`
     })
     .append(noscriptFallback)
+    .append(loadCssPreloadScript)
     .append(style);
-
-  // TODO: Inline LoadCSS;
-  // Inline LoadCSS as a polyfill
-  // @see https://github.com/filamentgroup/loadCSS
 
   const newHtml = $.html();
   return newHtml;
