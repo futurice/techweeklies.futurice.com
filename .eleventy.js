@@ -80,9 +80,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("fonts");
 
-  // TODO: Eventually, run through hashing
-  // eleventyConfig.addPassthroughCopy("css");
-  // eleventyConfig.addPassthroughCopy("js");
+  // Copy app manifest from root to dist
+  eleventyConfig.addPassthroughCopy("manifest.json");
 
   /* Markdown Plugins */
   let markdownIt = require("markdown-it");
