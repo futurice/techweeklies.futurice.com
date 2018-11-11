@@ -1,30 +1,6 @@
 /* Animations */
 
-/* Main Logo animation: cylce colours and font weight */
-@keyframes cycle-font {
-  0% {
-    color: #7cfbd1;
-    font-variation-settings: "wght" 1000;
-  }
-  20% {
-    color: #7ce6fb;
-  }
-  40% {
-    color: #7ca6fb;
-  }
-  60% {
-    color: #917cfb;
-  }
-  80% {
-    color: #d17cfb;
-  }
-  100% {
-    color: #fb7ce6;
-    font-variation-settings: "wght" 100;
-  }
-}
-
-/* A milder version of the logo animation, only cycling colors */
+/* Cycle colours in a gradient. */
 @keyframes cycle-color {
   0% {
     color: #7cfbd1;
@@ -47,16 +23,6 @@
 }
 
 /* Animation atomic classes that work on hover, focus, and explicitly with animate-me--on */
-.animation-cycle-font:hover,
-.animation-cycle-font:focus,
-.animation-cycle-font.animate-me--on {
-  animation-name: logo-animation;
-  animation-duration: 1.4s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
-}
-
 .animation-cycle:hover,
 .animation-cycle:focus,
 .animation-cycle.animate-me--on {
@@ -65,13 +31,6 @@
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
-}
-
-/* Disable all animations if the user has specified it */
-@media (prefers-reduced-motion) {
-  .animate-me {
-    animation: none !important;
-  }
 }
 
 /* Logo animation */
@@ -111,16 +70,28 @@
   }
 }
 
-.animation-logo-slide {
+/* The logo animation is nested, so we rely on the parent's state */
+.animation-logo:hover .animation-logo-slide,
+.animation-logo:focus .animation-logo-slide,
+.animation-logo.animate-me--on .animation-logo-slide {
   animation-name: logo-slide;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
 
-.animation-logo-blink {
+.animation-logo:hover .animation-logo-blink,
+.animation-logo:focus .animation-logo-blink,
+.animation-logo.animate-me--on .animation-logo-blink {
   animation-name: logo-blink;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+/* Disable all animations if the user has specified it */
+@media (prefers-reduced-motion) {
+  .animate-me {
+    animation: none !important;
+  }
 }
