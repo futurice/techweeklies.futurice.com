@@ -23,12 +23,12 @@
     <script async src="https://www.google-analytics.com/analytics_debug.js"></script>
 
   </head>
-  <body class="flex flex-column min-vh-100 mw7 pa3 center theme-dark fg-primary bg-secondary f-phantomsans">
+  <body class="pa3 flex flex-column min-vh-100 mw7 center theme-dark fg-primary bg-secondary f-phantomsans">
     <header>
       {% include "SkipLink.njk" %}
       <nav class="flex flex-row justify-between items-center flex-wrap">
         <a class="db fg-accent fw7 link focus-outline-accent animation-cycle animate-me" href="{{ '/' | url }}">{{ metadata.title }}</a>
-        <ul class="ml0 pl0 flex list">
+        <ul class="ma0 pa0 flex list">
           {%- for nav in collections.nav | reverse -%}
           <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}">
             <a
@@ -43,7 +43,7 @@
       </nav>
     </header>
 
-    <main id="main" class="flex-grow-1 {% if templateClass %}{{ templateClass }}{% endif %}">
+    <main id="main" class="pb5 flex-grow-1 {% if templateClass %}{{ templateClass }}{% endif %}">
       {{ content | safe }}
     </main>
 
