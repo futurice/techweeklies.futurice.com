@@ -17,20 +17,22 @@ export function init(element, targets, animateMeCls) {
   console.log({ element });
 
   // Event listener
-  const handleOnClick = ({ target: btn }) => {
+  const handleOnClick = () => {
     // Communicate the toggled state to assisstive technologies
     // Check to see if the button is pressed
-    const isPressed = btn.getAttribute("aria-pressed") === "true";
+    const isPressed = element.getAttribute("aria-pressed") === "true";
 
     // Change aria-pressed to the opposite state
-    btn.setAttribute("aria-pressed", !isPressed);
+    element.setAttribute("aria-pressed", !isPressed);
 
     // Communicate the toggled state visually
-    btn.classList.toggle(BUTTON_ACTIVE_UNPRESSED_CLS);
-    btn.classList.toggle(BUTTON_ACTIVE_PRESSED_CLS);
+    element.classList.toggle(BUTTON_ACTIVE_UNPRESSED_CLS);
+    element.classList.toggle(BUTTON_ACTIVE_PRESSED_CLS);
 
     // Change visual state to the opposite state
-    const stateLabel = btn.getElementsByClassName("animate-me-button-state")[0];
+    const stateLabel = element.getElementsByClassName(
+      "animate-me-button-state"
+    )[0];
     if (stateLabel) {
       stateLabel.innerText = !isPressed ? "On" : "Off";
     }
