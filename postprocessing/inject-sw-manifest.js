@@ -21,6 +21,10 @@ const buildSW = () => {
         'js/**/*.js',
         // Only need to cache woff2, because browsers that support service workers also support woff2
         'fonts/**/*.woff2',
+        // Offline page
+        'offline/index.html',
+        // 404 page
+        '404.html',
       ],
     })
     .then(({ count, size, warnings }) => {
