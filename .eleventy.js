@@ -4,6 +4,8 @@ const { DateTime } = require("luxon");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+// Globals
+const INPUT_DIR = "src";
 const OUTPUT_DIR = "_site";
 const HASH_MANIFEST_FILENAME = "_intermediate/hash-manifest.json";
 const isProduction = process.env.NODE_ENV === "production";
@@ -77,11 +79,10 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
-  eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("fonts");
-
-  // Copy app manifest from root to dist
-  eleventyConfig.addPassthroughCopy("manifest.json");
+  // Copy these directories and files directly
+  eleventyConfig.addPassthroughCopy("src/img");
+  eleventyConfig.addPassthroughCopy("src/fonts");
+  eleventyConfig.addPassthroughCopy("src/manifest.json");
 
   /* Markdown Plugins */
   let markdownIt = require("markdown-it");
@@ -116,7 +117,8 @@ module.exports = function(eleventyConfig) {
     dataTemplateEngine: "njk",
     passthroughFileCopy: true,
     dir: {
-      input: ".",
+      input: INPUT_DIR,
+      // NOTE: These two paths are relative to INPUT_DIR
       includes: "_includes",
       data: "_data",
       output: OUTPUT_DIR

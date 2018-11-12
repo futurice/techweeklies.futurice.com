@@ -5,10 +5,13 @@ import commonjs from "rollup-plugin-commonjs";
 import hash from "rollup-plugin-hash";
 import { terser } from "rollup-plugin-terser";
 
+const INPUT_FILE = "src/js/index.js";
+const OUTPUT_FILE = "_site/js/index.js";
+
 export default {
-  input: "js/index.js",
+  input: INPUT_FILE,
   output: {
-    file: "_site/js/index.js",
+    file: OUTPUT_FILE,
     format: "iife",
     name: "TechWeeklies"
   },
