@@ -20,9 +20,10 @@ export function init(element, targets, animateMeCls) {
     // Communicate the toggled state to assisstive technologies
     // Check to see if the button is pressed
     const isPressed = element.getAttribute("aria-pressed") === "true";
+    const nextStateOn = !isPressed;
 
     // Change aria-pressed to the opposite state
-    element.setAttribute("aria-pressed", !isPressed);
+    element.setAttribute("aria-pressed", nextStateOn);
 
     // Communicate the toggled state visually
     element.classList.toggle(BUTTON_ACTIVE_UNPRESSED_CLS);
@@ -33,12 +34,18 @@ export function init(element, targets, animateMeCls) {
       "animate-me-button-state"
     )[0];
     if (stateLabel) {
-      stateLabel.innerText = !isPressed ? "On" : "Off";
+      stateLabel.innerText = nextStateOn ? "On" : "Off";
     }
 
     // Set the animateMe class to each animatable element
     targets.forEach(target => {
-      target.classList.toggle(animateMeCls);
+      // Use explicit version to prevent invalid toggle/untoggle
+      // state where something is already animating
+      if (nextStateOn) {
+        target.classList.add(animateMeCls);
+      } else {
+        target.classList.remove(animateMeCls);
+      }
     });
   };
 
