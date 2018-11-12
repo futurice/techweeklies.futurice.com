@@ -10,18 +10,18 @@
  *  - Minify HTML
  */
 
-const fs = require("fs");
-const path = require("path");
-const metalsmith = require("metalsmith");
-const { default: criticalCss } = require("metalsmith-inline-critical-css");
+const fs = require('fs');
+const path = require('path');
+const metalsmith = require('metalsmith');
+const { default: criticalCss } = require('metalsmith-inline-critical-css');
 
 // TODO: Could take this from CLI args
-const INPUT_DIR = "_site/";
-const OUTPUT_DIR = "_site/";
+const INPUT_DIR = '_site/';
+const OUTPUT_DIR = '_site/';
 
 // CSS filename as it is referenced before hashing
-const UNHASHED_CSS_FILENAME = "/css/index.css";
-const HASH_MANIFEST_PATH = "_intermediate/hash-manifest.json";
+const UNHASHED_CSS_FILENAME = '/css/index.css';
+const HASH_MANIFEST_PATH = '_intermediate/hash-manifest.json';
 
 function main() {
   // Read the hash manifest
@@ -32,7 +32,7 @@ function main() {
   const hashedCssFilename = hashManifest[UNHASHED_CSS_FILENAME];
   if (!hashedCssFilename) {
     console.log(
-      "Could not resolve hashed CSS name. Are you running in production? Did the build run out of order?"
+      'Could not resolve hashed CSS name. Are you running in production? Did the build run out of order?'
     );
   }
 
@@ -43,19 +43,19 @@ function main() {
     .clean(false) // clean destination before
     .use(
       criticalCss({
-        pattern: "**/*.html",
+        pattern: '**/*.html',
         // The CSS file whose selectors will be matched against the html
         cssFile: path.join(INPUT_DIR, hashedCssFilename),
         // The path under which the css is included in the template
-        cssPublicPath: hashedCssFilename
+        cssPublicPath: hashedCssFilename,
       })
     )
     .build(function(err) {
       if (err) {
-        console.log("Error running the postprocessing pipeline: " + err);
+        console.log('Error running the postprocessing pipeline: ' + err);
         throw err;
       }
-      console.log("Done!");
+      console.log('Done!');
     });
 }
 
@@ -67,7 +67,7 @@ main();
 /** Metalsmith plugin wrapper that runs the plugin only in production */
 function productionOnly(plugin) {
   return (files, metalsmith, done) =>
-    process.env.NODE_ENV === "production"
+    process.env.NODE_ENV === 'production'
       ? plugin(files, metalsmith, done)
       : done();
 }

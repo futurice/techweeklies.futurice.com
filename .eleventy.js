@@ -1,29 +1,29 @@
-const path = require("path");
-const fs = require("fs");
-const { DateTime } = require("luxon");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const path = require('path');
+const fs = require('fs');
+const { DateTime } = require('luxon');
+const pluginRss = require('@11ty/eleventy-plugin-rss');
+const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 // Globals
-const INPUT_DIR = "src";
-const OUTPUT_DIR = "_site";
-const HASH_MANIFEST_FILENAME = "_intermediate/hash-manifest.json";
-const isProduction = process.env.NODE_ENV === "production";
+const INPUT_DIR = 'src';
+const OUTPUT_DIR = '_site';
+const HASH_MANIFEST_FILENAME = '_intermediate/hash-manifest.json';
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
-  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+  eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLLL yyyy"
+  eleventyConfig.addFilter('readableDate', dateObj => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
+      'dd LLLL yyyy'
     );
   });
 
   // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
+  eleventyConfig.addFilter('head', (array, n) => {
     if (n < 0) {
       return array.slice(n);
     }
@@ -32,24 +32,24 @@ module.exports = function(eleventyConfig) {
   });
 
   // Get the nth element of a collection.
-  eleventyConfig.addFilter("at", (array, n) => {
+  eleventyConfig.addFilter('at', (array, n) => {
     return array[n];
   });
 
   // Log the argument and return unchanged
-  eleventyConfig.addFilter("log", value => {
+  eleventyConfig.addFilter('log', value => {
     console.log(value);
     return value;
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter("htmlDateString", dateObj => {
-    return DateTime.fromJSDate(dateObj).toFormat("yyyy-LL-dd");
+  eleventyConfig.addFilter('htmlDateString', dateObj => {
+    return DateTime.fromJSDate(dateObj).toFormat('yyyy-LL-dd');
   });
 
   // only content in the `posts/` directory
-  eleventyConfig.addCollection("posts", function(collection) {
-    const postsGlob = path.join(INPUT_DIR, "posts/*");
+  eleventyConfig.addCollection('posts', function(collection) {
+    const postsGlob = path.join(INPUT_DIR, 'posts/*');
     return collection.getFilteredByGlob(postsGlob).sort(function(a, b) {
       return a.date - b.date;
     });
@@ -57,7 +57,7 @@ module.exports = function(eleventyConfig) {
 
   // Filter that resolves a hash from a known table
   // @see join-manifests for more information on how the manifest is formed
-  eleventyConfig.addFilter("resolveHash", function(filename) {
+  eleventyConfig.addFilter('resolveHash', function(filename) {
     // Presumably, dev has no hashes, so do not attempt to resolve
     if (!isProduction) {
       return filename;
@@ -78,52 +78,52 @@ module.exports = function(eleventyConfig) {
     return hashedFilename;
   });
 
-  eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
+  eleventyConfig.addCollection('tagList', require('./_11ty/getTagList'));
 
   // Copy these directories and files directly
-  eleventyConfig.addPassthroughCopy("src/img");
-  eleventyConfig.addPassthroughCopy("src/fonts");
-  eleventyConfig.addPassthroughCopy("src/manifest.json");
+  eleventyConfig.addPassthroughCopy('src/img');
+  eleventyConfig.addPassthroughCopy('src/fonts');
+  eleventyConfig.addPassthroughCopy('src/manifest.json');
 
   /* Markdown Plugins */
-  let markdownIt = require("markdown-it");
-  let markdownItAnchor = require("markdown-it-anchor");
+  let markdownIt = require('markdown-it');
+  let markdownItAnchor = require('markdown-it-anchor');
   let options = {
     html: true,
     breaks: true,
-    linkify: true
+    linkify: true,
   };
   let opts = {
     permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
+    permalinkClass: 'direct-link',
+    permalinkSymbol: '#',
   };
 
   eleventyConfig.setLibrary(
-    "md",
+    'md',
     markdownIt(options).use(markdownItAnchor, opts)
   );
 
   return {
-    templateFormats: ["md", "njk", "html", "liquid"],
+    templateFormats: ['md', 'njk', 'html', 'liquid'],
 
     // If your site lives in a different subdirectory, change this.
     // Leading or trailing slashes are all normalized away, so don’t worry about it.
     // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
     // This is only used for URLs (it does not affect your file structure)
-    pathPrefix: "/",
+    pathPrefix: '/',
 
-    markdownTemplateEngine: "liquid",
-    htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
+    markdownTemplateEngine: 'liquid',
+    htmlTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
     passthroughFileCopy: true,
     dir: {
       input: INPUT_DIR,
       output: OUTPUT_DIR,
       // NOTE: These two paths are relative to dir.input
       // @see https://github.com/11ty/eleventy/issues/232
-      includes: "_includes",
-      data: "_data"
-    }
+      includes: '_includes',
+      data: '_data',
+    },
   };
 };

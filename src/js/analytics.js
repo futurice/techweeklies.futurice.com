@@ -15,14 +15,14 @@ const TRACKING_ID = process.env.GA_TRACKING_ID;
  * implementation. This allows you to create a segment or view filter
  * that isolates only data captured with the most recent tracking changes.
  */
-const TRACKING_VERSION = "2";
+const TRACKING_VERSION = '2';
 
 /**
  * A default value for dimensions so unset values always are reported as
  * something. This is needed since Google Analytics will drop empty dimension
  * values in reports.
  */
-const NULL_VALUE = "(not set)";
+const NULL_VALUE = '(not set)';
 
 /**
  * A mapping between custom dimension names and their indexes.
@@ -33,14 +33,14 @@ const NULL_VALUE = "(not set)";
  * @see: https://support.google.com/analytics/answer/2709829
  */
 const dimensions = {
-  TRACKING_VERSION: "dimension1",
-  CLIENT_ID: "dimension2",
-  WINDOW_ID: "dimension3",
-  HIT_ID: "dimension4",
-  HIT_TIME: "dimension5",
-  HIT_TYPE: "dimension6",
-  HIT_SOURCE: "dimension7",
-  VISIBILITY_STATE: "dimension8"
+  TRACKING_VERSION: 'dimension1',
+  CLIENT_ID: 'dimension2',
+  WINDOW_ID: 'dimension3',
+  HIT_ID: 'dimension4',
+  HIT_TIME: 'dimension5',
+  HIT_TYPE: 'dimension6',
+  HIT_SOURCE: 'dimension7',
+  VISIBILITY_STATE: 'dimension8',
 };
 
 /**
@@ -56,9 +56,9 @@ const dimensions = {
  * @see: https://support.google.com/analytics/answer/2709829
  */
 const metrics = {
-  firstPaint: "metric1",
-  firstContentfulPaint: "metric2",
-  firstInputDelay: "metric3"
+  firstPaint: 'metric1',
+  firstContentfulPaint: 'metric2',
+  firstInputDelay: 'metric3',
 };
 
 /** Sends a timing metric in the shape that Perfume outputs it, to GA.
@@ -75,12 +75,12 @@ export const sendPerformanceMetric = (metricName, duration) => {
   };
 
   if (metrics[metricName] && allValuesAreValid(duration)) {
-    ga("send", "event", {
-      eventCategory: "Performance Metrics",
-      eventAction: "track",
+    ga('send', 'event', {
+      eventCategory: 'Performance Metrics',
+      eventAction: 'track',
       eventLabel: NULL_VALUE,
       nonInteraction: true,
-      [metrics[metricName]]: durationInteger
+      [metrics[metricName]]: durationInteger,
     });
   }
 };
@@ -111,14 +111,14 @@ export const init = () => {
  */
 export const trackError = (err = {}, fieldsObj = {}) => {
   ga(
-    "send",
-    "event",
+    'send',
+    'event',
     Object.assign(
       {
-        eventCategory: "Error",
-        eventAction: err.name || "(no error name)",
-        eventLabel: `${err.message}\n${err.stack || "(no stack trace)"}`,
-        nonInteraction: true
+        eventCategory: 'Error',
+        eventAction: err.name || '(no error name)',
+        eventLabel: `${err.message}\n${err.stack || '(no stack trace)'}`,
+        nonInteraction: true,
       },
       fieldsObj
     )
@@ -130,10 +130,10 @@ export const trackError = (err = {}, fieldsObj = {}) => {
  * version fields. In non-production environments it also logs hits.
  */
 const createTracker = () => {
-  ga("create", TRACKING_ID, "auto");
+  ga('create', TRACKING_ID, 'auto');
 
   // Ensures all hits are sent via `navigator.sendBeacon()`.
-  ga("set", "transport", "beacon");
+  ga('set', 'transport', 'beacon');
 };
 
 /**
@@ -147,11 +147,11 @@ const trackErrors = () => {
 
   const trackErrorEvent = event => {
     // Use a different eventCategory for uncaught errors.
-    const fieldsObj = { eventCategory: "Uncaught Error" };
+    const fieldsObj = { eventCategory: 'Uncaught Error' };
 
     // Some browsers don't have an error property, so we fake it.
     const err = event.error || {
-      message: `${event.message} (${event.lineno}:${event.colno})`
+      message: `${event.message} (${event.lineno}:${event.colno})`,
     };
 
     trackError(err, fieldsObj);
@@ -163,7 +163,7 @@ const trackErrors = () => {
   }
 
   // Add a new listener to track event immediately.
-  window.addEventListener("error", trackErrorEvent);
+  window.addEventListener('error', trackErrorEvent);
 };
 
 /**
@@ -175,27 +175,27 @@ const trackCustomDimensions = () => {
   // because Google Analytics will drop rows with empty dimension values
   // in your reports.
   Object.keys(dimensions).forEach(key => {
-    ga("set", dimensions[key], NULL_VALUE);
+    ga('set', dimensions[key], NULL_VALUE);
   });
 
   // Adds tracking of dimensions known at page load time.
   ga(tracker => {
     tracker.set({
       [dimensions.TRACKING_VERSION]: TRACKING_VERSION,
-      [dimensions.CLIENT_ID]: tracker.get("clientId"),
-      [dimensions.WINDOW_ID]: uuid()
+      [dimensions.CLIENT_ID]: tracker.get('clientId'),
+      [dimensions.WINDOW_ID]: uuid(),
     });
   });
 
   // Adds tracking to record each the type, time, uuid, and visibility state
   // of each hit immediately before it's sent.
   ga(tracker => {
-    const originalBuildHitTask = tracker.get("buildHitTask");
-    tracker.set("buildHitTask", model => {
-      const qt = model.get("queueTime") || 0;
+    const originalBuildHitTask = tracker.get('buildHitTask');
+    tracker.set('buildHitTask', model => {
+      const qt = model.get('queueTime') || 0;
       model.set(dimensions.HIT_TIME, String(new Date() - qt), true);
       model.set(dimensions.HIT_ID, uuid(), true);
-      model.set(dimensions.HIT_TYPE, model.get("hitType"), true);
+      model.set(dimensions.HIT_TYPE, model.get('hitType'), true);
       model.set(dimensions.VISIBILITY_STATE, document.visibilityState, true);
 
       originalBuildHitTask(model);
@@ -207,7 +207,7 @@ const trackCustomDimensions = () => {
  * Sends the initial pageview to Google Analytics.
  */
 const sendInitialPageview = () => {
-  ga("send", "pageview", { [dimensions.HIT_SOURCE]: "pageload" });
+  ga('send', 'pageview', { [dimensions.HIT_SOURCE]: 'pageload' });
 };
 
 /**

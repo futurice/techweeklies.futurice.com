@@ -1,16 +1,16 @@
-const fs = require("fs");
-const path = require("path");
-const { promisify } = require("util");
+const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const OUPTUT_MANIFEST_PATH = "_intermediate/hash-manifest.json";
-const POSTCSS_MANIFEST_PATH = "_intermediate/postcss-manifest.json";
-const ROLLUP_MANIFEST_PATH = "_intermediate/rollup-manifest.json";
+const OUPTUT_MANIFEST_PATH = '_intermediate/hash-manifest.json';
+const POSTCSS_MANIFEST_PATH = '_intermediate/postcss-manifest.json';
+const ROLLUP_MANIFEST_PATH = '_intermediate/rollup-manifest.json';
 
-const SERVER_CSS_DIR = "/css";
-const SERVER_JS_DIR = "/js";
+const SERVER_CSS_DIR = '/css';
+const SERVER_JS_DIR = '/js';
 
 /*
  * Script to join manifests from postcss-hash and rollup-plugin-hash.

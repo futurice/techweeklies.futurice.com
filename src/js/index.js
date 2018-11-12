@@ -1,6 +1,6 @@
-import Perfume from "perfume.js";
-import * as analytics from "./analytics";
-import * as animateMeButton from "./animateMeButton";
+import Perfume from 'perfume.js';
+import * as analytics from './analytics';
+import * as animateMeButton from './animateMeButton';
 
 /* The main entry point of the application */
 
@@ -20,17 +20,17 @@ const init = () => {
     firstInputDelay: true,
     analyticsTracker: (metricName, duration) => {
       analytics.sendPerformanceMetric(metricName, duration);
-    }
+    },
   });
 
   // Initialise the "Animate Me" button on load
-  window.addEventListener("load", () =>
+  window.addEventListener('load', () =>
     // You can set the "animatable" class to an element, and the
     // click handler will attach the `animate-me` class.
     animateMeButton.init(
-      document.getElementById("animate-me-button"),
-      document.querySelectorAll(".animate-me"),
-      "animate-me--on"
+      document.getElementById('animate-me-button'),
+      document.querySelectorAll('.animate-me'),
+      'animate-me--on'
     )
   );
 };
