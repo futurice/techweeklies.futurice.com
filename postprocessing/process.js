@@ -13,7 +13,7 @@
 const fs = require("fs");
 const path = require("path");
 const metalsmith = require("metalsmith");
-const criticalCss = require("./critical-css-plugin");
+const { default: criticalCss } = require("metalsmith-inline-critical-css");
 
 // TODO: Could take this from CLI args
 const INPUT_DIR = "_site/";
