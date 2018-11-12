@@ -16,7 +16,7 @@
     "dev:site": "eleventy --watch --serve",
     "dev:css": "postcss src/css/*.css --dir _site/css/ --watch",
     "prod": "npm-run-all -s build serve",
-    "serve": "serve _site --listen 8080",
+    "serve": "serve _site --listen 8000",
     "debug": "DEBUG=* npx eleventy"
   },
   "repository": {
