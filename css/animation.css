@@ -91,6 +91,9 @@
 
 /* Disable all animations if the user has specified it */
 @media (prefers-reduced-motion) {
+  .animate-me * {
+    animation: none !important;
+  }
   .animate-me {
     animation: none !important;
   }
