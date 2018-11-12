@@ -118,10 +118,11 @@ module.exports = function(eleventyConfig) {
     passthroughFileCopy: true,
     dir: {
       input: INPUT_DIR,
-      // NOTE: These two paths are relative to INPUT_DIR
+      output: OUTPUT_DIR,
+      // NOTE: These two paths are relative to dir.input
+      // @see https://github.com/11ty/eleventy/issues/232
       includes: "_includes",
-      data: "_data",
-      output: OUTPUT_DIR
+      data: "_data"
     }
   };
 };
