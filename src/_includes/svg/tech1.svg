@@ -1,8 +1,9 @@
 <svg 
+    role="img"
+    aria-label="Futurice Tech Weeklies"
     id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 -3 477 226"
-    aria-label="Futurice Tech Weeklies"
 >
     <style>
         .st0 {
