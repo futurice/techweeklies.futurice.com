@@ -61,5 +61,9 @@
     </footer>
 
     <script src="{{ '/js/index.js' | resolveHash | url}}" defer></script>
+    <script>
+      {# TODO: Only inject in production #}
+      {%include "sw-inline.js" %}
+    </script>
   </body>
 </html>
