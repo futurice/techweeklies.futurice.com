@@ -1,0 +1,59 @@
+{# Progressively-enhanced, performant Youtube Video component.
+In non-buzzword terms:
+    - Get a videoId
+    - Add video thumbnails as `img srcset` alternatives
+        - Atm, this is done statically, with out-of-band knowledge
+        - Future: At build time, use the Youtube Data API to get the various thumbnails
+    - Preserve the aspect ratio to 16x9, and show a placeholder colour (this avoids layout shifting)
+    - On user interaction, with JS, or with a noscript, load the actual Youtube video
+
+This achieves a few things:
+    - We do not hog the main thread loading 500kB of JS on load (!)
+    - We respect user privacy by not loading all the ad trackers from the get go
+    - We have a faster paint and interactive time. Those could be achieved just with the placeholder as well.
+#}
+<div class="aspect-ratio aspect-ratio--16x9 bg-primary">
+    {# Load the image as a preview. Use <picture> to progressively enhance to webp. Add sizes. #}
+    <img 
+        src="https://img.youtube.com/vi/{{videoId}}/maxresdefault.jpg"
+        alt=""
+        class="aspect-ratio--object fit-cover"
+    >
+
+    {# Add a "play" icon, as an affordance. Will be hidden on interaction. #}
+    <div class="youtube-video-overlay aspect-ratio--object pointer flex justify-center items-center">
+        <button 
+            data-yt-video-id="{{videoId}}"
+            class="youtube-video-button button-reset pointer"
+            aria-label="Play Video"
+        >
+            <svg 
+                width="100%"
+                height="100%"
+                viewBox="4 4 16 16"
+                class="youtube-video-svg"
+                xmlns="http://www.w3.org/2000/svg">
+                {# <path class="youtube-video-svg-bg" d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                <path class="youtube-video-svg-fg" d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z"/> #}
+                <path class="youtube-video-svg-bg" d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon class="youtube-video-svg-fg" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+            </svg>
+        </button>
+    </div>
+
+    {# TODO: Add an explicit "link", for anyone interested #}
+    {# TODO: This div will be upgraded to an iframe on interaction #}
+    {# <div class="aspect-ratio--object fit-cover">
+    </div> #}
+
+    <noscript>
+        <iframe
+            class="aspect-ratio--object fit-cover"
+            src="https://www.youtube.com/embed/{{videoId}}"
+            title={{title}}
+            id="ytplayer"
+            type="text/html"
+            frameborder="0">
+        </iframe>
+    </noscript>
+</div>
