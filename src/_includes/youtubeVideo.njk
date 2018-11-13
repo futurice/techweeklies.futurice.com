@@ -2,8 +2,7 @@
 In non-buzzword terms:
     - Get a videoId
     - Add video thumbnails as `img srcset` alternatives
-        - Atm, this is done statically, with out-of-band knowledge
-        - Future: At build time, use the Youtube Data API to get the various thumbnails
+        - Source: https://developers.google.com/youtube/v3/docs/thumbnails#properties
     - Preserve the aspect ratio to 16x9, and show a placeholder colour (this avoids layout shifting)
     - On user interaction, with JS, or with a noscript, load the actual Youtube video
 
@@ -14,12 +13,10 @@ This achieves a few things:
 #}
 <div class="vs3">
     <div class="aspect-ratio aspect-ratio--16x9 bg-primary">
-        {# Load the image as a preview. Use <picture> to progressively enhance to webp. Add sizes. #}
-        <img 
-            src="https://img.youtube.com/vi/{{videoId}}/maxresdefault.jpg"
-            alt=""
-            class="aspect-ratio--object fit-cover"
-        >
+        {# Load the image as a preview. Use srcset to progressively enhance to webp.
+           TODO: Add sizes
+        #}
+        {% youtubeImg videoId, "", "aspect-ratio--object fit-cover" %}
 
         {# Add a "play" icon, as an affordance. Will be hidden on interaction. #}
         <div 

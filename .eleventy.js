@@ -1,8 +1,13 @@
 const path = require('path');
 const fs = require('fs');
 const { DateTime } = require('luxon');
+
+// Plugins
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+
+// Custom tags etc.
+const youtubeImg = require('./_11ty/youtubeImg');
 
 // Globals
 const INPUT_DIR = 'src';
@@ -11,11 +16,17 @@ const HASH_MANIFEST_FILENAME = '_intermediate/hash-manifest.json';
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = function(eleventyConfig) {
+  //
+  // PLUGINS
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
+  //
+  // LAYOUTS
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
 
+  //
+  // FILTERS
   eleventyConfig.addFilter('readableDate', dateObj => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
       'dd LLLL yyyy'
@@ -47,14 +58,6 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toFormat('yyyy-LL-dd');
   });
 
-  // only content in the `posts/` directory
-  eleventyConfig.addCollection('posts', function(collection) {
-    const postsGlob = path.join(INPUT_DIR, 'posts/*');
-    return collection.getFilteredByGlob(postsGlob).sort(function(a, b) {
-      return a.date - b.date;
-    });
-  });
-
   // Filter that resolves a hash from a known table
   // @see join-manifests for more information on how the manifest is formed
   eleventyConfig.addFilter('resolveHash', function(filename) {
@@ -76,6 +79,17 @@ module.exports = function(eleventyConfig) {
     }
 
     return hashedFilename;
+  });
+
+  //
+  // COLLECTIONS
+
+  // only content in the `posts/` directory
+  eleventyConfig.addCollection('posts', function(collection) {
+    const postsGlob = path.join(INPUT_DIR, 'posts/*');
+    return collection.getFilteredByGlob(postsGlob).sort(function(a, b) {
+      return a.date - b.date;
+    });
   });
 
   eleventyConfig.addCollection('tagList', require('./_11ty/getTagList'));
@@ -104,6 +118,10 @@ module.exports = function(eleventyConfig) {
     'md',
     markdownIt(options).use(markdownItAnchor, opts)
   );
+
+  //
+  // SHORTCODES
+  eleventyConfig.addShortcode('youtubeImg', youtubeImg);
 
   return {
     templateFormats: ['md', 'njk', 'html', 'liquid'],
