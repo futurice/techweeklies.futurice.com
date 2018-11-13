@@ -17,8 +17,8 @@ const buildSW = () => {
         // Main CSS file
         // (we could make this more general if we removed unhashed css)
         'css/index.*.css',
-        // All JS (they are all hashed)
-        'js/**/*.js',
+        // Index/Main JS
+        'js/index.*.js',
         // Only need to cache woff2, because browsers that support service workers also support woff2
         'fonts/**/*.woff2',
         // Offline page

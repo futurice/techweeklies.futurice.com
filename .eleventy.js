@@ -82,6 +82,7 @@ module.exports = function(eleventyConfig) {
 
   // Copy these directories and files directly
   eleventyConfig.addPassthroughCopy('src/img');
+  eleventyConfig.addPassthroughCopy('src/js/workbox');
   eleventyConfig.addPassthroughCopy('src/fonts');
   eleventyConfig.addPassthroughCopy('src/manifest.json');
 
