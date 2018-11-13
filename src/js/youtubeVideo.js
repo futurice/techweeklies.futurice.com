@@ -1,7 +1,14 @@
 import YTPlayer from 'yt-player';
 
+// Selectors
 const DATA_ATTRIBUTE = `data-youtube-video-id`;
 const BUTTON_CLASS = 'youtube-video-button';
+
+// Visual states
+// JS has not come in, player is not interactive!
+const PLAYER_NONINTERACTIVE_CLS = 'o-50';
+// JS is in, player is interactive
+const PLAYER_INTERACTIVE_CLS = 'bg-accent';
 
 /**
  * Component that looks for "placeholder" Youtube players on the page.
@@ -42,16 +49,18 @@ export function init() {
     // If ok, add click handler to button and div
     // The div onClick is there to expan target, but the button
     // is also important for accessibility.
-    videoButton.addEventListener('click', getOnClickHandler(videoId, playerEl));
+    const handler = getOnClickHandler(videoId, playerEl);
+    playerEl.addEventListener('click', handler);
   });
 }
 
 /** On click, loads the complete iframe player for the videoId specified. */
 function getOnClickHandler(videoId, playerEl) {
-  // TODO: Also act on the div/overlay, called once
+  // TODO: Add explicit --active state
   // TODO: Show loading spinner
   // TODO: Set title!
   return function(ev) {
+    console.log('CALLED');
     // Create player and load video
     const player = new YTPlayer(playerEl, {
       width: '100%',
