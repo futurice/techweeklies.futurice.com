@@ -1,6 +1,7 @@
 import Perfume from 'perfume.js';
 import * as analytics from './analytics';
 import * as animateMeButton from './animateMeButton';
+import * as youtubeVideo from './youtubeVideo';
 
 /* The main entry point of the application */
 
@@ -24,15 +25,19 @@ const init = () => {
   });
 
   // Initialise the "Animate Me" button on load
-  window.addEventListener('load', () =>
+  window.addEventListener('load', () => {
     // You can set the "animatable" class to an element, and the
     // click handler will attach the `animate-me` class.
     animateMeButton.init(
       document.getElementById('animate-me-button'),
       document.querySelectorAll('.animate-me'),
       'animate-me--on'
-    )
-  );
+    );
+
+    // YoutubeVideo handles configuration internally,
+    // because the structure is stricter.
+    youtubeVideo.init();
+  });
 };
 
 // Start the application

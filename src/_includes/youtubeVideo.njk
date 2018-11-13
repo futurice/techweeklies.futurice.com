@@ -21,9 +21,11 @@ This achieves a few things:
     >
 
     {# Add a "play" icon, as an affordance. Will be hidden on interaction. #}
-    <div class="youtube-video-overlay aspect-ratio--object pointer flex justify-center items-center">
+    <div 
+        data-youtube-video-id="{{videoId}}"
+        class="youtube-video-overlay aspect-ratio--object pointer flex justify-center items-center"
+    >
         <button 
-            data-yt-video-id="{{videoId}}"
             class="youtube-video-button button-reset pointer"
             aria-label="Play Video"
         >

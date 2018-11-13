@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
 import hash from 'rollup-plugin-hash';
+import builtins from 'rollup-plugin-node-builtins';
 import { terser } from 'rollup-plugin-terser';
 
 const INPUT_FILE = 'src/js/index.js';
@@ -29,6 +30,7 @@ export default {
     resolve(),
     // Allow resolving CommonJS modules
     commonjs(),
+    builtins(),
     ifProduction(terser),
     ifProduction(() =>
       hash({

@@ -9,10 +9,9 @@
 
   {# Video #}
   {% if latest.data.videoId %} <div class="aspect-ratio aspect-ratio--16x9 bg-moon-gray">
-    <iframe class="aspect-ratio--object fit-cover" title={{latest.data.title}} id="ytplayer" type="text/html"
-      src="https://www.youtube.com/embed/{{latest.data.videoId}}"
-      frameborder="0">
-    </iframe>
+      {# TODO: make videoId a parameter of youtubeVideo #}
+      {% set videoId = latest.data.videoId %}
+      {% include "youtubeVideo.njk" %}
   </div>
   {% endif %}
 
