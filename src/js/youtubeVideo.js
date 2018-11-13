@@ -5,10 +5,13 @@ const DATA_ATTRIBUTE = `data-youtube-video-id`;
 const BUTTON_CLASS = 'youtube-video-button';
 
 // Visual states
-// JS has not come in, player is not interactive!
-const PLAYER_NONINTERACTIVE_CLS = 'o-50';
-// JS is in, player is interactive
-const PLAYER_INTERACTIVE_CLS = 'bg-accent';
+// JS has not come in, not interactive!
+const PLAYER_INACTIVE_CLS = 'youtube-video--inactive';
+const BUTTON_INACTIVE_CLS = 'youtube-video-button--inactive';
+
+// JS is in, interactive
+const PLAYER_ACTIVE_CLS = 'youtube-video--active';
+const BUTTON_ACTIVE_CLS = 'youtube-video-button--active';
 
 /**
  * Component that looks for "placeholder" Youtube players on the page.
@@ -51,6 +54,14 @@ export function init() {
     // is also important for accessibility.
     const handler = getOnClickHandler(videoId, playerEl);
     playerEl.addEventListener('click', handler);
+
+    // Enable the button and add affordances now that we are set up
+    playerEl.classList.remove(PLAYER_INACTIVE_CLS);
+    playerEl.classList.add(PLAYER_ACTIVE_CLS);
+
+    videoButton.toggleAttribute('disabled');
+    videoButton.classList.remove(BUTTON_INACTIVE_CLS);
+    videoButton.classList.add(BUTTON_ACTIVE_CLS);
   });
 }
 
