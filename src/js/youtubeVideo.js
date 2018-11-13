@@ -1,7 +1,7 @@
 import YTPlayer from 'yt-player';
 
 // Selectors
-const DATA_ATTRIBUTE = `data-youtube-video-id`;
+const ID_DATA_ATTRIBUTE = 'data-youtube-video-id';
 const BUTTON_CLASS = 'youtube-video-button';
 
 // Visual states
@@ -27,7 +27,7 @@ const BUTTON_ACTIVE_CLS = 'youtube-video-button--active';
  *   </div>
  */
 export function init() {
-  const elements = document.querySelectorAll(`[${DATA_ATTRIBUTE}]`);
+  const elements = document.querySelectorAll(`[${ID_DATA_ATTRIBUTE}]`);
 
   // Nothing to do without elements
   if (!elements) {
@@ -36,7 +36,7 @@ export function init() {
 
   // Attach handlers to each element
   elements.forEach(playerEl => {
-    const videoId = playerEl.getAttribute(DATA_ATTRIBUTE);
+    const videoId = playerEl.getAttribute(ID_DATA_ATTRIBUTE);
     const videoButton = playerEl.getElementsByClassName(BUTTON_CLASS)[0];
 
     // Some basic validations
@@ -67,9 +67,7 @@ export function init() {
 
 /** On click, loads the complete iframe player for the videoId specified. */
 function getOnClickHandler(videoId, playerEl) {
-  // TODO: Add explicit --active state
   // TODO: Show loading spinner
-  // TODO: Set title!
   return function(ev) {
     console.log('CALLED');
     // Create player and load video
@@ -81,7 +79,7 @@ function getOnClickHandler(videoId, playerEl) {
     // Hanlde errors more gracefully
     player.on('error', err => {
       // On error, remove "playable" affordance, and show help text
-      playerEl.classList.remove('pointer', 'youtube-video-overlay');
+      playerEl.classList.remove(PLAYER_ACTIVE_CLS, 'youtube-video');
       playerEl.classList.add('bg-near-black');
       playerEl.innerHTML = errorBox(videoId);
       console.error('Error encountered in player: ', err);
@@ -99,7 +97,7 @@ function errorBox(videoId) {
       <p class="mv0 f5 f4-ns lh-copy measure-prose nested">
         There was an error with the player, sorry about that. Try refreshing the page, or
           <a href="https://youtube.com/watch?v=${videoId}" target="_blank" rel="noopener noreferrer">
-            watch this video on Youtube directly.
+            watch this video directly on Youtube.
           </a>
       </p>
     </div>
