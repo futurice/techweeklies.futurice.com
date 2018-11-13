@@ -8,11 +8,10 @@
   </div>
 
   {# Video #}
-  {% if latest.data.videoId %} <div class="aspect-ratio aspect-ratio--16x9 bg-moon-gray">
+  {% if latest.data.videoId %}
       {# TODO: make videoId a parameter of youtubeVideo #}
       {% set videoId = latest.data.videoId %}
       {% include "youtubeVideo.njk" %}
-  </div>
   {% endif %}
 
   {# Contents #}
