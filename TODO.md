@@ -14,3 +14,6 @@
 - Add prettier and pre-commit hooks
 - Add predefined header/subheader, text and spacer components
 - Consider 11ty transforms instead of the metalsmith one https://www.11ty.io/docs/config/#transforms
+
+- For the YoutubeVideo component, show some progress when the button is pressed
+  - Similarly, try out how to best communicate that to AT

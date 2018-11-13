@@ -67,7 +67,7 @@ export function init() {
 
 /** On click, loads the complete iframe player for the videoId specified. */
 function getOnClickHandler(videoId, playerEl) {
-  // TODO: Show loading spinner
+  // TODO: Show loading spinner, and communicate progress to AT
   return function(ev) {
     console.log('CALLED');
     // Create player and load video
