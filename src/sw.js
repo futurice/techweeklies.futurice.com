@@ -5,7 +5,10 @@ importScripts('/js/workbox/workbox-v4.0.0-beta.0/workbox-sw.js');
  */
 workbox.setConfig({ modulePathPrefix: '/js/workbox/workbox-v4.0.0-beta.0' });
 
-// TODO: Set navigationPreload
+// navigationPreload helps reduce the effect of SW bootup time
+// when handling navigation routes.
+// @see https://developers.google.com/web/tools/workbox/modules/workbox-navigation-preload
+workbox.navigationPreload.enable();
 
 // Set up for workbox-build
 // Respond from cache for the critical assets/resources
