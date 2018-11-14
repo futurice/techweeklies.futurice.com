@@ -2,8 +2,19 @@
 {% for post in postslist | reverse %}
   <li class="flex items-baseline postlist-item{% if post.url == url %} fw7 postlist-item-active{% endif %}">
     <span class="ml2 db">
-      <a href="{{ post.url | url }}" class="mb2 db f4 fw7">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+      {# Title link #}
+      {% Link { href: post.url | url, className: "db mb2 f4 fw7" } %}
+        {% if post.data.title %}
+          {{ post.data.title }}
+        {% else %}
+          <code>{{ post.url }}</code>
+        {% endif %}
+      {% endLink %}
+
+      {# Date #}
       <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+
+      {# Tags #}
       {% for tag in post.data.tags %}
         {%- if tag != "post" -%}
         {% set tagUrl %}/tags/{{ tag }}/{% endset %}

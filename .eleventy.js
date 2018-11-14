@@ -7,7 +7,11 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 // Custom tags etc.
-const youtubeThumbnail = require('./_11ty/youtubeThumbnail');
+const YoutubeThumbnail = require('./src/_includes/components/YoutubeThumbnail');
+const Text = require('./src/_includes/components/Text');
+const Heading = require('./src/_includes/components/Heading');
+// const Subheading = require('./src/_includes/components/Subheading');
+const Link = require('./src/_includes/components/Link');
 
 // Globals
 const INPUT_DIR = 'src';
@@ -121,7 +125,10 @@ module.exports = function(eleventyConfig) {
 
   //
   // SHORTCODES
-  eleventyConfig.addShortcode('youtubeThumbnail', youtubeThumbnail);
+  eleventyConfig.addShortcode('YoutubeThumbnail', YoutubeThumbnail);
+  eleventyConfig.addPairedShortcode('Text', Text);
+  eleventyConfig.addPairedShortcode('Heading', Heading);
+  eleventyConfig.addPairedShortcode('Link', Link);
 
   return {
     templateFormats: ['md', 'njk', 'html', 'liquid'],

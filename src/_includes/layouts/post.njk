@@ -4,7 +4,9 @@ templateClass: tmpl-post
 ---
 <article class="pt4 pt5-ns pb4 vs4">
   <div class="vs3">
-    <h1 class="mv0 f2 f1-ns fw6 lh-title">{{ title }}</h1>
+    {% Heading level=1 %}
+      {{title}}
+    {% endHeading %}
 
     <time class="db" datetime="{{date}}">
       {{date | readableDate}}
@@ -21,6 +23,10 @@ templateClass: tmpl-post
     {{ content | safe }}
 
     {# Backlink #}
-    <p><a href="{{ '/' | url }}">← Home</a></p>
+    <p>
+      {% Link { href: '/' | url } %}
+        ← Home
+      {% endLink %}
+    </p>
   </div>
 </article>

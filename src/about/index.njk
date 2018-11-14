@@ -8,10 +8,15 @@ templateClass: tmpl-post
 ---
 
 <article class="pt4 pt5-ns pb4 vs4">
-  <h1 class="mv0 f2 f1-ns fw6 lh-title">About Tech Weeklies</h1>
+  {% Heading level=1 %}
+    About Tech Weeklies
+  {% endHeading %}
 
-  <div class="vs3 f5 f4-ns measure-prose nested">
-    <p>Every week, Futurice employees get together to share their latest thoughts about tech.</p>
+  <div class="vs3 measure-prose nested">
+    {% Text %}
+      Every week, Futurice employees get together to share their latest thoughts about tech.
+    {% endText %}
+
     <div class="aspect-ratio aspect-ratio--6x4 bg-moon-gray">
       <img class="aspect-ratio--object fit-cover" src="" alt="" />
     </div>
