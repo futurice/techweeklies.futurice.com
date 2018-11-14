@@ -78,8 +78,16 @@ a[href].tag:visited {
   color: var(--accent);
 }
 
+.fg-accent-2 {
+  color: var(--accent-2);
+}
+
 .hover-fg-accent:hover {
   color: var(--accent);
+}
+
+.hover-fg-accent-2:hover {
+  color: var(--accent-2);
 }
 
 .fill-primary {
@@ -92,6 +100,10 @@ a[href].tag:visited {
 
 .fill-accent {
   fill: var(--accent);
+}
+
+.fill-accent-2 {
+  fill: var(--accent-2);
 }
 
 /* Enhanced outline */
@@ -114,6 +126,10 @@ a[href].tag:visited {
 
 .bg-accent {
   background-color: var(--accent);
+}
+
+.bg-accent-2 {
+  background-color: var(--accent-2);
 }
 
 .fit-cover {
