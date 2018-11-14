@@ -7,7 +7,7 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 // Custom tags etc.
-const youtubeImg = require('./_11ty/youtubeImg');
+const youtubeThumbnail = require('./_11ty/youtubeThumbnail');
 
 // Globals
 const INPUT_DIR = 'src';
@@ -121,7 +121,7 @@ module.exports = function(eleventyConfig) {
 
   //
   // SHORTCODES
-  eleventyConfig.addShortcode('youtubeImg', youtubeImg);
+  eleventyConfig.addShortcode('youtubeThumbnail', youtubeThumbnail);
 
   return {
     templateFormats: ['md', 'njk', 'html', 'liquid'],

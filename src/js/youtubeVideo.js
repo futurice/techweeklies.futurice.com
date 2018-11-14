@@ -69,7 +69,6 @@ export function init() {
 function getOnClickHandler(videoId, playerEl) {
   // TODO: Show loading spinner, and communicate progress to AT
   return function(ev) {
-    console.log('CALLED');
     // Create player and load video
     const player = new YTPlayer(playerEl, {
       width: '100%',

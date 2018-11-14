@@ -28,11 +28,30 @@ const THUMBS = {
   },
 };
 
-// TODO: Support webp with `picture`
-module.exports = function(videoId, alt = '', cls = '', sizes = '100vw') {
-  return `<img alt="${alt}" src="${makeSrc(videoId)}" srcset="${makeSrcset(
+const FORMATS = {
+  jpg: {
+    endpoint: 'vi',
+  },
+  webp: {
+    endpoint: 'vi_webp',
+  },
+};
+
+module.exports = function({
+  videoId,
+  alt = '',
+  className = '',
+  sizes = '100vw',
+}) {
+  return `
+  <picture>
+    <source srcset="${makeSrcset(videoId, 'webp')}" type="image/webp">
+    <source srcset="${makeSrcset(videoId, 'jpg')}" type="image/jpeg">
+
+    <img alt="${alt}" src="${makeSrc(
     videoId
-  )}" sizes="${sizes}" class="${cls}">`;
+  )}" sizes="${sizes}" class="${className}">
+  </picture>`;
 };
 
 function makeSrcset(videoId, format = 'jpg') {
@@ -42,7 +61,7 @@ function makeSrcset(videoId, format = 'jpg') {
 }
 
 function makeSrc(videoId, size = 'medium', format = 'jpg') {
-  return `https://img.youtube.com/vi/${videoId}/${
+  return `https://img.youtube.com/${FORMATS[format].endpoint}/${videoId}/${
     THUMBS[size].suffix
   }.${format}`;
 }
