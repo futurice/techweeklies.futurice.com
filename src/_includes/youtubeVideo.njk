@@ -50,9 +50,14 @@ This achieves a few things:
             </iframe>
         </noscript>
     </div>
-    <div class="lh-copy nested">
-        <a href="https://youtube.com/watch?v={{videoId}}" target="_blank" rel="noopener noreferrer">
+    {% Text %}
+        <a 
+            href="https://youtube.com/watch?v={{videoId}}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="fg-accent focus-outline-accent"
+        >
             You can also watch this video directly on Youtube.
         </a>
-    </div>
+    {% endText %}
 </div>

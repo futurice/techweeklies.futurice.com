@@ -1,4 +1,5 @@
 import YTPlayer from 'yt-player';
+import Link from '../_includes/components/Link';
 
 // Selectors
 const ID_DATA_ATTRIBUTE = 'data-youtube-video-id';
@@ -95,9 +96,10 @@ function errorBox(videoId) {
       <p class="mv0 f4 f3-ns fw6 lh-title">Oh no!</p>
       <p class="mv0 f5 f4-ns lh-copy measure-prose nested">
         There was an error with the player, sorry about that. Try refreshing the page, or
-          <a href="https://youtube.com/watch?v=${videoId}" target="_blank" rel="noopener noreferrer">
-            watch this video directly on Youtube.
-          </a>
+          ${Link('watch this video directly on Youtube.', {
+            href: `https://youtube.com/watch?v=${videoId}`,
+            isExternal: true,
+          })}
       </p>
     </div>
   `;

@@ -10,8 +10,9 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const YoutubeThumbnail = require('./src/_includes/components/YoutubeThumbnail');
 const Text = require('./src/_includes/components/Text');
 const Heading = require('./src/_includes/components/Heading');
-// const Subheading = require('./src/_includes/components/Subheading');
+const Subheading = require('./src/_includes/components/Subheading');
 const Link = require('./src/_includes/components/Link');
+const MarkdownBlock = require('./src/_includes/components/MarkdownBlock');
 
 // Globals
 const INPUT_DIR = 'src';
@@ -128,6 +129,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode('YoutubeThumbnail', YoutubeThumbnail);
   eleventyConfig.addPairedShortcode('Text', Text);
   eleventyConfig.addPairedShortcode('Heading', Heading);
+  eleventyConfig.addPairedShortcode('Subheading', Subheading);
+  eleventyConfig.addPairedShortcode('MarkdownBlock', MarkdownBlock);
   eleventyConfig.addPairedShortcode('Link', Link);
 
   return {

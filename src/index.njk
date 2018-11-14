@@ -11,20 +11,29 @@ tags:
 
 <div class="vs5">
   <div class="vs4">
-    <h2 class="mv0 f2 fw6 lh-title">Latest Talk</h2>
+    {% Heading level=2 %}
+      Latest Talk
+    {% endHeading %}
 
     {% set latest = collections.posts | last %}
     {% include "latestPost.njk" %}
   </div>
 
   <div class="vs4">
-    <h2 class="mv0 f2 fw6 lh-title">Past Talks</h2>
+    {% Heading level=2 %}
+      Past Talks
+    {% endHeading %}
 
-    <div class="vs3 nested measure-prose">
+    <div class="measure-prose">
       {% set postslist = collections.posts | head(-3) %}
       {% include "postslist.njk" %}
-
-      <p class="f5 f4-ns">More talks can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
     </div>
+
+    {% Text %}
+      More talks can be found in 
+      {% Link { href: '/posts/' | url } %}
+        the archive.
+      {% endLink %}
+    {% endText %}
   </div>
 </div>
