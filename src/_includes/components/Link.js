@@ -7,7 +7,7 @@ module.exports = function(
     : '';
 
   return `
-    <a href="${href}" class="fg-accent focus-outline-accent ${className}" ${externalAttrs}>
+    <a href="${href}" class="fg-accent focus-outline-accent focus-tdn ${className}" ${externalAttrs}>
         ${content}
     </a>`;
 };
