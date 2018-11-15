@@ -66,6 +66,14 @@ a[href].tag:visited {
 
 /* Custom styles */
 
+.transition-fg {
+  transition: color 0.15s ease-in;
+}
+
+.transition-bg {
+  transition: background-color 0.15s ease-in;
+}
+
 .fg-primary {
   color: var(--primary);
 }
@@ -137,12 +145,17 @@ a[href].tag:visited {
 }
 
 /* Generated content namespace */
-.nested a,
-.nested a:visited {
+.nested-link a,
+.nested-link a:visited {
   color: var(--accent);
+  transition: color 0.15s ease-in;
 }
 
-.nested a:focus {
+.nested-link a:hover {
+  color: var(--accent-2);
+}
+
+.nested-link a:focus {
   text-decoration: none;
   outline: 0.125em var(--accent) solid;
   outline-offset: 0.125em;

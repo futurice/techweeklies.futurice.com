@@ -23,10 +23,10 @@ templateClass: tmpl-post
     {{ content | safe }}
 
     {# Backlink #}
-    <p>
+    {% Text %}
       {% Link { href: '/' | url } %}
         ← Home
       {% endLink %}
-    </p>
+    {% endText %}
   {% endMarkdownBlock %}
 </article>

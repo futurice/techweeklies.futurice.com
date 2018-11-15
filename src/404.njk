@@ -5,11 +5,13 @@ excludeFromSitemap: true
 ---
 
 <article class="pt4 pt5-ns pb4 vs4">
-  <h1 class="mv0 f2 f1-ns fw6 lh-title">Content not found.</h1>
+  {% Heading level=1 %}
+    Content not found.
+  {% endHeading %}
 
-  <div class="f4 nested-copy-line-height nested-headline-line-height nested-copy-separator nested-img nested measure-prose">
-    <p>We couldn't find the page you are looking for. Sorry about that...</p>
-  </div>
+  {% Text %}
+    We couldn't find the page you are looking for. Sorry about that...
+  {% endText %}
 </article>
 
 {# This will work for both GitHub pages and Netlify:
