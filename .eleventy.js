@@ -31,7 +31,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
 
   //
-  // FILTERS
+  // ILTERS
   eleventyConfig.addFilter('readableDate', dateObj => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
       'dd LLLL yyyy'
@@ -84,6 +84,10 @@ module.exports = function(eleventyConfig) {
     }
 
     return hashedFilename;
+  });
+
+  eleventyConfig.addFilter('youtubeVideoUrl', videoId => {
+    return `https://youtube.com/watch?v=${videoId}`;
   });
 
   //

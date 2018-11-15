@@ -42,7 +42,7 @@ This achieves a few things:
         <noscript>
             <iframe
                 class="aspect-ratio--object fit-cover"
-                src="https://www.youtube.com/embed/{{videoId}}"
+                src="{{videoId | youtubeVideoUrl}}"
                 title="Youtube Player"
                 id="ytplayer"
                 type="text/html"
@@ -51,13 +51,11 @@ This achieves a few things:
         </noscript>
     </div>
     {% Text %}
-        <a 
-            href="https://youtube.com/watch?v={{videoId}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="fg-accent focus-outline-accent"
-        >
+        {% Link
+            href=videoId | youtubeVideoUrl,
+            isExternal=true
+        %}
             You can also watch this video directly on Youtube.
-        </a>
+        {% endLink %}
     {% endText %}
 </div>
