@@ -5,7 +5,7 @@
   "scripts": {
     "build": "NODE_ENV=production npm-run-all -s clean build:css build:js build:join-manifests build:site build:postprocess build:inject-sw-manifest",
     "build:js": "rollup --config rollup.config.js",
-    "build:site": "eleventy",
+    "build:site": "ELEVENTY_ENV=production eleventy",
     "build:css": "postcss src/css/*.css --dir _site/css/",
     "build:postprocess": "NODE_DIR=. node postprocessing/process.js",
     "build:join-manifests": "node postprocessing/join-manifests.js",
@@ -13,7 +13,7 @@
     "clean": "rimraf _site/",
     "dev": "NODE_ENV=development npm-run-all -p dev:site dev:css dev:js",
     "dev:js": "rollup --config rollup.config.js --watch",
-    "dev:site": "eleventy --watch --serve",
+    "dev:site": "ELEVENTY_ENV=development eleventy --watch --serve",
     "dev:css": "postcss src/css/*.css --dir _site/css/ --watch",
     "prod": "npm-run-all -s build serve",
     "serve": "serve _site --listen 8000",

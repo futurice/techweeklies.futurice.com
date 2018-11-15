@@ -55,15 +55,17 @@
 
     <footer class="mt5 flex flex-row flex-wrap justify-between">
       <a href="https://www.futurice.com/" class="w4 flex items-center white focus-outline-accent" target="_blank" rel="noopener noreferrer">
-        {%include "svg/futurice_logo.svg" %}
+        {% include "svg/futurice_logo.svg" %}
       </a>
-      {%include "animateMeButton.njk" %}
+      {% include "animateMeButton.njk" %}
     </footer>
 
     <script src="{{ '/js/index.js' | resolveHash | url}}" defer></script>
-    <script>
-      {# TODO: Only inject in production #}
-      {%include "sw-inline.js" %}
-    </script>
+    {# Inline Service Worker registration in production #}
+    {% if env.environment == "production" %}
+      <script>
+        {% include "sw-inline.js" %}
+      </script>
+    {% endif %}
   </body>
 </html>
