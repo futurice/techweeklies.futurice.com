@@ -18,6 +18,14 @@ pnpm install
 
 (At the moment, we use [pnpm](https://pnpm.js.org/))
 
+### Adding a Presentation
+
+We have a helper script to run you through it!
+
+```
+npm run make-post
+```
+
 ### Development
 
 The development pipeline sets up watchers for relevant files, and starts the build with eleventy.

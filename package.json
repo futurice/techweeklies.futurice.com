@@ -17,7 +17,8 @@
     "dev:css": "postcss src/css/*.css --dir _site/css/ --watch",
     "prod": "npm-run-all -s build serve",
     "serve": "serve _site --listen 8000",
-    "debug": "DEBUG=* npx eleventy"
+    "debug": "DEBUG=* npx eleventy",
+    "make-post": "node scripts/make-post"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,10 @@
     "@11ty/eleventy-plugin-rss": "^1.0.3",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.0",
     "autoprefixer": "^9.3.1",
+    "chalk": "^2.4.1",
     "cssnano": "^4.1.7",
+    "inquirer": "^6.2.0",
+    "inquirer-datepicker-prompt": "^0.4.2",
     "luxon": "^1.0.0",
     "markdown-it": "^8.4.1",
     "markdown-it-anchor": "^5.0.2",
