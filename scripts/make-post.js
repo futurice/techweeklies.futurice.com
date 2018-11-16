@@ -48,7 +48,7 @@ async function main() {
             return res.data;
           }
           return true;
-        }
+        },
       },
     ]);
 
@@ -115,7 +115,7 @@ async function main() {
   const finalDate = new Date(datetime).toISOString();
 
   const postContent = `---
-title: ${title}
+title: "${title}"
 date: ${finalDate}
 tags:
   - post
