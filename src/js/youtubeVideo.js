@@ -79,7 +79,7 @@ function getOnClickHandler({ videoId, clipTimeSeconds }, playerEl) {
       height: '100%',
     });
 
-    // Hanlde errors more gracefully
+    // Handle errors more gracefully
     player.on('error', err => {
       // On error, remove "playable" affordance, and show help text
       playerEl.classList.remove(PLAYER_ACTIVE_CLS, 'youtube-video');
@@ -90,6 +90,7 @@ function getOnClickHandler({ videoId, clipTimeSeconds }, playerEl) {
 
     // TODO: Fork library to support (videoId, timeSeconds, autoplay) syntax
     player.load(videoId);
+    player.play();
   };
 }
 
