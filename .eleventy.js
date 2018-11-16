@@ -86,8 +86,10 @@ module.exports = function(eleventyConfig) {
     return hashedFilename;
   });
 
-  eleventyConfig.addFilter('youtubeVideoUrl', videoId => {
-    return `https://youtube.com/watch?v=${videoId}`;
+  eleventyConfig.addFilter('youtubeVideoUrl', (videoId, clipTimeSeconds) => {
+    return `https://youtube.com/watch?v=${videoId}${
+      clipTimeSeconds ? `&t=${clipTimeSeconds}` : ''
+    }`;
   });
 
   //

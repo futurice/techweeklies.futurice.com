@@ -16,11 +16,12 @@ This achieves a few things:
         {# Load the image as a preview. Use srcset to progressively enhance to webp.
            TODO: Add sizes
         #}
-        {% YoutubeThumbnail {videoId: videoId, alt: "", className: "aspect-ratio--object fit-cover"} %}
+        {% YoutubeThumbnail videoId=videoId, alt="", className="aspect-ratio--object fit-cover" %}
 
         {# Add a "play" icon, as an affordance. Will be hidden on interaction. #}
         <div 
             data-youtube-video-id="{{videoId}}"
+            data-youtube-video-clip-time="{{clipTimeSeconds}}"
             class="youtube-video youtube-video--inactive aspect-ratio--object flex justify-center items-center"
         >
             <button 
@@ -42,7 +43,7 @@ This achieves a few things:
         <noscript>
             <iframe
                 class="aspect-ratio--object fit-cover"
-                src="{{videoId | youtubeVideoUrl}}"
+                src="{{videoId | youtubeVideoUrl(clipTimeSeconds)}}"
                 title="Youtube Player"
                 id="ytplayer"
                 type="text/html"
