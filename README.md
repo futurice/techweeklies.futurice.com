@@ -26,6 +26,8 @@ We have a helper script to run you through it!
 npm run make-post
 ```
 
+[![asciicast](https://asciinema.org/a/VqUgHSpxiKnbBSx4yckkvsMvi.svg)](https://asciinema.org/a/VqUgHSpxiKnbBSx4yckkvsMvi?autoplay=1&size=medium)
+
 ### Development
 
 The development pipeline sets up watchers for relevant files, and starts the build with eleventy.

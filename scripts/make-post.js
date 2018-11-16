@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { URL } = require('url');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const datepicker = require('inquirer-datepicker-prompt');
@@ -34,18 +35,25 @@ async function main() {
   ]);
 
   if (videoType === 'Partial' || videoType === 'Full') {
-    const { videoId } = await inquirer.prompt([
+    const { videoUrl } = await inquirer.prompt([
       {
         type: 'input',
-        message: `What is the videoId?\n${chalk.gray(
-          '(The value of ?v, e.g. https://www.youtube.com/watch?v={{s9IfY7BBh6k}})'
+        message: `What is the video URL?\n${chalk.gray(
+          '(e.g. https://www.youtube.com/watch?v={{s9IfY7BBh6k}})'
         )}\nYou can look them up on our Youtube channel: https://www.youtube.com/channel/UCYsID6sp60d9tgMCvnDu7Jg/videos\n>`,
-        name: 'videoId',
-        validate: input =>
-          !!input ||
-          'videoId is required. If there is no video, select "No/Not Yet" instead.',
+        name: 'videoUrl',
+        validate: input => {
+          const res = getVideoIdFromUrl(input);
+          if (!res.ok) {
+            return res.data;
+          }
+          return true;
+        }
       },
     ]);
+
+    // we know videoId is ok here
+    const videoId = getVideoIdFromUrl(videoUrl).data;
 
     if (videoType === 'Partial') {
       const { clipTime } = await inquirer.prompt([
@@ -158,7 +166,24 @@ function clipTimeToSeconds(time) {
     .reverse()
     .map(i => parseInt(i))
     .map((val, i) => val * toSeconds[i])
-    .reduce((acc, curr) => acc + curr, 0)
+    .reduce((acc, curr) => acc + curr, 0);
 
   return seconds;
+}
+
+/**
+ * Pluck the videoId from a Youtube URL
+ */
+function getVideoIdFromUrl(urlStr) {
+  try {
+    const videoId = new URL(urlStr).searchParams.get('v');
+
+    if (!videoId) {
+      return { ok: false, data: 'Could not find the ?v search parameter.' };
+    }
+
+    return { ok: true, data: videoId };
+  } catch (err) {
+    return { ok: false, data: 'Invalid URL' };
+  }
 }
