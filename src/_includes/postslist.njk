@@ -1,9 +1,9 @@
-<ol reversed class="pa0 list postlist" style="counter-reset: start-from {{ postslist.length + 1 }}">
+<ol reversed class="pa0 vs3 list postlist" style="counter-reset: start-from {{ postslist.length + 1 }}">
 {% for post in postslist | reverse %}
   <li class="flex items-baseline postlist-item{% if post.url == url %} fw7 postlist-item-active{% endif %}">
-    <span class="ml2 db">
+    <span class="ml2 lh-title">
       {# Title link #}
-      {% Link { href: post.url | url, className: "db mb2 f4 fw7" } %}
+      {% Link href=post.url | url, className="db mb1 mr1 f4 fw7" %}
         {% if post.data.title %}
           {{ post.data.title }}
         {% else %}
