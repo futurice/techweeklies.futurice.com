@@ -9,9 +9,9 @@
 >
     <style>
         .st0 {
-            stroke: #7cfbd1;
-            stroke-width: 1px; 
-            fill: none;
+            stroke: #7cfbd1 !important;
+            stroke-width: 1px !important; 
+            fill: none !important;
         }
     </style>
     <defs>  
