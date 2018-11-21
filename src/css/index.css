@@ -8,14 +8,14 @@
 :root {
   --primary: #eaeaea;
   --secondary: #1a1a1a;
-  --accent: #7cfbd1;
+  --accent: #10a985;
   --accent-2: #ffa3d7;
 }
 
 .theme-dark {
   --primary: #eaeaea;
   --secondary: #1a1a1a;
-  --accent: #7cfbd1;
+  --accent: #10a985;
   --accent-2: #ffa3d7;
 }
 
