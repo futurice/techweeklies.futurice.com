@@ -2,7 +2,7 @@
 
 A new version of the Tech Weeklies website.
 
-https://techweekliesdemo.netlify.com
+https://techweeklies.futurice.com
 
 Built with the [Eleventy](https://github.com/11ty/eleventy) static site generator, and a good sprinkling of Javascript.
 
@@ -11,8 +11,8 @@ Built with the [Eleventy](https://github.com/11ty/eleventy) static site generato
 ### Setup
 
 ```
-git clone https://github.com/futurice/techweekliesdemo.git
-cd techweekliesdemo
+git clone https://github.com/futurice/techweeklies.futurice.com.git
+cd techweeklies.futurice.com
 pnpm install
 ```
 

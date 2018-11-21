@@ -4,7 +4,7 @@
   "name": "Tech Weeklies by Futurice",
   "scope": "/",
   "display": "browser",
-  "start_url": "https://techweekliesdemo.netlify.com/",
+  "start_url": "https://techweeklies.futurice.com/",
   "short_name": "Weeklies",
   "theme_color": "#212121",
   "description": "Every week, Futurice employees get together to share their latest thoughts about tech.",
