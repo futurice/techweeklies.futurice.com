@@ -9,6 +9,7 @@
   --primary: #eaeaea;
   --secondary: #1a1a1a;
   --accent: #10a985;
+  --accent-lighter: #15e1b2;
   --accent-2: #ffa3d7;
 }
 
@@ -16,6 +17,7 @@
   --primary: #eaeaea;
   --secondary: #1a1a1a;
   --accent: #10a985;
+  --accent-lighter: #15e1b2;
   --accent-2: #ffa3d7;
 }
 
@@ -86,11 +88,19 @@ a[href].tag:visited {
   color: var(--accent);
 }
 
+.fg-accent-lighter {
+  color: var(--accent-lighter);
+}
+
 .fg-accent-2 {
   color: var(--accent-2);
 }
 
 .hover-fg-accent:hover {
+  color: var(--accent);
+}
+
+.hover-fg-accent-lighter:hover {
   color: var(--accent);
 }
 
@@ -115,8 +125,8 @@ a[href].tag:visited {
 }
 
 /* Enhanced outline */
-.focus-outline-accent:focus {
-  outline: 0.125em var(--accent) solid;
+.focus-outline-accent-lighter:focus {
+  outline: 0.125em var(--accent-lighter) solid;
   outline-offset: 0.125em;
 }
 
@@ -136,6 +146,10 @@ a[href].tag:visited {
   background-color: var(--accent);
 }
 
+.bg-accent-lighter {
+  background-color: var(--accent-lighter);
+}
+
 .bg-accent-2 {
   background-color: var(--accent-2);
 }
@@ -147,7 +161,7 @@ a[href].tag:visited {
 /* Generated content namespace */
 .nested-link a,
 .nested-link a:visited {
-  color: var(--accent);
+  color: var(--accent-lighter);
   transition: color 0.15s ease-in;
 }
 
@@ -157,7 +171,7 @@ a[href].tag:visited {
 
 .nested-link a:focus {
   text-decoration: none;
-  outline: 0.125em var(--accent) solid;
+  outline: 0.125em var(--accent-lighter) solid;
   outline-offset: 0.125em;
 }
 

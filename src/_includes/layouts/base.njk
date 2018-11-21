@@ -30,7 +30,7 @@
     <header>
       {% include "SkipLink.njk" %}
       <nav class="flex flex-row justify-between items-center flex-wrap">
-        <a class="db fg-accent fw7 link focus-outline-accent animation-cycle animate-me" href="{{ '/' | url }}">{{ metadata.title }}</a>
+        <a class="db fg-accent-lighter fw7 link focus-outline-accent-lighter animation-cycle animate-me" href="{{ '/' | url }}">{{ metadata.title }}</a>
         <ul class="ma0 pa0 flex list">
           {%- for nav in collections.nav | reverse -%}
             {# Do not add home to the navigation #}
@@ -38,7 +38,7 @@
             <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}">
               <a
                 {% if nav.url == page.url %}aria-current="page"{% endif %}
-                class="fg-primary hover-fg-accent focus-outline-accent link"
+                class="fg-primary hover-fg-accent-lighter focus-outline-accent-lighter link"
                 href="{{ nav.url | url }}">
                   {{ nav.data.navtitle }}
               </a>

@@ -1,7 +1,7 @@
 // Visual button states
 const BUTTON_INACTIVE_CLS = 'o-50';
-const BUTTON_ACTIVE_UNPRESSED_CLS = 'bg-accent';
-const BUTTON_ACTIVE_PRESSED_CLS = 'bg-light-pink';
+const BUTTON_ACTIVE_UNPRESSED_CLS = 'bg-accent-lighter';
+const BUTTON_ACTIVE_PRESSED_CLS = 'bg-accent-2';
 
 /**
  * Button pseudo-component that will attach an onClick to a button,
