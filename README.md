@@ -10,13 +10,13 @@ Built with the [Eleventy](https://github.com/11ty/eleventy) static site generato
 
 ### Setup
 
+You'll need to have [node](https://nodejs.org/) and [npm](https://www.npmjs.com/get-npm) installed.
+
 ```
 git clone https://github.com/futurice/techweeklies.futurice.com.git
 cd techweeklies.futurice.com
-pnpm install
+npm install
 ```
-
-(At the moment, we use [pnpm](https://pnpm.js.org/))
 
 ### Adding a Presentation
 
