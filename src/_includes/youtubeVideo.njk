@@ -53,7 +53,7 @@ This achieves a few things:
     </div>
     {% Text %}
         {% Link
-            href=videoId | youtubeVideoUrl,
+            href=videoId | youtubeVideoUrl(clipTimeSeconds),
             isExternal=true
         %}
             You can also watch this video directly on Youtube.
