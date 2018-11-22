@@ -1,6 +1,6 @@
 ---
 title: "Lessons About Hard Estimations"
-date: 2018-11-02T13:30:58.670Z
+date: 2018-11-02T13:00:58.670Z
 tags:
   - post
 layout: layouts/post.njk
