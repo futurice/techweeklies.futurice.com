@@ -67,7 +67,7 @@
     "workbox-build": "^3.6.3"
   },
   "dependencies": {
-    "@fpapado/yt-player": "^0.9.0",
+    "@fpapado/yt-player": "^0.10.0",
     "perfume.js": "^2.0.0",
     "tachyons": "^4.11.1"
   }
