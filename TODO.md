@@ -5,6 +5,8 @@
   - Only use required Tachyons modules
   - Add fallback for browsers without CSS custom properties
 
+- Handle Youtube thumbnailerorrs
+
 - Document build pipeline:
 
   - Assets: JS, Rollup
