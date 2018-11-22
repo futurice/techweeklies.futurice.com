@@ -1,0 +1,20 @@
+---
+layout: layouts/home.njk
+permalink: 404.html
+excludeFromSitemap: true
+---
+
+<article class="pt4 pt5-ns pb4 vs4">
+  {% Heading level=1 %}
+    Content not found.
+  {% endHeading %}
+
+  {% Text %}
+    We couldn't find the page you are looking for. Sorry about that...
+  {% endText %}
+</article>
+
+{# This will work for both GitHub pages and Netlify:
+
+* https://help.github.com/articles/creating-a-custom-404-page-for-your-github-pages-site/
+* https://www.netlify.com/docs/redirects/#custom-404 #}

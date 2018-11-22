@@ -1,0 +1,222 @@
+---
+layout: layouts/home.njk
+title: Styleguide
+permalink: /styleguide/
+---
+
+<article class="pt4 pt5-ns pb4 vs5">
+  {% Heading level=1 %}
+    {{ title }}
+  {% endHeading %}
+
+  <section class="pb4 vs4 bb bw1 b--light-gray">
+    {% Subheading level=2 %}
+        Colours
+    {% endSubheading %}
+
+    <div class="flex flex-row flex-wrap f4 fw6">
+        <div class="ma3 flex-auto flex w4 h4 items-center justify-center bg-primary">
+            <div class="fg-secondary">Primary</div>
+        </div>
+        <div class="ba ma3 flex-auto flex w4 h4 items-center justify-center bg-secondary">
+            <div class="fg-primary">Secondary</div>
+        </div>
+        <div class="ma3 flex-auto flex w4 h4 items-center justify-center bg-accent">
+            <div class="fg-secondary">Accent 1</div>
+        </div>
+        <div class="ma3 flex-auto flex w4 h4 items-center justify-center bg-accent-2">
+            <div class="fg-secondary">Accent 2</div>
+        </div>
+    </div>
+
+    <div class="vs3 pl3 bl bw1 b--light-yellow">
+        {% Text %}
+            The pairs shown are also the recommendations for
+            accessible combinations.
+        {% endText %}
+        {% Text %}
+            The colors in the source are structured to allow for
+            changing themes in the future. At the moment, only
+            the dark theme is used.
+        {% endText %}
+    </div>
+  </section>
+
+  <section class="pb4 vs4 bb bw1 b--light-gray">
+    {% Subheading level=2 %}
+        Headings
+    {% endSubheading %}
+
+    {% Heading level=2 %}
+        Heading
+    {% endHeading %}
+
+    {% Subheading level=2 %}
+        Subheading
+    {% endSubheading %}
+
+    <div class="pl3 bl bw1 b--light-yellow">
+        {% Text %}
+            Headings come in two sizes, that scale
+            according to fixed media queries. Note
+            that the sizes do not signify the markup!
+            You can set the `level` prop separately, to
+            account for that.
+        {% endText %}
+    </div>
+  </section>
+
+  <section class="pb4 vs4 bb bw1 b--light-gray">
+    {% Subheading level=2 %}
+        Text
+    {% endSubheading %}
+
+    <div class="vs3">
+        {% Text %}
+            This is a single paragraph of running text.
+            It has no margins by itself. This is to avoid
+            leaking out any extra spacing. 
+        {% endText %}
+        {% Text %}
+            This is more text, in another paragraph, spaced
+            from the wrapper.
+        {% endText %}
+    </div>
+
+    <div class="pl3 bl bw1 b--light-yellow">
+        {% Text %}
+            Text can be composed by adding a "spacer", `vs0-6`,
+            class on the wrapping element. In Markdown text,
+            the inter-paragraph spacing is handled already,
+            so you don't need to worry about that.
+        {% endText %}
+    </div>
+  </section>
+
+  <section class="pb4 vs4 bb bw1 b--light-gray">
+    {% Subheading level=2 %}
+        Link
+    {% endSubheading %}
+
+    <div>
+        {% Link href='/styleguide' %}
+            This is an internal link
+        {% endLink %}
+    </div>
+
+    <div>
+        {% Link href='https://youtube.com/', isExternal=true %} 
+            This is an external link
+        {% endLink %}
+    </div>
+
+    <div class="pl3 bl bw1 b--light-yellow">
+        {% Text %}
+            Links handle hover and focus styles, as well as
+            security parameters (rel="noopener noreferrer")
+            for external links. You can change their size by 
+            using the font-size `f1-6` atomic classes. They
+            will also happily inherit the font-size from parents.
+        {% endText %}
+    </div>
+  </section>
+
+  <section class="pb4 vs4 bb bw1 b--light-gray">
+    {% Subheading level=2 %}
+        Vertical Spacing
+    {% endSubheading %}
+
+    <div class="vs3">
+        <div class="vs2">
+            <div class="vs1">
+                <div class="w2 h2 bg-accent"></div>
+                <div class="w2 h2 bg-accent"></div>
+            </div>
+            <div class="vs1">
+                <div class="w2 h2 bg-accent"></div>
+                <div class="w2 h2 bg-accent"></div>
+            </div>
+        </div>
+        <div class="vs2">
+            <div class="vs1">
+                <div class="w2 h2 bg-accent"></div>
+                <div class="w2 h2 bg-accent"></div>
+            </div>
+            <div class="vs1">
+                <div class="w2 h2 bg-accent"></div>
+                <div class="w2 h2 bg-accent"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vs3 pl3 bl bw1 b--light-yellow">
+        {% Text %}
+            Vertical spacing can be achieved with the `vs0-6`
+            classes. They set spacing such that only elements
+            with previous siblings set margins between them.
+            This avoids leaking space outside, and keeps things
+            consistent on the spacing scale.
+        {% endText %}
+        {% Text %}
+            Vertical spacing is nice when marking out sections
+            on a page. This page uses them as well!
+        {% endText %}
+    </div>
+  </section>
+
+  <section class="pb4 vs4 bb bw1 b--light-gray">
+    {% Subheading level=2 %}
+        MarkdownBlock
+    {% endSubheading %}
+
+    {% MarkdownBlock %}
+        <h1>Markdown Block H1</h1>
+        <h2>Markdown Block H2</h2>
+        <h3>Markdown Block H3</h3>
+        <p>
+            This is text that has its spacing set according to the container.
+            Text in MarkdownBlock also has a set "measure", a width of ~70 characters.
+        </p>
+
+    {% endMarkdownBlock %}
+
+    <div class="pl3 bl bw1 b--light-yellow">
+        {% Text %}
+            Most of the content on this site is hardcoded.
+            However, the content of posts is technically freeform
+            and in Markdown. In these kinds of "editorial"
+            content, the important thing is to anticipate
+            how the resulting markup and content might break, and
+            plan for resilience.
+        {% endText %}
+    </div>
+  </section>
+
+  <section class="pb4 vs4 bb bw1 b--light-gray">
+    {% Subheading level=2 %}
+        Aspect Ratio
+    {% endSubheading %}
+
+    {% Text %}
+        It is often beneficial to preserve a known
+        aspect ratio for replaced / intrinsically sized
+        objects. This reduces layout shifting, which
+        can make layout slow and distract the user.
+    {% endText %}
+
+    <div class="aspect-ratio aspect-ratio--6x4 bg-moon-gray">
+      <img class="aspect-ratio--object fit-cover" src="" alt="" />
+    </div>
+
+    <div class="pl3 bl bw1 b--light-yellow">
+        {% Text %}
+            This is more of a "pattern" and less of a component.
+            This is because the content of the aspect-ratio can
+            be anything, and there would be a good amount of
+            indidrection to make that generic. Making special-case
+            components for every content also does not seem worthwhile
+            atm, but it might change in the future!
+        {% endText %}
+    </div>
+  </section>
+</article>

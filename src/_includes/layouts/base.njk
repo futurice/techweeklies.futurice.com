@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ renderData.title or title }} | Tech Weeklies</title>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="/img/favicon-128x128.png" sizes="128x128">
+    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+
+    <meta name="description" content="{{ renderData.description or description or metadata.description }}">
+    <meta name="theme-color" content="#212121">
+
+    {# Preload variable font. Browsers with preload also support variable fonts, so this is a good balance.
+      Fonts are loaded with crossorigin anonymous because of browser behaviour.
+    #}
+    <link rel="preload" href="{{ '/fonts/phantom-sans-v4-variable.woff2' | url}}" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="{{ '/css/index.css' | resolveHash | url }}">
+
+    {# Adds an event listener to capture uncaught errors. #}
+    <script>addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+
+    {# Load the Google Analytics script #}
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+  </head>
+  <body class="pa3 flex flex-column min-vh-100 mw7 center theme-dark fg-primary bg-secondary f-phantomsans">
+    <header>
+      {% include "SkipLink.njk" %}
+      <nav class="flex flex-row justify-between items-center flex-wrap">
+        <a class="db fg-accent-lighter fw7 link focus-outline-accent-lighter animation-cycle animate-me" href="{{ '/' | url }}">{{ metadata.title }}</a>
+        <ul class="ma0 pa0 flex list">
+          {%- for nav in collections.nav | reverse -%}
+            {# Do not add home to the navigation #}
+            {% if nav.url !== '/' %}
+            <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}">
+              <a
+                {% if nav.url == page.url %}aria-current="page"{% endif %}
+                class="fg-primary hover-fg-accent-lighter focus-outline-accent-lighter link"
+                href="{{ nav.url | url }}">
+                  {{ nav.data.navtitle }}
+              </a>
+            </li>
+            {% endif %}
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="flex flex-column flex-grow-1 {% if templateClass %}{{ templateClass }}{% endif %}">
+      {{ content | safe }}
+    </main>
+
+    <footer class="mt5 flex flex-row flex-wrap justify-between">
+      <a href="https://www.futurice.com/" class="w4 flex items-center white focus-outline-accent" target="_blank" rel="noopener noreferrer">
+        {% include "svg/futurice_logo.svg" %}
+      </a>
+      {% include "animateMeButton.njk" %}
+    </footer>
+
+    <script src="{{ '/js/index.js' | resolveHash | url}}" defer></script>
+    {# Inline Service Worker registration in production #}
+    {% if env.environment == "production" %}
+      <script>
+        {% include "sw-inline.js" %}
+      </script>
+    {% endif %}
+  </body>
+</html>

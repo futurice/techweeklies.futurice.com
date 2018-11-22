@@ -1,0 +1,32 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+layout: layouts/home.njk
+renderData:
+  title: Tagged “{{ tag }}”
+permalink: /tags/{{ tag }}/
+---
+<article class="pt4 pt5-ns pb4 vs4">
+  {% Heading level=1 %}
+    Tagged "{{ tag }}"
+  {% endHeading %}
+
+  <div class="">
+    {% set postslist = collections[ tag ] %}
+    {% include "postslist.njk" %}
+
+    {% Text %}
+      See
+      {% Link href="/tags/"|url %}
+        all tags.
+      {% endLink %}
+    {% endText %}
+  </div>
+</article>

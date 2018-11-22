@@ -1,0 +1,307 @@
+@import './button-reset';
+@import 'tachyons';
+@import './animation';
+@import './youtube-video.css';
+
+/* Themes */
+
+:root {
+  --primary: #eaeaea;
+  --secondary: #1a1a1a;
+  --accent: #10a985;
+  --accent-lighter: #15e1b2;
+  --accent-2: #ffa3d7;
+}
+
+.theme-dark {
+  --primary: #eaeaea;
+  --secondary: #1a1a1a;
+  --accent: #10a985;
+  --accent-lighter: #15e1b2;
+  --accent-2: #ffa3d7;
+}
+
+/* Nav */
+.nav-item-active {
+  font-weight: 700;
+  font-variation-settings: 'wght' 700;
+  text-decoration: underline;
+}
+
+/* Posts list */
+.postlist-item {
+  counter-increment: start-from -1;
+}
+.postlist-item:before {
+  display: inline-block;
+  pointer-events: none;
+  content: '' counter(start-from, decimal-leading-zero) '. ';
+  line-height: 100%;
+  text-align: right;
+}
+.postlist-date,
+.postlist-item:before {
+  font-size: 0.875rem;
+  color: var(--darkgray);
+}
+.postlist-date {
+  word-spacing: -0.5px;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  vertical-align: text-top;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 2px 4px;
+  margin-left: 0.8em; /* 8px /10 */
+  background-color: var(--accent-2);
+  color: var(--secondary);
+  border-radius: 0.25em; /* 3px /12 */
+  text-decoration: none;
+}
+a[href].tag,
+a[href].tag:visited {
+  color: var(--secondary);
+}
+
+/* Custom styles */
+
+.transition-fg {
+  transition: color 0.15s ease-in;
+}
+
+.transition-bg {
+  transition: background-color 0.15s ease-in;
+}
+
+.fg-primary {
+  color: var(--primary);
+}
+
+.fg-secondary {
+  color: var(--secondary);
+}
+
+.fg-accent {
+  color: var(--accent);
+}
+
+.fg-accent-lighter {
+  color: var(--accent-lighter);
+}
+
+.fg-accent-2 {
+  color: var(--accent-2);
+}
+
+.hover-fg-accent:hover {
+  color: var(--accent);
+}
+
+.hover-fg-accent-lighter:hover {
+  color: var(--accent);
+}
+
+.hover-fg-accent-2:hover {
+  color: var(--accent-2);
+}
+
+.fill-primary {
+  fill: var(--primary);
+}
+
+.fill-secondary {
+  fill: var(--secondary);
+}
+
+.fill-accent {
+  fill: var(--accent);
+}
+
+.fill-accent-2 {
+  fill: var(--accent-2);
+}
+
+/* Enhanced outline */
+.focus-outline-accent-lighter:focus {
+  outline: 0.125em var(--accent-lighter) solid;
+  outline-offset: 0.125em;
+}
+
+.focus-tdn:focus {
+  text-decoration: none;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-accent-lighter {
+  background-color: var(--accent-lighter);
+}
+
+.bg-accent-2 {
+  background-color: var(--accent-2);
+}
+
+.fit-cover {
+  object-fit: cover;
+}
+
+/* Generated content namespace */
+.nested-link a,
+.nested-link a:visited {
+  color: var(--accent-lighter);
+  transition: color 0.15s ease-in;
+}
+
+.nested-link a:hover {
+  color: var(--accent-2);
+}
+
+.nested-link a:focus {
+  text-decoration: none;
+  outline: 0.125em var(--accent-lighter) solid;
+  outline-offset: 0.125em;
+}
+
+/* Font stuff */
+/* Progressively enhance fwX classes to be variable.
+ * NOTE: Phantom Sans v4 goes from Regular - Bold,
+ * so the scale 0 - 1000 is skewed along that range.
+*/
+@supports (font-variation-settings: normal) {
+  .normal {
+    font-variation-settings: 'wght' 1;
+  }
+  .b {
+    font-variation-settings: 'wght' 700;
+  }
+  .fw1 {
+    font-variation-settings: 'wght' 1;
+  }
+  .fw2 {
+    font-variation-settings: 'wght' 1;
+  }
+  .fw3 {
+    font-variation-settings: 'wght' 1;
+  }
+  .fw4 {
+    font-variation-settings: 'wght' 1;
+  }
+  .fw5 {
+    font-variation-settings: 'wght' 400;
+  }
+  .fw6 {
+    font-variation-settings: 'wght' 700;
+  }
+  .fw7 {
+    font-variation-settings: 'wght' 999;
+  }
+  .fw8 {
+    font-variation-settings: 'wght' 999;
+  }
+  .fw9 {
+    font-variation-settings: 'wght' 999;
+  }
+}
+
+/* PhantomSans */
+/* Variable and fallbacks.
+ * @see https://medium.com/clear-left-thinking/how-to-use-variable-fonts-in-the-real-world-e6d73065a604
+*/
+
+/* PhantomSansVariable
+ * Variable needs only woff2, since their support overlaps.
+*/
+@font-face {
+  font-family: 'PhantomSansVariable';
+  font-display: swap;
+  src: url(/fonts/phantom-sans-v4-variable.woff2) format('woff2');
+  font-weight: 1 999;
+}
+
+/* PhantomSans-regular */
+@font-face {
+  font-family: 'PhantomSans';
+  /* TODO: reconsider font-display for these */
+  font-display: swap;
+  src: url(/fonts/phantom-sans-v4-regular.woff2) format('woff2'),
+    url(/fonts/phantom-sans-v4-regular.woff) format('woff');
+  font-weight: 400;
+}
+
+/* PhantomSans-bold */
+@font-face {
+  font-family: 'PhantomSans';
+  font-display: swap;
+  src: url(/fonts/phantom-sans-v4-bold.woff2) format('woff2'),
+    url(/fonts/phantom-sans-v4-bold.woff) format('woff');
+  font-weight: 700;
+}
+
+/* Use @supports to pick the correct fonts */
+.f-phantomsans {
+  font-family: 'PhantomSans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+@supports (font-variation-settings: normal) {
+  .f-phantomsans {
+    font-family: 'PhantomSansVariable', Arial, Helvetica, sans-serif;
+    /* Normalise font-weight if not specified */
+    font-variation-settings: 'wght' 1;
+  }
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.skip-link:focus {
+  width: auto;
+  height: auto;
+  z-index: 111;
+  clip: auto;
+}
+
+/* Prose */
+.measure-prose {
+  max-width: 70ch;
+}
+
+/* Vertical spacing */
+.vs0 > * + * {
+  margin-top: 0;
+}
+.vs1 > * + * {
+  margin-top: 0.25rem;
+}
+.vs2 > * + * {
+  margin-top: 0.5rem;
+}
+.vs3 > * + * {
+  margin-top: 1rem;
+}
+.vs4 > * + * {
+  margin-top: 2rem;
+}
+.vs5 > * + * {
+  margin-top: 4rem;
+}

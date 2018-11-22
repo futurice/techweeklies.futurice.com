@@ -1,0 +1,22 @@
+<article class="vs3">
+  <div class="vs2">
+    {# TODO: Subheading #}
+    <h2 class="mv0 f3 f2-ns fw6 lh-title">{{ latest.data.title }}</h2>
+
+    <time class="db" datetime="{{latest.data.date}}">
+      {{latest.data.date | readableDate}}
+    </time>
+  </div>
+
+  {# Video #}
+  {% if latest.data.videoId %}
+      {# TODO: make videoId a parameter of youtubeVideo #}
+      {% set videoId = latest.data.videoId %}
+      {% include "youtubeVideo.njk" %}
+  {% endif %}
+
+  {# Contents #}
+  {% MarkdownBlock %}
+    {{ latest.templateContent | safe }}
+  {% endMarkdownBlock %}
+</article>

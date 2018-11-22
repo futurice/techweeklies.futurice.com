@@ -1,0 +1,100 @@
+/* Animations */
+
+/* Cycle colours in a gradient. */
+@keyframes cycle-color {
+  0% {
+    color: #7cfbd1;
+  }
+  20% {
+    color: #7ce6fb;
+  }
+  40% {
+    color: #7ca6fb;
+  }
+  60% {
+    color: #917cfb;
+  }
+  80% {
+    color: #d17cfb;
+  }
+  100% {
+    color: #fb7ce6;
+  }
+}
+
+/* Animation atomic classes that work on hover, focus, and explicitly with animate-me--on */
+.animation-cycle:hover,
+.animation-cycle:focus,
+.animation-cycle.animate-me--on {
+  animation-name: cycle-color;
+  animation-duration: 1.4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+/* Logo animation */
+@keyframes logo-slide {
+  0% {
+  }
+  100% {
+    transform: translate3d(0, 180%, 0);
+  }
+}
+
+@keyframes logo-blink {
+  /* Start: blue, alternate to black */
+  0%,
+  15%,
+  25% {
+    fill: #7cfbd1;
+  }
+  10%,
+  20% {
+    fill: rgba(124, 251, 209, 0.2);
+  }
+
+  /* Flicker */
+  40%,
+  50%,
+  60%,
+  70%,
+  100% {
+    fill: #7cfbd1;
+  }
+
+  45%,
+  55%,
+  65% {
+    fill: rgba(124, 251, 209, 0.5);
+  }
+}
+
+/* The logo animation is nested, so we rely on the parent's state */
+.animation-logo:hover .animation-logo-slide,
+.animation-logo:focus .animation-logo-slide,
+.animation-logo.animate-me--on .animation-logo-slide {
+  animation-name: logo-slide;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.animation-logo:hover .animation-logo-blink,
+.animation-logo:focus .animation-logo-blink,
+.animation-logo.animate-me--on .animation-logo-blink {
+  animation-name: logo-blink;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+/* Disable all animations if the user has specified it */
+@media (prefers-reduced-motion) {
+  .animate-me * {
+    animation: none !important;
+  }
+  .animate-me {
+    animation: none !important;
+  }
+}

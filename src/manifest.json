@@ -1,0 +1,112 @@
+{
+  "dir": "ltr",
+  "lang": "en",
+  "name": "Tech Weeklies by Futurice",
+  "scope": "/",
+  "display": "browser",
+  "start_url": "https://techweeklies.futurice.com/",
+  "short_name": "Weeklies",
+  "theme_color": "#212121",
+  "description": "Every week, Futurice employees get together to share their latest thoughts about tech.",
+  "orientation": "any",
+  "background_color": "#212121",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/img/manifestImages/937ec280-76b6-98b9-ddbb-9b6284fabf93.webPlatform.png",
+      "sizes": "44x44",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/05cf4b52-4aa5-c437-c64d-3e927cb2d036.webPlatform.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/998e6ae3-311e-9a73-8cb5-04818954c912.webPlatform.png",
+      "sizes": "1240x600",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/abca4de8-4c61-37ce-d771-e8ed8038eee8.webPlatform.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/9e176dee-cb8f-fb77-beb6-860514cf0a0f.webPlatform.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/2a218b91-0329-1b52-ec37-1d9d7f4a1505.webPlatform.png",
+      "sizes": "88x88",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/0fd3ea51-9270-9ac0-96b3-99244a2c7768.webPlatform.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/ec5786f0-0282-9a97-811b-14f95ff3d36d.webPlatform.png",
+      "sizes": "50x50",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/6f2f952c-dfe5-ba1b-b3c8-f6a34afd36d0.webPlatform.png",
+      "sizes": "620x300",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/26835927-89e0-6b79-2580-4ad200de1c03.webPlatform.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/0ea09f02-c183-eff3-f986-20b3fd14d5f6.webPlatform.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/66c9756b-b095-6258-14e7-7e40349d164e.webPlatform.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/6f7b52ef-f0eb-8061-23be-1e85dd8ff1c9.webPlatform.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/8e073309-bf6c-25e7-779d-bce428cc17d3.webPlatform.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/8e671fbf-3807-6fd9-7bca-88e844aade51.webPlatform.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/05ef2660-0879-456b-de49-8c649098ea59.webPlatform.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/16be957c-7a61-df36-9441-702d2eb040d2.webPlatform.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/0a2d2b6f-1d7a-33d5-a885-6f62059b1079.webPlatform.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/manifestImages/32da53be-3c71-7df2-82ca-3a7b15063811.webPlatform.png",
+      "sizes": "76x76",
+      "type": "image/png"
+    }
+  ]
+}

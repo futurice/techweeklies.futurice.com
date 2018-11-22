@@ -1,0 +1,16 @@
+---
+permalink: /tags/
+layout: layouts/home.njk
+---
+<article class="pt4 pt5-ns pb4 vs4">
+  {% Heading level=1 %}
+    Tags
+  {% endHeading %}
+
+  {% for tag in collections.tagList %}
+    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+    {% Link href=tagUrl | url, className="tag" %}
+      {{tag}}
+    {% endLink %} 
+  {% endfor %}
+</article>

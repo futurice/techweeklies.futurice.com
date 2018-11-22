@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-post
+---
+<article class="pt4 pt5-ns pb4 vs4">
+  <div class="vs3">
+    {% Heading level=1 %}
+      {{title}}
+    {% endHeading %}
+
+    <time class="db" datetime="{{date}}">
+      {{date | readableDate}}
+    </time>
+  </div>
+
+  {# Video #}
+  {% if videoId %}
+    {% include "youtubeVideo.njk" %}
+  {% endif %}
+
+  {# Contents #}
+  {% MarkdownBlock %}
+    {{ content | safe }}
+
+    {# Backlink #}
+    {% Text %}
+      {% Link { href: '/' | url } %}
+        ← Home
+      {% endLink %}
+    {% endText %}
+  {% endMarkdownBlock %}
+</article>

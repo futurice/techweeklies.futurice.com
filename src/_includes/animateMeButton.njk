@@ -1,0 +1,14 @@
+{# Before the events have been attached, the button is not interactive.
+   We must also communicate the pressed state both visually and to AT.
+
+   @see js/animateMeButton.js for the interactive bits.
+#}
+<button 
+    id="animate-me-button"
+    class="button-reset pv2 ph3 ba bw1 br1 fw6 near-black bg-accent-lighter focus-outline-accent-lighter transition-bg o-50"
+    aria-pressed="false"
+    disabled
+>
+  Animate site now!
+  <span class="animate-me-button-state" aria-hidden="true">Off</span>
+</button>

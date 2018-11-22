@@ -1,0 +1,27 @@
+<ol reversed class="pa0 vs3 list postlist" style="counter-reset: start-from {{ postslist.length + 1 }}">
+{% for post in postslist | reverse %}
+  <li class="flex items-baseline postlist-item{% if post.url == url %} fw7 postlist-item-active{% endif %}">
+    <span class="ml2 lh-title">
+      {# Title link #}
+      {% Link href=post.url | url, className="db mb1 mr1 f4 fw7" %}
+        {% if post.data.title %}
+          {{ post.data.title }}
+        {% else %}
+          <code>{{ post.url }}</code>
+        {% endif %}
+      {% endLink %}
+
+      {# Date #}
+      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+
+      {# Tags #}
+      {% for tag in post.data.tags %}
+        {%- if tag != "post" -%}
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
+        {%- endif -%}
+      {% endfor %}
+    </span>
+  </li>
+{% endfor %}
+</ol>

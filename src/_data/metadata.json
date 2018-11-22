@@ -1,0 +1,16 @@
+{
+  "title": "Tech Weeklies",
+  "url": "https://techweeklies.com",
+  "description": "Every week, Futurice employees get together to share their latest thoughts about tech.",
+  "feed": {
+    "subtitle": "Every week, Futurice employees get together to share their latest thoughts about tech.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://techweeklies.com/feed/feed.xml",
+    "id": "https://techweeklies.com/"
+  },
+  "author": {
+    "name": "Futurice",
+    "email": "fotis@futurice.com"
+  }
+}
