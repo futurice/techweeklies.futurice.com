@@ -92,6 +92,12 @@ module.exports = function(eleventyConfig) {
     }`;
   });
 
+  eleventyConfig.addFilter('youtubeEmbedUrl', (videoId, clipTimeSeconds) => {
+    return `https://www.youtube.com/embed/${videoId}${
+      clipTimeSeconds ? `&start=${clipTimeSeconds}` : ''
+    }`;
+  });
+
   //
   // COLLECTIONS
 

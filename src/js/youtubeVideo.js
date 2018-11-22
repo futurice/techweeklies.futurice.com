@@ -1,4 +1,4 @@
-import YTPlayer from 'yt-player';
+import YTPlayer from '@fpapado/yt-player';
 import Link from '../_includes/components/Link';
 
 // Selectors
@@ -88,8 +88,8 @@ function getOnClickHandler({ videoId, clipTimeSeconds }, playerEl) {
       console.error('Error encountered in player: ', err);
     });
 
-    // TODO: Fork library to support (videoId, timeSeconds, autoplay) syntax
-    player.load(videoId);
+    console.log({ clipTimeSeconds });
+    player.load(videoId, { startSeconds: clipTimeSeconds });
     player.play();
   };
 }
