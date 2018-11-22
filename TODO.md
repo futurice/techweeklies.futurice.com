@@ -1,5 +1,10 @@
 # TODO
 
+- Clean up CSS source
+
+  - Only use required Tachyons modules
+  - Add fallback for browsers without CSS custom properties
+
 - Document build pipeline:
 
   - Assets: JS, Rollup
@@ -7,6 +12,7 @@
   - Heavy lifting / first pass: Eleventy for data manipulation, and templating
   - Post processing / optimisations / second pass: html -> html: metalsmith pipeline
     - Critical CSS inlining
+
 - Document environment variables
 
 - Add test pipeline for accessibility

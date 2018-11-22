@@ -101,7 +101,7 @@ a[href].tag:visited {
 }
 
 .hover-fg-accent-lighter:hover {
-  color: var(--accent);
+  color: var(--accent-lighter);
 }
 
 .hover-fg-accent-2:hover {
