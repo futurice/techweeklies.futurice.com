@@ -1,7 +1,8 @@
 <article class="vs3">
   <div class="vs2">
-    {# TODO: Subheading #}
-    <h2 class="mv0 f3 f2-ns fw6 lh-title">{{ latest.data.title }}</h2>
+    {% Subheading level=3 %}
+      {{ latest.data.title }}
+    {% endSubheading %}
 
     <time class="db" datetime="{{latest.data.date}}">
       {{latest.data.date | readableDate}}
