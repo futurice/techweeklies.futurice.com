@@ -13,7 +13,7 @@ permalink: /posts/
   {% endHeading %}
 
   <div class="measure-prose">
-    {% set postslist = collections.posts %}
+    {% set postslist = collections.posts | reverse %}
     {% include "postslist.njk" %}
   </div>
 </article>

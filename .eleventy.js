@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { DateTime } = require('luxon');
+const { groupBy, flatten, drop } = require('lodash');
 
 // Plugins
 const pluginRss = require('@11ty/eleventy-plugin-rss');
@@ -31,7 +32,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
 
   //
-  // ILTERS
+  // FILTERS
   eleventyConfig.addFilter('readableDate', dateObj => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
       'dd LLLL yyyy'
@@ -52,7 +53,17 @@ module.exports = function(eleventyConfig) {
     return array[n];
   });
 
-  // Log the argument and return unchanged
+  // Skip/drop n elements from a list and return the rest.
+  eleventyConfig.addFilter('drop', (array, n) => {
+    return drop(array, n);
+  });
+
+  // Flatten a list one level.
+  eleventyConfig.addFilter('flatten', array => {
+    return flatten(array);
+  });
+
+  // Log the argument and return unchanged.
   eleventyConfig.addFilter('log', value => {
     console.log(value);
     return value;
@@ -107,6 +118,22 @@ module.exports = function(eleventyConfig) {
     return collection.getFilteredByGlob(postsGlob).sort(function(a, b) {
       return a.date - b.date;
     });
+  });
+
+  // Group posts by date
+  // NOTE: You have to inspect the date in the children atm;
+  // returning an object {[date]: items} does not work yet.
+  eleventyConfig.addCollection('postsByDate', function(collection) {
+    const postsGlob = path.join(INPUT_DIR, 'posts/*');
+    const sorted = collection.getFilteredByGlob(postsGlob).sort(function(a, b) {
+      return a.date - b.date;
+    });
+    const grouped = groupBy(sorted, item =>
+      DateTime.fromJSDate(item.date).startOf('day')
+    );
+    console.log({ grouped });
+
+    return Object.values(grouped);
   });
 
   eleventyConfig.addCollection('tagList', require('./_11ty/getTagList'));
