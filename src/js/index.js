@@ -1,4 +1,5 @@
 import Perfume from 'perfume.js';
+import * as polyfills from './polyfills';
 import * as analytics from './analytics';
 import * as animateMeButton from './animateMeButton';
 import * as youtubeVideo from './youtubeVideo';
@@ -6,6 +7,8 @@ import * as youtubeVideo from './youtubeVideo';
 /* The main entry point of the application */
 
 const init = () => {
+  polyfills.init();
+
   // Load custom tracking code
   // NOTE: Could be done lazily with import(), but
   // Rollup needs some setup to get that to work.
