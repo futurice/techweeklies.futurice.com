@@ -2,10 +2,10 @@
   {% for post in latestPosts | reverse %}
   <article class="vs3">
     <div class="vs2">
-      {% Subheading level=2 %}
+      {% Subheading level=3 %}
         {{ post.data.title }}
       {% endSubheading %}
-
+    
       <time class="db" datetime="{{post.data.date}}">
         {{post.data.date | readableDate}}
       </time>
