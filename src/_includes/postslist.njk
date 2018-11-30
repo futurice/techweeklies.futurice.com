@@ -1,5 +1,5 @@
 <ol reversed class="pa0 vs3 list postlist" style="counter-reset: start-from {{ postslist.length + 1 }}">
-{% for post in postslist | reverse %}
+{% for post in postslist %}
   <li class="flex items-baseline postlist-item{% if post.url == url %} fw7 postlist-item-active{% endif %}">
     <span class="ml2 lh-title">
       {# Title link #}

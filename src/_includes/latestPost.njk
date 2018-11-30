@@ -1,23 +1,27 @@
-<article class="vs3">
-  <div class="vs2">
-    {% Subheading level=3 %}
-      {{ latest.data.title }}
-    {% endSubheading %}
+<div class="vs4">
+  {% for post in latestPosts | reverse %}
+  <article class="vs3">
+    <div class="vs2">
+      {% Subheading level=3 %}
+        {{ post.data.title }}
+      {% endSubheading %}
+    
+      <time class="db" datetime="{{post.data.date}}">
+        {{post.data.date | readableDate}}
+      </time>
+    </div>
 
-    <time class="db" datetime="{{latest.data.date}}">
-      {{latest.data.date | readableDate}}
-    </time>
-  </div>
+    {# Video #}
+    {% if post.data.videoId %}
+        {# TODO: make videoId a parameter of youtubeVideo #}
+        {% set videoId = post.data.videoId %}
+        {% include "youtubeVideo.njk" %}
+    {% endif %}
 
-  {# Video #}
-  {% if latest.data.videoId %}
-      {# TODO: make videoId a parameter of youtubeVideo #}
-      {% set videoId = latest.data.videoId %}
-      {% include "youtubeVideo.njk" %}
-  {% endif %}
-
-  {# Contents #}
-  {% MarkdownBlock %}
-    {{ latest.templateContent | safe }}
-  {% endMarkdownBlock %}
-</article>
+    {# Contents #}
+    {% MarkdownBlock %}
+      {{ post.templateContent | safe }}
+    {% endMarkdownBlock %}
+  </article>
+  {% endfor %}
+</div>

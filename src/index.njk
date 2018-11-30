@@ -12,10 +12,10 @@ tags:
 <div class="vs5">
   <div class="vs4">
     {% Heading level=2 %}
-      Latest Talk
+      Latest Talks
     {% endHeading %}
 
-    {% set latest = collections.posts | last %}
+    {% set latestPosts = collections.postsByDate | last %}
     {% include "latestPost.njk" %}
   </div>
 
@@ -25,7 +25,8 @@ tags:
     {% endHeading %}
 
     <div class="measure-prose">
-      {% set postslist = collections.posts | head(-3) %}
+      {# For the "Past Talks", skip the latest talks, flatten the remaining, and take 3 #}
+      {% set postslist = collections.postsByDate | reverse | drop(1) | flatten | head(3) %}
       {% include "postslist.njk" %}
     </div>
 
