@@ -115,7 +115,8 @@ async function main() {
   const finalDate = new Date(datetime).toISOString();
 
   const postContent = `---
-title: "${title}"
+title: '${title}'
+slug: '${slug}'
 date: ${finalDate}
 tags:
   - post

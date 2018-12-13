@@ -1,5 +1,6 @@
 ---
 title: 'How to be a technical person in a cross disciplinary team?'
+slug: 'how-to-be-a-technical-person-in-a-cross-disciplinary-team'
 date: 2018-11-16T13:00:24.036Z
 tags:
   - post
