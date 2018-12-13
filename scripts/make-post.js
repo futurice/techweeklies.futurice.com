@@ -116,7 +116,6 @@ async function main() {
 
   const postContent = `---
 title: '${title}'
-slug: '${slug}'
 date: ${finalDate}
 tags:
   - post
