@@ -1,6 +1,5 @@
 ---
 title: 'Lessons About Hard Estimations'
-slug: 'lessons-about-hard-estimations'
 date: 2018-11-02T13:00:58.670Z
 tags:
   - post

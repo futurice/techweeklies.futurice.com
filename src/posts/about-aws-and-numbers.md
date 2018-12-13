@@ -1,6 +1,5 @@
 ---
 title: 'About AWS and numbers'
-slug: 'about-aws-and-numbers'
 date: 2018-11-09T13:00:38.600Z
 tags:
   - post

@@ -1,6 +1,5 @@
 ---
 title: Serverless server side rendering for ReactJS
-slug: 'serverless-server-side-rendering-react'
 date: 2018-09-28T12:00:16.801Z
 tags:
   - post

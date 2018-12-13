@@ -1,6 +1,5 @@
 ---
 title: "You should have a FOMO: What you're missing out by still using Python 2.7"
-slug: 'you-should-have-a-fomo-python'
 date: 2018-10-19T12:00:22.876Z
 tags:
   - post

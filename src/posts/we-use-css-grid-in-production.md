@@ -1,6 +1,5 @@
 ---
 title: We use CSS Grid in Production and it's fine
-slug: 'we-use-css-grid-in-production'
 date: 2018-09-28T12:30:45.725Z
 tags:
   - post

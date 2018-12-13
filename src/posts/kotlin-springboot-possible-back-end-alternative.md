@@ -1,6 +1,5 @@
 ---
 title: 'Kotlin & SpringBoot as a possible back-end alternative'
-slug: 'kotlin-springboot-possible-back-end-alternative'
 date: 2018-11-02T13:30:56.575Z
 tags:
   - post

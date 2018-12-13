@@ -1,6 +1,5 @@
 ---
 title: How to build your own Bootstrap
-slug: 'how-to-build-your-own-bootstrap'
 date: 2018-10-12T12:00:21.601Z
 tags:
   - post
