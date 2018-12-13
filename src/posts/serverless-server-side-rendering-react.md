@@ -5,7 +5,6 @@ tags:
   - post
 layout: layouts/post.njk
 videoId: s9IfY7BBh6k
-
 ---
 
 <!--- You can insert a short description here -->

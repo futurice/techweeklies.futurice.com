@@ -1,5 +1,5 @@
 ---
-title: Creating useless side projects
+title: 'Creating useless side projects'
 date: 2018-10-12T12:30:57.723Z
 tags:
   - post

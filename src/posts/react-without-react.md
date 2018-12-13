@@ -1,5 +1,5 @@
 ---
-title: ' React without React'
+title: 'React without React'
 date: 2018-11-16T13:30:33.480Z
 tags:
   - post
