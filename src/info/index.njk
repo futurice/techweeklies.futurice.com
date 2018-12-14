@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: Info
+templateClass: tmpl-post
+---
+
+<h1 class="mv5 mw5 center fill-accent fg-accent animation-logo animate-me">
+  {% include "svg/weeklies_logo.svg" %}
+</h1>
+
+<article class="pt4 pt5-ns pb4 vs4" contentEditable>
+  {% Heading level=2 %}
+    This week on Tech Weeklies
+  {% endHeading %}
+
+  <ol>
+    <li>
+      {% Text %}
+        Talk #1 – Click and edit
+      {% endText %}
+    </li>
+    <li>
+      {% Text %}
+        Talk #2 – Click and edit
+      {% endText %}
+    </li>
+  </ol>
+</article>
