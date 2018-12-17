@@ -43,14 +43,15 @@
 }
 
 @keyframes logo-blink {
-  /* Start: blue, alternate to black */
+  /* Start: accent, alternate to black */
   0%,
   15%,
   25% {
-    fill: #7cfbd1;
+    fill: var(--accent-logo-flash);
   }
   10%,
   20% {
+    /* Accent, dark */
     fill: rgba(124, 251, 209, 0.2);
   }
 
@@ -60,12 +61,13 @@
   60%,
   70%,
   100% {
-    fill: #7cfbd1;
+    fill: var(--accent-logo-flash);
   }
 
   45%,
   55%,
   65% {
+    /* Accent */
     fill: rgba(124, 251, 209, 0.5);
   }
 }

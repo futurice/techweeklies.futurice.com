@@ -11,6 +11,7 @@
   --accent: #10a985;
   --accent-lighter: #15e1b2;
   --accent-2: #ffa3d7;
+  --accent-logo-flash: #7cfbd1;
 }
 
 .theme-dark {
@@ -19,6 +20,16 @@
   --accent: #10a985;
   --accent-lighter: #15e1b2;
   --accent-2: #ffa3d7;
+  --accent-logo-flash: #7cfbd1;
+}
+
+.theme-light {
+  --secondary: #eaeaea;
+  --primary: #1a1a1a;
+  --accent: #1a1a1a;
+  --accent-lighter: #0a78f7;
+  --accent-2: #a30650;
+  --accent-logo-flash: #222222;
 }
 
 /* Nav */
