@@ -53,11 +53,26 @@
       {{ content | safe }}
     </main>
 
-    <footer class="mt5 flex flex-row flex-wrap justify-between">
-      <a href="https://www.futurice.com/" class="w4 flex items-center white focus-outline-accent" target="_blank" rel="noopener noreferrer">
-        {% include "svg/futurice_logo.svg" %}
-      </a>
-      {% include "animateMeButton.njk" %}
+    <footer class="mt5">
+      <div class="mn3 flex flex-row flex-wrap justify-between items-end">
+        <div class="ma3 f5 f4-ns vs2">
+          <span class="db">Made by</span>
+
+          <a href="https://www.futurice.com/" class="w4 flex items-center white focus-outline-accent" target="_blank" rel="noopener noreferrer">
+            {% include "svg/futurice_logo.svg" %}
+          </a>
+
+          <span class="db">
+            {% Link href='https://github.com/futurice/techweeklies.futurice.com', isExternal=true %} 
+              Source on Github
+            {% endLink %}
+          </span>
+        </div>
+
+        <div class="ma3">
+          {% include "animateMeButton.njk" %}
+        </div>
+      </div>
     </footer>
 
     <script src="{{ '/js/index.js' | resolveHash | url}}" defer></script>

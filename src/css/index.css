@@ -305,3 +305,8 @@ a[href].tag:visited {
 .vs5 > * + * {
   margin-top: 4rem;
 }
+
+/* Negative margins */
+.mn3 {
+  margin: -1rem;
+}
