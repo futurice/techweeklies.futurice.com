@@ -305,3 +305,12 @@ a[href].tag:visited {
 .vs5 > * + * {
   margin-top: 4rem;
 }
+
+/* Negative margins */
+/* These are typically used when defining
+ * flexbox "gaps" and offseting the space leaking out.
+ * In the future, consider using the `gap` property!
+*/
+.mn2 {
+  margin: -0.5rem;
+}
