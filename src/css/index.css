@@ -307,6 +307,10 @@ a[href].tag:visited {
 }
 
 /* Negative margins */
-.mn3 {
-  margin: -1rem;
+/* These are typically used when defining
+ * flexbox "gaps" and offseting the space leaking out.
+ * In the future, consider using the `gap` property!
+*/
+.mn2 {
+  margin: -0.5rem;
 }
