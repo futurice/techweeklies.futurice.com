@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+title: Podcast
+tags:
+  - nav
+navtitle: Podcast
+---
+
+<article class="pt4 pt5-ns pb4 vs4">
+  {% Heading level=1 %}
+    Podcast
+  {% endHeading %}
+
+  <div class="vs4 measure-prose">
+    {% Text %}
+      Tech Weeklies is also available as an audio-only podcast:
+    {% endText %}
+    <ul class="u-list vs3 f5 f4-ns">
+      <li>
+        {% Link href='https://itunes.apple.com/fi/podcast/futurice-tech-weeklies/id1449020155?mt=2', isExternal=true %}
+          On iTunes
+        {% endLink %}
+      </li>
+      <li>
+        {% Link href='https://www.google.com/podcasts?feed=aHR0cHM6Ly90ZWNod2Vla2xpZXMtcG9kY2FzdC5mdXR1cmljZS5jb20vZmVlZC54bWw%3D', isExternal=true %}
+          On Google Podcasts
+        {% endLink %}
+      </li>
+      <li>
+        {% Link href='https://techweeklies-podcast.futurice.com/feed.xml', isExternal=true %}
+          Direct feed URL
+        {% endLink %}
+      </li>
+      <li>
+        {% Link href='https://techweeklies-podcast.futurice.com/', isExternal=true %}
+          On PodBean
+        {% endLink %}
+      </li>
+    <ul>
+  </div>
+</article>
