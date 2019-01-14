@@ -3,6 +3,9 @@ const BUTTON_INACTIVE_CLS = 'o-50';
 const BUTTON_ACTIVE_UNPRESSED_CLS = 'bg-accent-lighter';
 const BUTTON_ACTIVE_PRESSED_CLS = 'bg-accent-2';
 
+// Config key
+const CONFIG_KEY = 'site-animations';
+
 /**
  * Button pseudo-component that will attach an onClick to a button,
  * and the `.animate-me` class to the specified targets.
@@ -22,6 +25,14 @@ export function init(element, targets, animateMeCls) {
     const isPressed = element.getAttribute('aria-pressed') === 'true';
     const nextStateOn = !isPressed;
 
+    // Set the animation state for the eleement
+    setAnimationState(nextStateOn);
+
+    // Store the config
+    localStorage.setItem(CONFIG_KEY, nextStateOn);
+  };
+
+  const setAnimationState = nextStateOn => {
     // Change aria-pressed to the opposite state
     element.setAttribute('aria-pressed', nextStateOn);
 
@@ -34,7 +45,7 @@ export function init(element, targets, animateMeCls) {
       'animate-me-button-state'
     )[0];
     if (stateLabel) {
-      stateLabel.innerText = nextStateOn ? 'On' : 'Off';
+      stateLabel.innerText = nextStateOn ? 'On ' : 'Off';
     }
 
     // Set the animateMe class to each animatable element
@@ -48,6 +59,12 @@ export function init(element, targets, animateMeCls) {
       }
     });
   };
+
+  // Check for setting in localstorage
+  const animationConfig = localStorage.getItem(CONFIG_KEY);
+  if (animationConfig && animationConfig === 'true') {
+    setAnimationState(animationConfig);
+  }
 
   // Add event listener
   element.addEventListener('click', handleOnClick);
