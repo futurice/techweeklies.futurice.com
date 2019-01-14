@@ -29,13 +29,13 @@
   <body class="pa3 flex flex-column min-vh-100 mw7 center theme-dark fg-primary bg-secondary f-phantomsans">
     <header>
       {% include "SkipLink.njk" %}
-      <nav class="flex flex-row justify-between items-center flex-wrap">
-        <a class="db fg-accent-lighter fw7 link focus-outline-accent-lighter animation-cycle animate-me" href="{{ '/' | url }}">{{ metadata.title }}</a>
-        <ul class="ma0 pa0 flex list">
+      <nav class="mn2 flex flex-row justify-between items-center flex-wrap">
+        <a class="ma2 db fg-accent-lighter fw7 link focus-outline-accent-lighter animation-cycle animate-me" href="{{ '/' | url }}">{{ metadata.title }}</a>
+        <ul class="ma2 pa0 flex list">
           {%- for nav in collections.nav | reverse -%}
             {# Do not add home to the navigation #}
             {% if nav.url !== '/' %}
-            <li class="db ml3 {% if nav.url == page.url %} nav-item-active{% endif %}">
+            <li class="db mr3 {% if nav.url == page.url %} nav-item-active{% endif %}">
               <a
                 {% if nav.url == page.url %}aria-current="page"{% endif %}
                 class="fg-primary hover-fg-accent-lighter focus-outline-accent-lighter link"
