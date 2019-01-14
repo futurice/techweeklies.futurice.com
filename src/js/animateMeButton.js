@@ -45,7 +45,7 @@ export function init(element, targets, animateMeCls) {
       'animate-me-button-state'
     )[0];
     if (stateLabel) {
-      stateLabel.innerText = nextStateOn ? 'On ' : 'Off';
+      stateLabel.textContent = nextStateOn ? 'On!' : 'Off';
     }
 
     // Set the animateMe class to each animatable element
