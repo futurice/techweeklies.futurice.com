@@ -314,3 +314,9 @@ a[href].tag:visited {
 .mn2 {
   margin: -0.5rem;
 }
+
+/* List styling */
+/* Keep list bullets flush with content on left */
+.u-list {
+  padding-left: 1em;
+}
