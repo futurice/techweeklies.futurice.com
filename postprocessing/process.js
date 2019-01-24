@@ -41,6 +41,15 @@ function main() {
     .source(INPUT_DIR) // source directory
     .destination(OUTPUT_DIR) // destination directory
     .clean(false) // clean destination before
+    .use(
+      criticalCss({
+        pattern: '**/*.html',
+        // The CSS file whose selectors will be matched against the html
+        cssFile: path.join(INPUT_DIR, hashedCssFilename),
+        // The path under which the css is included in the template
+        cssPublicPath: hashedCssFilename,
+      })
+    )
     .build(function(err) {
       if (err) {
         console.log('Error running the postprocessing pipeline: ' + err);
