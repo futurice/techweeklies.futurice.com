@@ -24,7 +24,6 @@
 /* Nav */
 .nav-item-active {
   font-weight: 700;
-  font-variation-settings: 'wght' 700;
   text-decoration: underline;
 }
 
@@ -176,60 +175,10 @@ a[href].tag:visited {
 }
 
 /* Font stuff */
-/* Progressively enhance fwX classes to be variable.
- * NOTE: Phantom Sans v4 goes from Regular - Bold,
- * so the scale 0 - 1000 is skewed along that range.
-*/
-@supports (font-variation-settings: normal) {
-  .normal {
-    font-variation-settings: 'wght' 1;
-  }
-  .b {
-    font-variation-settings: 'wght' 700;
-  }
-  .fw1 {
-    font-variation-settings: 'wght' 1;
-  }
-  .fw2 {
-    font-variation-settings: 'wght' 1;
-  }
-  .fw3 {
-    font-variation-settings: 'wght' 1;
-  }
-  .fw4 {
-    font-variation-settings: 'wght' 1;
-  }
-  .fw5 {
-    font-variation-settings: 'wght' 400;
-  }
-  .fw6 {
-    font-variation-settings: 'wght' 700;
-  }
-  .fw7 {
-    font-variation-settings: 'wght' 999;
-  }
-  .fw8 {
-    font-variation-settings: 'wght' 999;
-  }
-  .fw9 {
-    font-variation-settings: 'wght' 999;
-  }
-}
-
 /* PhantomSans */
 /* Variable and fallbacks.
  * @see https://medium.com/clear-left-thinking/how-to-use-variable-fonts-in-the-real-world-e6d73065a604
 */
-
-/* PhantomSansVariable
- * Variable needs only woff2, since their support overlaps.
-*/
-@font-face {
-  font-family: 'PhantomSansVariable';
-  font-display: swap;
-  src: url(/fonts/phantom-sans-v4-variable.woff2) format('woff2');
-  font-weight: 1 999;
-}
 
 /* PhantomSans-regular */
 @font-face {
@@ -254,14 +203,6 @@ a[href].tag:visited {
 .f-phantomsans {
   font-family: 'PhantomSans', Arial, Helvetica, sans-serif;
   font-weight: 400;
-}
-
-@supports (font-variation-settings: normal) {
-  .f-phantomsans {
-    font-family: 'PhantomSansVariable', Arial, Helvetica, sans-serif;
-    /* Normalise font-weight if not specified */
-    font-variation-settings: 'wght' 1;
-  }
 }
 
 /* Skip Link */
