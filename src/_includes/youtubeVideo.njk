@@ -13,43 +13,14 @@ This achieves a few things:
 #}
 <div class="vs3">
     <div class="aspect-ratio aspect-ratio--16x9 bg-primary">
-        {# Load the image as a preview. Use srcset to progressively enhance to webp.
-           TODO: Add sizes
-        #}
-        {% YoutubeThumbnail videoId=videoId, alt="", className="aspect-ratio--object fit-cover" %}
-
-        {# Add a "play" icon, as an affordance. Will be hidden on interaction. #}
-        <div 
-            data-youtube-video-id="{{videoId}}"
-            data-youtube-video-clip-time="{{clipTimeSeconds}}"
-            class="youtube-video youtube-video--inactive aspect-ratio--object flex justify-center items-center"
-        >
-            <button 
-                class="youtube-video-button youtube-video-button--inactive button-reset"
-                aria-label="Play Video"
-                disabled
-            >
-                <svg 
-                    width="100%"
-                    height="100%"
-                    viewBox="4 4 16 16"
-                    class="youtube-video-svg"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path class="youtube-video-svg-bg" d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                    <polygon class="youtube-video-svg-fg" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                </svg>
-            </button>
-        </div>
-        <noscript>
-            <iframe
-                class="aspect-ratio--object fit-cover"
-                src="{{videoId | youtubeEmbedUrl(clipTimeSeconds)}}"
-                title="Youtube Player"
-                id="ytplayer"
-                type="text/html"
-                frameborder="0">
-            </iframe>
-        </noscript>
+        <iframe
+            class="aspect-ratio--object fit-cover"
+            src="{{videoId | youtubeEmbedUrl(clipTimeSeconds)}}"
+            title="Youtube Player"
+            id="ytplayer"
+            type="text/html"
+            frameborder="0">
+        </iframe>
     </div>
     {% Text %}
         {% Link
