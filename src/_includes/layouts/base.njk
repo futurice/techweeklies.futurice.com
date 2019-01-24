@@ -13,11 +13,6 @@
     <meta name="description" content="{{ renderData.description or description or metadata.description }}">
     <meta name="theme-color" content="#212121">
 
-    {# Preload variable font. Browsers with preload also support variable fonts, so this is a good balance.
-      Fonts are loaded with crossorigin anonymous because of browser behaviour.
-    #}
-    <link rel="preload" href="{{ '/fonts/phantom-sans-v4-variable.woff2' | url}}" as="font" type="font/woff2" crossorigin>
-
     <link rel="stylesheet" href="{{ '/css/index.css' | resolveHash | url }}">
 
     {# Adds an event listener to capture uncaught errors. #}
@@ -78,11 +73,5 @@
     </footer>
 
     <script src="{{ '/js/index.js' | resolveHash | url}}" defer></script>
-    {# Inline Service Worker registration in production #}
-    {% if env.environment == "production" %}
-      <script>
-        {% include "sw-inline.js" %}
-      </script>
-    {% endif %}
   </body>
 </html>
