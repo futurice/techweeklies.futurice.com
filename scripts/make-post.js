@@ -79,7 +79,7 @@ async function main() {
     video = {};
   }
 
-  const { title, slug, datetime, videoId } = await inquirer.prompt([
+  const { title } = await inquirer.prompt([
     {
       type: 'input',
       message: `What is the title of the presentation?\n${chalk.gray(
@@ -90,14 +90,42 @@ async function main() {
         !!input ||
         'Title is required. If in doubt, use the one from the video or check with the speaker.',
     },
+  ]);
+
+  const automaticSlug = titleToSlug(title);
+  let slug;
+
+  const { slugOrSlugType } = await inquirer.prompt([
     {
-      type: 'input',
+      type: 'list',
+      name: 'slugOrSlugType',
       message: `What is the slug for the URL?\n${chalk.gray(
         '(e.g. css-grid-in-production)\n>'
       )}`,
-      name: 'slug',
-      validate: input => !!input || 'Slug is required.',
+      choices: [
+        { name: automaticSlug, value: automaticSlug },
+        { name: 'Custom', value: 'Custom' },
+      ],
     },
+  ]);
+
+  if (slugOrSlugType === 'Custom') {
+    const { customSlug } = await inquirer.prompt([
+      {
+        type: 'input',
+        message: `What is the custom slug for the URL?\n${chalk.gray(
+          '(e.g. css-grid-in-production)\n>'
+        )}`,
+        name: 'customSlug',
+        validate: input => !!input || 'Slug is required.',
+      },
+    ]);
+    slug = customSlug;
+  } else {
+    slug = slugOrSlugType;
+  }
+
+  const { datetime, videoId } = await inquirer.prompt([
     {
       type: 'datetime',
       name: 'datetime',
@@ -186,4 +214,11 @@ function getVideoIdFromUrl(urlStr) {
   } catch (err) {
     return { ok: false, data: 'Invalid URL' };
   }
+}
+
+function titleToSlug(title) {
+  return title
+    .replace(/[^\w\s]/gi, '')
+    .replace(/\s/gi, '-')
+    .toLowerCase();
 }
