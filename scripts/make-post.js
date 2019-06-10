@@ -40,7 +40,7 @@ async function main() {
         type: 'input',
         message: `What is the video URL?\n${chalk.gray(
           '(e.g. https://www.youtube.com/watch?v={{s9IfY7BBh6k}})'
-        )}\nYou can look them up on the Tech Weeklies playlist on Youtube: https://www.youtube.com/playlist?list=PL4su8m9nd245Q0PgsJhrbU65BmdhayFKQ\n>`,
+        )}\nYou can look them up on the Tech Weeklies playlist on Youtube: \nhttps://www.youtube.com/watch?v=xWo19onecfY&list=PL4su8m9nd245Q0PgsJhrbU65BmdhayFKQ\n>`,
         name: 'videoUrl',
         validate: input => {
           const res = getVideoIdFromUrl(input);
