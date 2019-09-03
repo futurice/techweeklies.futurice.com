@@ -1,6 +1,6 @@
 {
   "name": "techweeklies.futurice.com",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "The website for Futurice's Tech Weeklies.",
   "scripts": {
     "build": "NODE_ENV=production npm-run-all -s clean build:css build:js build:join-manifests build:site build:postprocess build:inject-sw-manifest",
