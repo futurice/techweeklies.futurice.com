@@ -19,14 +19,32 @@ templateClass: tmpl-post
   {% endif %}
 
   {# Contents #}
-  {% MarkdownBlock %}
-    {{ content | safe }}
+  <div class="vs3">
+    {% Subheading level=2 %}
+      Description
+    {% endSubheading %}
 
-    {# Backlink #}
-    {% Text %}
-      {% Link { href: '/' | url } %}
-        ← Home
-      {% endLink %}
-    {% endText %}
-  {% endMarkdownBlock %}
+    <div>
+      {% MarkdownBlock %}
+        {{ content | safe }}
+      {% endMarkdownBlock %}
+    </div>
+  </div>
+
+  {# Transcript #}
+  {% if subtitleFile %}
+    <div class="vs3">
+      {% Subheading level=2 %}
+        Transcript
+      {% endSubheading %}
+      {% VideoCaptions subtitleFile=subtitleFile  %}
+    </div>
+  {% endif %}
+
+  {# Backlink #}
+  {% Text %}
+    {% Link { href: '/' | url } %}
+      ← Home
+    {% endLink %}
+  {% endText %}
 </article>

@@ -1,0 +1,1048 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.583
+(upbeat music)
+
+2
+00:00:04.680 --> 00:00:07.010
+<v ->Hello everybody, my name is Olavi</v>
+
+3
+00:00:07.010 --> 00:00:10.823
+and I'm going to demo an app called Sizzy,
+
+4
+00:00:11.730 --> 00:00:13.500
+I don't know how to pronounce it either.
+
+5
+00:00:13.500 --> 00:00:15.300
+How many of you have heard about it?
+
+6
+00:00:16.880 --> 00:00:19.113
+Okay cool, how many has tried it?
+
+7
+00:00:21.420 --> 00:00:23.380
+Nobody, okay that's good because this
+
+8
+00:00:23.380 --> 00:00:25.603
+is a good thing to demo it then.
+
+9
+00:00:27.090 --> 00:00:32.090
+So, sizzy.app is created by this guy called Kitze
+
+10
+00:00:33.800 --> 00:00:36.450
+on Twitter, and I'm following him so that's why
+
+11
+00:00:36.450 --> 00:00:39.620
+I have been hearing about this app
+
+12
+00:00:39.620 --> 00:00:41.525
+for a couple months now.
+
+13
+00:00:41.525 --> 00:00:43.900
+Quite a lot, because he's posting
+
+14
+00:00:43.900 --> 00:00:46.830
+all the time about it and I think he's right now
+
+15
+00:00:46.830 --> 00:00:49.853
+working full time on this app and it's pretty cool.
+
+16
+00:00:51.430 --> 00:00:55.490
+This project used to be an open source, free
+
+17
+00:00:55.490 --> 00:00:59.109
+project, web-based program that you could use.
+
+18
+00:00:59.109 --> 00:01:02.660
+But as the title of this Medium post says
+
+19
+00:01:02.660 --> 00:01:05.360
+"GitHub stars won't pay your rent",
+
+20
+00:01:05.360 --> 00:01:09.240
+so they decided to make it then a commercial product.
+
+21
+00:01:09.240 --> 00:01:14.240
+So, let's first look into their website and what
+
+22
+00:01:16.030 --> 00:01:18.938
+they claim the app is doing and then I'll show
+
+23
+00:01:18.938 --> 00:01:22.240
+how it works in reality and I will be talking
+
+24
+00:01:22.240 --> 00:01:24.207
+a bit about my experiences.
+
+25
+00:01:24.207 --> 00:01:29.109
+So, Sizzy is a browser for developers and designers
+
+26
+00:01:29.109 --> 00:01:31.660
+as you can see on the website.
+
+27
+00:01:31.660 --> 00:01:33.920
+By the way, they have super nice videos,
+
+28
+00:01:33.920 --> 00:01:37.700
+their release notes are actually videos and those
+
+29
+00:01:37.700 --> 00:01:40.100
+are super funny as well, and on the website they
+
+30
+00:01:40.100 --> 00:01:43.560
+have nice videos explaining all the cool features,
+
+31
+00:01:43.560 --> 00:01:46.010
+but I don't show the videos now because
+
+32
+00:01:46.010 --> 00:01:47.380
+it's kind of a waste of time.
+
+33
+00:01:47.380 --> 00:01:50.480
+I'll just quickly glance over the website
+
+34
+00:01:50.480 --> 00:01:54.160
+so you can see some of the features.
+
+35
+00:01:54.160 --> 00:01:58.270
+So, the basic view is that you have the same website
+
+36
+00:01:58.270 --> 00:02:03.270
+in multiple devices and screen sizes at the same time.
+
+37
+00:02:05.390 --> 00:02:09.352
+And they claim that everything is in perfect sync,
+
+38
+00:02:09.352 --> 00:02:12.150
+let's see if this video loads here.
+
+39
+00:02:12.150 --> 00:02:15.970
+So you can see when you scroll, they're in perfect sync.
+
+40
+00:02:15.970 --> 00:02:17.760
+At least they claim so.
+
+41
+00:02:17.760 --> 00:02:20.560
+And you can scroll to any element on the page,
+
+42
+00:02:20.560 --> 00:02:21.674
+you can navigate,
+
+43
+00:02:21.674 --> 00:02:26.674
+you can edit, you have help reloading
+
+44
+00:02:26.983 --> 00:02:30.800
+of course, if your project has problems with reloading.
+
+45
+00:02:30.800 --> 00:02:33.833
+And you have dev tools, which is good.
+
+46
+00:02:36.230 --> 00:02:37.290
+Yeah, let's see.
+
+47
+00:02:37.290 --> 00:02:39.590
+This webpage is actually not that good, because
+
+48
+00:02:39.590 --> 00:02:43.033
+it loads the content lazily, and if your network
+
+49
+00:02:43.033 --> 00:02:45.470
+is a little bit slow, then you do see blank pages.
+
+50
+00:02:45.470 --> 00:02:47.973
+And then you can take screenshots,
+
+51
+00:02:48.930 --> 00:02:50.130
+and here is the pricing.
+
+52
+00:02:51.752 --> 00:02:56.383
+So, solo is $5 a month, Trio is licensing
+
+53
+00:03:00.372 --> 00:03:02.093
+for three devices, so if you have three devices,
+
+54
+00:03:03.060 --> 00:03:06.113
+you have to buy this license I guess.
+
+55
+00:03:07.730 --> 00:03:11.253
+But yeah, I guess most of us develop on one device mostly.
+
+56
+00:03:13.930 --> 00:03:18.690
+I think we can dive straight into my demo application
+
+57
+00:03:18.690 --> 00:03:19.523
+that I created.
+
+58
+00:03:19.523 --> 00:03:24.370
+So I just made to showing how this works,
+
+59
+00:03:25.240 --> 00:03:28.350
+it's best to display with a web project.
+
+60
+00:03:28.350 --> 00:03:30.380
+So, here we go.
+
+61
+00:03:30.380 --> 00:03:32.904
+We have CC.app running.
+
+62
+00:03:32.904 --> 00:03:37.904
+By default, it shows you which part you navigate to,
+
+63
+00:03:39.360 --> 00:03:40.790
+you add the address here,
+
+64
+00:03:40.790 --> 00:03:43.390
+so it's basically a browser but it shows it
+
+65
+00:03:43.390 --> 00:03:47.120
+in multiple web views, or multiple screen sizes,
+
+66
+00:03:47.120 --> 00:03:50.513
+and shows a screen, what do they call it, like,
+
+67
+00:03:51.390 --> 00:03:54.500
+a screen around a web page,
+
+68
+00:03:54.500 --> 00:03:57.330
+so you can customize that, so if you don't like
+
+69
+00:03:57.330 --> 00:04:01.120
+to see the fake device there, you can hide it,
+
+70
+00:04:01.120 --> 00:04:03.806
+or minimize it, make it smaller.
+
+71
+00:04:03.806 --> 00:04:07.240
+By default, you have the iPhones first and then
+
+72
+00:04:07.240 --> 00:04:11.323
+the larger screens, some Androids and iPads,
+
+73
+00:04:12.230 --> 00:04:14.463
+Macbook, laptop, desktop, whatever.
+
+74
+00:04:15.360 --> 00:04:18.410
+And you can of course customize these,
+
+75
+00:04:18.410 --> 00:04:22.020
+so you can go to settings and devices,
+
+76
+00:04:22.020 --> 00:04:24.373
+and then, no not here, I was wrong,
+
+77
+00:04:27.700 --> 00:04:30.710
+add device, at least, and organize devices.
+
+78
+00:04:30.710 --> 00:04:34.100
+So here you can edit them, add more,
+
+79
+00:04:34.100 --> 00:04:36.190
+and this is nice actually that you have some presets
+
+80
+00:04:36.190 --> 00:04:40.360
+here so you can just select these and hide if you
+
+81
+00:04:40.360 --> 00:04:42.550
+don't like to see so many iPhones at the beginning,
+
+82
+00:04:42.550 --> 00:04:43.450
+you can hide them.
+
+83
+00:04:47.500 --> 00:04:49.320
+One of the things they claim on the website
+
+84
+00:04:49.320 --> 00:04:51.748
+was that everything is in perfect sync
+
+85
+00:04:51.748 --> 00:04:56.748
+which is not the case, at least to my experience.
+
+86
+00:04:57.140 --> 00:05:01.350
+So when you scroll, it should scroll everything
+
+87
+00:05:01.350 --> 00:05:04.590
+at the same time, so there was the effect,
+
+88
+00:05:04.590 --> 00:05:07.080
+it doesn't always, yeah, now it came.
+
+89
+00:05:07.080 --> 00:05:11.130
+As you see, it's not perfect but at least when
+
+90
+00:05:11.130 --> 00:05:13.980
+it scrolls everything, it's kind of nice that you can see
+
+91
+00:05:15.480 --> 00:05:18.170
+that scrolling on all devices.
+
+92
+00:05:18.170 --> 00:05:21.660
+And I'll try to demo a small thing where this
+
+93
+00:05:21.660 --> 00:05:24.150
+could be probably useful for somebody.
+
+94
+00:05:24.150 --> 00:05:28.930
+So here's my nice application, it looks okay because
+
+95
+00:05:28.930 --> 00:05:31.580
+this is how I designed it, but then when I scroll down
+
+96
+00:05:31.580 --> 00:05:35.260
+and look at it on, so I want to scroll a bit down,
+
+97
+00:05:35.260 --> 00:05:38.123
+and look at it on, for example, this iPad.
+
+98
+00:05:38.123 --> 00:05:40.700
+I think the text is way too small,
+
+99
+00:05:40.700 --> 00:05:42.741
+but I wouldn't have noticed if I would have just
+
+100
+00:05:42.741 --> 00:05:45.700
+focused on the iPhone's here.
+
+101
+00:05:45.700 --> 00:05:48.140
+So I'm just gonna go fix that, real quickly,
+
+102
+00:05:48.140 --> 00:05:53.140
+with the hack it the font size two rems, change here
+
+103
+00:05:53.906 --> 00:05:57.180
+let's see, content loading, okay so it made
+
+104
+00:05:57.180 --> 00:05:59.170
+it actually bigger on the iPhones as well,
+
+105
+00:05:59.170 --> 00:06:02.283
+but it's fine, and now it looks a bit better.
+
+106
+00:06:04.080 --> 00:06:06.750
+But, yeah, you can fix it better as well,
+
+107
+00:06:06.750 --> 00:06:11.750
+this is just a stupid example of how you can fix stuff.
+
+108
+00:06:11.780 --> 00:06:15.740
+And, okay, so I will look at my slides now,
+
+109
+00:06:15.740 --> 00:06:17.690
+which are this webpage,
+
+110
+00:06:17.690 --> 00:06:22.690
+so the good thing about this app is that it makes
+
+111
+00:06:23.097 --> 00:06:27.411
+it simple and quick to test on multiple devices
+
+112
+00:06:27.411 --> 00:06:28.606
+as you can see.
+
+113
+00:06:28.606 --> 00:06:32.130
+And the app actually does one thing,
+
+114
+00:06:32.130 --> 00:06:33.380
+and it does it quite well,
+
+115
+00:06:33.380 --> 00:06:37.000
+and it's only focusing on this one thing,
+
+116
+00:06:37.000 --> 00:06:38.720
+and that's a good thing.
+
+117
+00:06:38.720 --> 00:06:43.710
+And these are Chrome web wheels, or, yeah,
+
+118
+00:06:43.710 --> 00:06:47.120
+Chrome web wheels here, so you can use Chrome
+
+119
+00:06:47.120 --> 00:06:49.320
+web tools to inspect these and that's really cool
+
+120
+00:06:49.320 --> 00:06:51.770
+because, I don't know, I at least use Chrome,
+
+121
+00:06:51.770 --> 00:06:56.373
+so I'm most used to using Chrome web tools, and that's cool.
+
+122
+00:06:59.490 --> 00:07:01.520
+And it works on Linux, as you can see
+
+123
+00:07:01.520 --> 00:07:05.213
+I'm running Linux, and it has an app image
+
+124
+00:07:07.170 --> 00:07:09.133
+that I can use on Linux.
+
+125
+00:07:10.852 --> 00:07:13.745
+And it's customizable, you can, for example,
+
+126
+00:07:13.745 --> 00:07:16.610
+as I showed you, you can customize the devices,
+
+127
+00:07:16.610 --> 00:07:19.020
+and then you can customize the themes,
+
+128
+00:07:19.020 --> 00:07:22.013
+so you can change the background color if you like,
+
+129
+00:07:22.890 --> 00:07:26.170
+and then you can, here you can, choose not to show
+
+130
+00:07:26.170 --> 00:07:28.410
+the device frame, and not show
+
+131
+00:07:28.410 --> 00:07:31.640
+the operating system and browser.
+
+132
+00:07:31.640 --> 00:07:35.413
+You can show a minimalistic device frame if you'd like to.
+
+133
+00:07:37.010 --> 00:07:39.733
+Yep, so now I've changed the background color
+
+134
+00:07:39.733 --> 00:07:44.190
+and yeah, then let's go to some of the cons
+
+135
+00:07:44.190 --> 00:07:47.290
+in my opinion. Please bare in mind, these are
+
+136
+00:07:47.290 --> 00:07:51.480
+my opinions and I have been using this
+
+137
+00:07:51.480 --> 00:07:53.350
+for three days now, or something.
+
+138
+00:07:53.350 --> 00:07:57.560
+I asked this in Slack, if some of us have been using
+
+139
+00:07:57.560 --> 00:08:00.430
+this and then nobody answered, and Mattias suggested
+
+140
+00:08:00.430 --> 00:08:03.870
+to me to try it out and tell you about it.
+
+141
+00:08:03.870 --> 00:08:06.330
+So, one of the first things is that
+
+142
+00:08:06.330 --> 00:08:09.950
+it's an electron app, and I think many of us
+
+143
+00:08:09.950 --> 00:08:12.393
+know that it's a waste of memory.
+
+144
+00:08:13.270 --> 00:08:17.090
+Actually, yesterday I was developing this demo site
+
+145
+00:08:17.090 --> 00:08:20.920
+and I had my laptop on my lap and it got too hot
+
+146
+00:08:20.920 --> 00:08:24.640
+I couldn't continue doing it, so I think it uses
+
+147
+00:08:25.543 --> 00:08:27.560
+quite a lot of memory, which is not good.
+
+148
+00:08:27.560 --> 00:08:32.210
+And I showed you, synchronized scrolling does
+
+149
+00:08:32.210 --> 00:08:34.003
+not work perfectly.
+
+150
+00:08:34.003 --> 00:08:36.873
+And then one thing that was missing is tabs,
+
+151
+00:08:36.873 --> 00:08:41.470
+so for example here I added a link to the Sizzy
+
+152
+00:08:41.470 --> 00:08:45.770
+app page, which opens in a new tab, but when I click
+
+153
+00:08:45.770 --> 00:08:48.450
+it, it doesn't open in a new tab because this app
+
+154
+00:08:48.450 --> 00:08:51.110
+doesn't have tabs. So now I am here,
+
+155
+00:08:51.110 --> 00:08:53.220
+and I have to go back and I can't
+
+156
+00:08:53.220 --> 00:08:55.013
+just close the tab.
+
+157
+00:08:56.892 --> 00:09:00.177
+So, that's just one minor detail.
+
+158
+00:09:01.923 --> 00:09:06.923
+And then these devices, are of course, just emulated
+
+159
+00:09:08.240 --> 00:09:12.910
+devices, so they try to use the correct user agent
+
+160
+00:09:13.900 --> 00:09:17.340
+and correct screen sizes and stuff like that
+
+161
+00:09:17.340 --> 00:09:19.810
+but, of course, you still have to test it on real
+
+162
+00:09:19.810 --> 00:09:23.810
+devices, you can't trust on this if you really want
+
+163
+00:09:23.810 --> 00:09:25.710
+to make sure your app works perfectly.
+
+164
+00:09:27.200 --> 00:09:32.200
+And there are some quirks here, for example,
+
+165
+00:09:33.030 --> 00:09:38.030
+if I click this, I would expect all these screens to scroll
+
+166
+00:09:38.230 --> 00:09:40.220
+to the Cons section.
+
+167
+00:09:40.220 --> 00:09:42.010
+Let's see if I can demo it now,
+
+168
+00:09:42.010 --> 00:09:43.713
+it doesn't happen every time.
+
+169
+00:09:46.640 --> 00:09:49.720
+Okay, anyways, there is a bug that all of the other
+
+170
+00:09:49.720 --> 00:09:53.340
+screens refresh for some reason, and only the one
+
+171
+00:09:53.340 --> 00:09:55.830
+that I clicked scrolls down.
+
+172
+00:09:55.830 --> 00:09:56.680
+I don't know why.
+
+173
+00:09:58.050 --> 00:10:01.573
+I can't demo it now, but it happens quite often.
+
+174
+00:10:02.640 --> 00:10:07.400
+It's a bit difficult to see when the refresh is happening.
+
+175
+00:10:07.400 --> 00:10:11.850
+So for example, now it's refreshing, but sometimes
+
+176
+00:10:11.850 --> 00:10:14.070
+when you're developing locally and you have to compile
+
+177
+00:10:14.070 --> 00:10:17.120
+stuff and stuff like that happens, it might take a while
+
+178
+00:10:17.120 --> 00:10:19.660
+so you're not actually sure if it's reloading the page
+
+179
+00:10:19.660 --> 00:10:21.887
+or not, because you can't see it that well.
+
+180
+00:10:21.887 --> 00:10:26.887
+That's all from the negative stuff, but then there
+
+181
+00:10:26.930 --> 00:10:29.803
+are super minor things that I want to mention.
+
+182
+00:10:31.550 --> 00:10:34.550
+So we're developing an app with Next.js,
+
+183
+00:10:34.550 --> 00:10:38.920
+and I think the next.js dev mode has a bug that
+
+184
+00:10:38.920 --> 00:10:40.870
+you can't have more than one tab open,
+
+185
+00:10:40.870 --> 00:10:42.930
+otherwise it gets slow.
+
+186
+00:10:42.930 --> 00:10:45.120
+So if you have this, if you're using
+
+187
+00:10:45.120 --> 00:10:48.350
+Sizzy, then it gets super slow, so I'm actually
+
+188
+00:10:48.350 --> 00:10:51.840
+not probably going to use this, or we're going
+
+189
+00:10:51.840 --> 00:10:54.753
+to have to figure out how to fix that bug in Next.js.
+
+190
+00:10:56.360 --> 00:11:00.943
+This used to be an open source project, now it's commercial.
+
+191
+00:11:03.229 --> 00:11:05.560
+And there's no free trial, but there's
+
+192
+00:11:05.560 --> 00:11:09.870
+a money back guarantee for, what was it, 30 days.
+
+193
+00:11:09.870 --> 00:11:11.833
+I guess no questions asked.
+
+194
+00:11:14.850 --> 00:11:17.930
+You should just go try it out yourself if you like.
+
+195
+00:11:17.930 --> 00:11:22.200
+And one thing, just a super minor thing, on Linux
+
+196
+00:11:22.200 --> 00:11:25.120
+the app image doesn't add the app to the menu,
+
+197
+00:11:25.120 --> 00:11:28.650
+so I have to start it from the console when I run it.
+
+198
+00:11:28.650 --> 00:11:33.200
+So then you see some ugly garbage in the console when
+
+199
+00:11:33.200 --> 00:11:35.873
+you're running it, which I wouldn't like to see.
+
+200
+00:11:40.170 --> 00:11:43.610
+I could maybe demo some of the features that I didn't
+
+201
+00:11:43.610 --> 00:11:46.990
+demo yet, which might actually be useful,
+
+202
+00:11:46.990 --> 00:11:49.730
+so for example you can flip all the,
+
+203
+00:11:49.730 --> 00:11:52.780
+no, not here, that's the, okay,
+
+204
+00:11:52.780 --> 00:11:56.530
+so you can change the scrolling of the devices,
+
+205
+00:11:56.530 --> 00:12:00.330
+but now I can't scroll, yeah, so you have a horizontal
+
+206
+00:12:00.330 --> 00:12:02.640
+scroll, or then focus on only one device,
+
+207
+00:12:02.640 --> 00:12:05.822
+and then you can look at one device at a time.
+
+208
+00:12:05.822 --> 00:12:09.520
+But then you can switch all the devices to landscape
+
+209
+00:12:09.520 --> 00:12:12.560
+if you like to, but yeah, it took a while
+
+210
+00:12:12.560 --> 00:12:15.609
+to change the layout.
+
+211
+00:12:15.609 --> 00:12:17.720
+It might be useful.
+
+212
+00:12:17.720 --> 00:12:22.720
+Then you can zoom in all of the devices, and then reset too.
+
+213
+00:12:25.140 --> 00:12:27.340
+That might be useful, and this might be useful
+
+214
+00:12:27.340 --> 00:12:31.053
+as well if you want to quickly go to, for example,
+
+215
+00:12:31.053 --> 00:12:35.810
+with the selector, for example, ID Cons, I can navigate,
+
+216
+00:12:35.810 --> 00:12:39.370
+scroll down to the Cons section if I have an ID.
+
+217
+00:12:39.370 --> 00:12:42.190
+And this might be useful as well, if you have a lot
+
+218
+00:12:42.190 --> 00:12:45.130
+of devices down here and then you can filter out devices.
+
+219
+00:12:45.130 --> 00:12:47.728
+You can, for example, focus only on Android devices,
+
+220
+00:12:47.728 --> 00:12:52.728
+only on iPads, only on desktop, or something.
+
+221
+00:12:54.080 --> 00:12:58.263
+And then clear the filtering, I guess somehow, yeah.
+
+222
+00:13:01.210 --> 00:13:06.210
+That's basically it, do you have any questions or comments?
+
+223
+00:13:06.400 --> 00:13:08.750
+<v Host>Thanks for giving us the demo, and it looks like</v>
+
+224
+00:13:08.750 --> 00:13:10.403
+really interesting software.
+
+225
+00:13:11.940 --> 00:13:13.990
+Where I see this maybe being useful
+
+226
+00:13:13.990 --> 00:13:15.730
+is I've gone to a lot of design reviews
+
+227
+00:13:15.730 --> 00:13:17.438
+recently where we're going through the product
+
+228
+00:13:17.438 --> 00:13:19.057
+and saying, "Okay, how is it looking
+
+229
+00:13:19.057 --> 00:13:20.370
+"on all these different screens?"
+
+230
+00:13:20.370 --> 00:13:22.580
+And I think one of the disadvantages of Chrome
+
+231
+00:13:22.580 --> 00:13:24.670
+is you can only look at one view at a time.
+
+232
+00:13:24.670 --> 00:13:26.004
+<v ->Yeah.</v>
+<v ->And also, at least</v>
+
+233
+00:13:26.004 --> 00:13:28.810
+for me, when I'm switching contacts, right?
+
+234
+00:13:28.810 --> 00:13:30.530
+Switching devices, it's sometimes not very
+
+235
+00:13:30.530 --> 00:13:32.720
+obvious, but it seems like it would be quite useful
+
+236
+00:13:32.720 --> 00:13:34.000
+in that respect, or you're dealing
+
+237
+00:13:34.000 --> 00:13:35.274
+with the responsive nature.
+
+238
+00:13:35.274 --> 00:13:38.071
+<v ->Yes, and we are actually using a storybook</v>
+
+239
+00:13:38.071 --> 00:13:41.710
+and we are kind of missing this feature from storybook,
+
+240
+00:13:41.710 --> 00:13:46.350
+would be nice to have storybook display, multiple devices
+
+241
+00:13:46.350 --> 00:13:47.420
+at the same time.
+
+242
+00:13:47.420 --> 00:13:48.258
+<v ->Yeah.</v>
+<v ->But then we can,</v>
+
+243
+00:13:48.258 --> 00:13:50.920
+of course, navigate to storybook using this,
+
+244
+00:13:50.920 --> 00:13:52.850
+but I don't know if it will look nice.
+
+245
+00:13:52.850 --> 00:13:54.460
+I'll have to try.
+
+246
+00:13:54.460 --> 00:13:55.920
+<v Host>Sorry, I guess my question would be, do you think</v>
+
+247
+00:13:55.920 --> 00:13:58.280
+this might be a better product for designers,
+
+248
+00:13:58.280 --> 00:13:59.300
+or do you feel like it's a much more
+
+249
+00:13:59.300 --> 00:14:00.600
+developer-focused product?
+
+250
+00:14:00.600 --> 00:14:03.120
+Like, where's the sweet spot?
+
+251
+00:14:03.120 --> 00:14:06.149
+<v ->Well, they claim it's for developers and designers,</v>
+
+252
+00:14:06.149 --> 00:14:10.350
+but I would say mostly developers when you are, for example,
+
+253
+00:14:10.350 --> 00:14:13.466
+developing a site and then you can quickly see how
+
+254
+00:14:13.466 --> 00:14:15.430
+it renders on different screens.
+
+255
+00:14:15.430 --> 00:14:18.180
+For example, if you would make something like this,
+
+256
+00:14:18.180 --> 00:14:23.180
+what I did, I'm trying to have the color change
+
+257
+00:14:23.260 --> 00:14:28.260
+every time when you have a full 100 viewports,
+
+258
+00:14:28.390 --> 00:14:31.527
+so if you were to make a mistake there, you would probably
+
+259
+00:14:31.527 --> 00:14:33.833
+recognize the mistake easily here.
+
+260
+00:14:34.834 --> 00:14:36.188
+(audience applauding)
+
+261
+00:14:36.188 --> 00:14:38.771
+(upbeat music)
+

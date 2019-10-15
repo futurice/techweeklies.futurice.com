@@ -61,6 +61,8 @@
   },
   "dependencies": {
     "@fpapado/yt-player": "^0.10.0",
+    "common-tags": "^1.8.0",
+    "node-webvtt": "^1.6.1",
     "perfume.js": "^2.0.0",
     "tachyons": "^4.11.1"
   }
