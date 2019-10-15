@@ -2,21 +2,23 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<article class="pt4 pt5-ns pb4 vs4">
-  <div class="vs3">
-    {% Heading level=1 %}
-      {{title}}
-    {% endHeading %}
+<article class="pt4 pt5-ns pb4 vs5">
+  <div class="vs4">
+    <div class="vs3">
+      {% Heading level=1 %}
+        {{title}}
+      {% endHeading %}
 
-    <time class="db" datetime="{{date}}">
-      {{date | readableDate}}
-    </time>
+      <time class="db" datetime="{{date}}">
+        {{date | readableDate}}
+      </time>
+    </div>
+
+    {# Video #}
+    {% if videoId %}
+      {% include "youtubeVideo.njk" %}
+    {% endif %}
   </div>
-
-  {# Video #}
-  {% if videoId %}
-    {% include "youtubeVideo.njk" %}
-  {% endif %}
 
   {# Contents #}
   <div class="vs3">
@@ -37,6 +39,9 @@ templateClass: tmpl-post
       {% Subheading level=2 %}
         Transcript
       {% endSubheading %}
+      {% Text %}
+        (This transcript is derived from the subtitles. It might have errors! Please let us know if that is the case.)
+      {% endText %}
       {% VideoCaptions subtitleFile=subtitleFile  %}
     </div>
   {% endif %}

@@ -24,6 +24,24 @@ module.exports = function({ subtitleFile }) {
         // Trim spaces on the sides
         const segment = cue.text.trim();
 
+        // Special case: a segment only with parenthesis.
+        // Treat it as its own sentence
+        const isStandaloneParenthetical =
+          segment.startsWith('(') && segment.endsWith(')');
+
+        if (isStandaloneParenthetical) {
+          if (sentences[sentences.length - 1].length === 0) {
+            // If at the start of the sentences, push as own segment, but do not waste a line
+            sentences[sentences.length - 1].push(segment);
+          } else {
+            // Push as own segment
+            sentences.push([segment]);
+          }
+          // Start a new sentence
+          sentences.push([]);
+          return sentences;
+        }
+
         // Check if the last character is a full stop, exclamation mark, or question mark
         // This is silly btw and we could do something different
         const hasPuncutationMark =
@@ -55,28 +73,14 @@ module.exports = function({ subtitleFile }) {
 
   return html`
     <div>
-      <dl class="pa3 vs3 bg-dark-gray br2 lh-copy">
-        ${
-          parsed.cues.map(
-            cue =>
-              html`
-                <div class="vs2">
-                  <dt>
-                    ${secondsToHoursMinutesSeconds(cue.start)} -
-                    ${secondsToHoursMinutesSeconds(cue.end)}
-                  </dt>
-                  <dd class="ml0">${cue.text}</dd>
-                </div>
-              `
-          )
-        }
-      </dl>
-      <div class="pa3 vs3 bg-dark-gray br2 lh-copy">
+      <div
+        class="pa3 vs3 bg-dark-gray br2 f4 nested-link nested-copy-line-height nested-copy-separator measure-prose "
+      >
         ${
           asSentences.map(
             sentence =>
               html`
-                <p class="measure">${sentence}</p>
+                <p class="mv0">${sentence}</p>
               `
           )
         }
@@ -84,23 +88,3 @@ module.exports = function({ subtitleFile }) {
     </div>
   `;
 };
-
-/**
- * Format seconds like hours:minutes:seconds
- */
-function secondsToHoursMinutesSeconds(seconds) {
-  var hours = Math.floor(seconds / 3600);
-  var minutes = Math.floor((seconds % 3600) / 60);
-  var seconds_ = Math.floor((seconds % 3600) % 60);
-
-  return `${formatWithLeftzero(hours)}:${formatWithLeftzero(
-    minutes
-  )}:${formatWithLeftzero(seconds_)}`;
-}
-
-function formatWithLeftzero(number) {
-  if (number < 10) {
-    return `0${number}`;
-  }
-  return number;
-}
