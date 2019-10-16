@@ -34,15 +34,12 @@ templateClass: tmpl-post
   </div>
 
   {# Transcript #}
-  {% if subtitleFile %}
+  {% if transcriptFile %}
     <div class="vs3">
       {% Subheading level=2 %}
         Transcript
       {% endSubheading %}
-      {% Text %}
-        (This transcript is derived from the subtitles. It might have errors! Please let us know if that is the case.)
-      {% endText %}
-      {% VideoCaptions subtitleFile=subtitleFile  %}
+      {% VideoCaptions transcriptFile=transcriptFile %}
     </div>
   {% endif %}
 

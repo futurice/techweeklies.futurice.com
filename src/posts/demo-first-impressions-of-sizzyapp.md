@@ -5,7 +5,7 @@ tags:
   - post
 layout: layouts/post.njk
 videoId: 9iwePSSmBd8
-subtitleFile: demo-first-impressions-of-sizzyapp.vtt
+transcriptFile: demo-first-impressions-of-sizzyapp.txt
 ---
 
 <!--- You can insert a short description here -->
