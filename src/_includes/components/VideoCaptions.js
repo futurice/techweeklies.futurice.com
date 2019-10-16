@@ -13,10 +13,14 @@ module.exports = function({ transcriptFile }) {
   );
 
   /* Split the lines in the file, and separate the speaker */
-  const speakerAndSegmentList = file.split('\n').map(line => {
-    // Yup, this is real :)
-    const [speaker, segment] = line.split(':              ');
-    return { speaker, segment };
+  const speakerAndSegmentList = file.split('\r\n').map(line => {
+    // Split at first occurence of :
+    const [speaker, segment] = line.split(/:(.+)/);
+    console.log({ speaker, segment });
+    return {
+      speaker,
+      segment: segment !== undefined ? segment.trim() : segment,
+    };
   });
 
   return html`
@@ -28,7 +32,7 @@ module.exports = function({ transcriptFile }) {
           ({ speaker, segment }) =>
             html`
               <div class="vs2 f4 lh-copy measure-prose">
-                <dt>${speaker}</dt>
+                <dt class="fw6">${speaker}</dt>
                 <dd class="ml0">${segment}</dd>
               </div>
             `
