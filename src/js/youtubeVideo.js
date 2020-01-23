@@ -63,7 +63,7 @@ export function init() {
     playerEl.classList.remove(PLAYER_INACTIVE_CLS);
     playerEl.classList.add(PLAYER_ACTIVE_CLS);
 
-    videoButton.toggleAttribute('disabled');
+    videoButton.removeAttribute('disabled');
     videoButton.classList.remove(BUTTON_INACTIVE_CLS);
     videoButton.classList.add(BUTTON_ACTIVE_CLS);
   });
