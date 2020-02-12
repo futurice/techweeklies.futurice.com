@@ -11,8 +11,10 @@
         {% endif %}
       {% endLink %}
 
-      {# Date #}
-      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      {% if showDate %}
+        {# Date #}
+        <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      {% endif %}
 
       {# Tags #}
       {% for tag in post.data.tags %}

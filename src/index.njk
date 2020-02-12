@@ -27,6 +27,7 @@ tags:
     <div class="measure-prose">
       {# For the "Past Talks", skip the latest talks, flatten the remaining, and take 3 #}
       {% set postslist = collections.postsByDate | reverse | drop(1) | flatten | head(3) %}
+      {% set showDate = false %}
       {% include "postslist.njk" %}
     </div>
 
