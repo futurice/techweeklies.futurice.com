@@ -14,6 +14,7 @@ permalink: /posts/
 
   <div class="measure-prose">
     {% set postslist = collections.posts | reverse %}
+    {% set showDate = true %}
     {% include "postslist.njk" %}
   </div>
 </article>
