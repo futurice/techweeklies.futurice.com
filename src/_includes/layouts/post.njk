@@ -2,31 +2,51 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<article class="pt4 pt5-ns pb4 vs4">
-  <div class="vs3">
-    {% Heading level=1 %}
-      {{title}}
-    {% endHeading %}
+<article class="pt4 pt5-ns pb4 vs5">
+  <div class="vs4">
+    <div class="vs3">
+      {% Heading level=1 %}
+        {{title}}
+      {% endHeading %}
 
-    <time class="db" datetime="{{date}}">
-      {{date | readableDate}}
-    </time>
+      <time class="db" datetime="{{date}}">
+        {{date | readableDate}}
+      </time>
+    </div>
+
+    {# Video #}
+    {% if videoId %}
+      {% include "youtubeVideo.njk" %}
+    {% endif %}
   </div>
 
-  {# Video #}
-  {% if videoId %}
-    {% include "youtubeVideo.njk" %}
+  {# Contents #}
+  <div class="vs3">
+    {% Subheading level=2 %}
+      Description
+    {% endSubheading %}
+
+    <div>
+      {% MarkdownBlock %}
+        {{ content | safe }}
+      {% endMarkdownBlock %}
+    </div>
+  </div>
+
+  {# Transcript #}
+  {% if transcriptFile %}
+    <div class="vs3">
+      {% Subheading level=2 %}
+        Transcript
+      {% endSubheading %}
+      {% VideoCaptions transcriptFile=transcriptFile %}
+    </div>
   {% endif %}
 
-  {# Contents #}
-  {% MarkdownBlock %}
-    {{ content | safe }}
-
-    {# Backlink #}
-    {% Text %}
-      {% Link { href: '/' | url } %}
-        ← Home
-      {% endLink %}
-    {% endText %}
-  {% endMarkdownBlock %}
+  {# Backlink #}
+  {% Text %}
+    {% Link { href: '/' | url } %}
+      ← Home
+    {% endLink %}
+  {% endText %}
 </article>
