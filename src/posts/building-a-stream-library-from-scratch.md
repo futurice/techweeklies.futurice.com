@@ -10,3 +10,5 @@ videoId: dTFrwY8TL1U
 
 <!--- You can insert a short description here -->
 Streams are a handy tool to structure your application with asynchronous execution in mind. We went over the basics in our last episode. You understand a concept better if you implement it yourself. So we will build our own small streaming library in this live coding session.
+
+Presenter: Jan van Brügge
