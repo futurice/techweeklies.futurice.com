@@ -14,3 +14,5 @@ When Juhis started blogging in 2013, he used to look up to other bloggers as aut
 More recently, he's taken a different approach with blogs and talks: learning in public. By documenting his own learning journey and experimentations and sharing what he has learned about software development, he has ended up in a lot of great discussions with fellow developers. These discussions have further helped him become better at writing software.
 
 In this talk, Juhis highlights how he approaches learning in public, shares inspirational moments of improvement with community and hopes to inspire you to start learning in public.
+
+Presenter: Juha-Matti Santala
