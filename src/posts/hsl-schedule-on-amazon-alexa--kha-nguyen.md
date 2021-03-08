@@ -1,5 +1,5 @@
 ---
-title: 'HSL schedule on Amazon Alexa - Kha Nguyen'
+title: 'HSL schedule on Amazon Alexa'
 date: 2021-02-05T09:00:22.986Z
 tags:
   - post
