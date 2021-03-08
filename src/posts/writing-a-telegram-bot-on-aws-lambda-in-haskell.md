@@ -14,3 +14,5 @@ Many projects these days do not use a traditional backend any more, but have mov
 The core idea is that you don’t have to manage a server, and instead you just upload code and it will be executed on some event. Normally AWS only supports Nodejs, Python and a few more languages for this service. But with custom runtimes, we can deploy any language!
 
 This Tech Weeklies episode shows you how to write a stateless service (in our case a telegram bot) in Haskell and deploy it to AWS Lambda with Terraform.
+
+Presenter: Jan van Brügge
