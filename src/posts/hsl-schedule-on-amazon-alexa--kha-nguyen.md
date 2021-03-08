@@ -16,3 +16,5 @@ Kha Nguyen built an application combining Amazon Alexa's voice assistant with He
 As you know, Amazon Alexa is a virtual assistant that can be programmed to make your life easier. Kha explains how Alexa works behind the scenes and how to use its interfaces to run custom Javascript code based on different voice commands and intents.
 
 After this talk, you'll know the basics of building custom Alexa commands.
+
+Presenter: Kha Nguyen
