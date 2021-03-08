@@ -6,25 +6,9 @@
  */
 
 const THUMBS = {
-  default: {
-    suffix: 'default',
-    width: 120,
-  },
-  medium: {
-    suffix: 'mqdefault',
-    width: 320,
-  },
   high: {
     suffix: 'hqdefault',
     width: 480,
-  },
-  standard: {
-    suffix: 'sddefault',
-    width: 640,
-  },
-  maxres: {
-    suffix: 'maxresdefault',
-    width: 1280,
   },
 };
 
@@ -49,7 +33,9 @@ module.exports = function({
     <source srcset="${makeSrcset(videoId, 'jpg')}" type="image/jpeg">
 
     <img alt="${alt}" src="${makeSrc(
-    videoId
+    videoId,
+    'high',
+    'jpg'
   )}" sizes="${sizes}" class="${className}">
   </picture>`;
 };
@@ -60,7 +46,7 @@ function makeSrcset(videoId, format = 'jpg') {
     .join(', ');
 }
 
-function makeSrc(videoId, size = 'medium', format = 'jpg') {
+function makeSrc(videoId, size, format) {
   return `https://img.youtube.com/${FORMATS[format].endpoint}/${videoId}/${
     THUMBS[size].suffix
   }.${format}`;
