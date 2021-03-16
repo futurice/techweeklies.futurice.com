@@ -2,6 +2,30 @@
   publish = "_site"
   command = "DEBUG=* npm run build"
 
+[[redirects]]
+  from = "/"
+  to = "https://futurice.com/techweeklies"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts"
+  to = "https://futurice.com/techweeklies"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about"
+  to = "https://futurice.com/techweeklies"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/podcast"
+  to = "https://futurice.com/techweeklies"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/js/*"
 
