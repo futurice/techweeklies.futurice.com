@@ -36,7 +36,7 @@
     "cssnano": "4.1.10",
     "inquirer": "^6.2.1",
     "inquirer-datepicker-prompt": "^0.4.2",
-    "luxon": "^1.10.0",
+    "luxon": "^1.28.1",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",
     "metalsmith": "^2.3.0",
